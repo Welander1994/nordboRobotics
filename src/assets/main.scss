@@ -1,0 +1,33 @@
+$primary-color: #363973;
+$secondary-color: #57575d;
+$tertiary-color: #e9e9e9;
+$contrast-light: #ffffff;
+$contrast-dark: #000000;
+
+@font-face {
+  font-family: "primary-font-bold";
+  src: url("../assets/fonts/Poppins/Poppins-Bold.ttf");
+}
+
+@font-face {
+  font-family: "primary-font-semibold";
+  src: url("../assets/fonts/Poppins/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "secondary-font-medium";
+  src: url("../assets/fonts/Raleway/Raleway-VariableFont_wght.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "secondary-font-bold";
+  src: url("../assets/fonts/Raleway/Raleway-VariableFont_wght.ttf");
+  font-weight: 700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
