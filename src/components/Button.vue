@@ -15,11 +15,7 @@ const imgUrl = computed(() => {
 </script>
 
 <template>
-  <button
-    class="form__button flex flex__align--center"
-    @mouseover="isHovering = true"
-    @mouseleave="isHovering = false"
-  >
+  <button class="form__button flex flex__align--center" @mouseover="isHovering = true" @mouseleave="isHovering = false">
     {{ props.name }}
     <img class="button__img" :src="imgUrl" />
   </button>

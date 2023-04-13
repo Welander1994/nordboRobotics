@@ -53,6 +53,12 @@ onMounted(() => {
         list.value = JSON.parse(localStorage.getItem('aside'));
     }
 
+    for (let i = 0; i < list.value.length; i++) {
+        if (list.value[i].active === true) {
+            window.location.replace('/#' + list.value[i].id);
+        }
+    }
+
 })
 
 const changeStep = (e) => {
@@ -105,6 +111,8 @@ const changeStep = (e) => {
 @import '../assets/flex.scss';
 
 .formnav {
+    position: fixed;
+    margin-top: 100px;
     width: 245px;
     height: calc(100vh - 100px);
     transition: .5s all;
