@@ -46,7 +46,13 @@ const list = ref([
 ])
 
 onMounted(() => {
-    list.value = JSON.parse(localStorage.getItem('aside'));
+
+    if (!JSON.parse(localStorage.getItem('aside'))) {
+        return;
+    } else {
+        list.value = JSON.parse(localStorage.getItem('aside'));
+    }
+
 })
 
 const changeStep = (e) => {
