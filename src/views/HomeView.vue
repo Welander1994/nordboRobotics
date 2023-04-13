@@ -1,6 +1,6 @@
 <script setup>
 import Header from '/src/components/Header.vue';
-
+import asideComponents from '@/components/aside.vue'
 
 </script>
 
@@ -9,7 +9,7 @@ import Header from '/src/components/Header.vue';
     <Header />
     <div class="flex">
       <aside>
-
+        <asideComponents />
       </aside>
       <div class="content">
         <p>test</p>
@@ -30,7 +30,6 @@ import Header from '/src/components/Header.vue';
 aside {
   width: 245px;
   height: calc(100vh - 100px);
-  background-color: #ff1493;
 }
 
 
