@@ -1,4 +1,17 @@
 <script setup>
+// Importing vue stuffz
+import {ref, onMounted} from 'vue';
+
+// Reactive states for menu control
+const isActive = ref(false);
+const showMenu = ref(false);
+
+function handleMenuClick() {
+    isActive.value != isActive.value;
+    showMenu.value != showMenu.value;
+}
+
+
 
 </script>
 
@@ -77,11 +90,12 @@ $border-radius:7px;
         position: absolute;
         a {
             position: relative;
+            font-size: 1.4rem;
             &:first-of-type {
                 &:after {
                     content: url("data:image/svg+xml,%3Csvg width='2' height='22' viewBox='0 0 2 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline opacity='0.9' x1='1' y1='21.0034' x2='1' y2='0.987188' stroke='%23363973' stroke-width='0.5'/%3E%3C/svg%3E%0A");
                     position: absolute;
-                    right: -3px;
+                    right: -4px;
                 }
             }
         }
@@ -114,6 +128,7 @@ $border-radius:7px;
   &__link {
     padding-right: 60px;
     color: $primary-color;
+    font-size: 1.6rem;
 
     &:last-of-type {
         padding-right: 60px;
@@ -122,6 +137,7 @@ $border-radius:7px;
     &:after {
         content: url("data:image/svg+xml,%3Csvg width='17' height='10' viewBox='0 0 17 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.57125 0.0952148L8.5 6.01105L14.4288 0.0952148L16.25 1.91646L8.5 9.66646L0.75 1.91646L2.57125 0.0952148Z' fill='%23363973'/%3E%3C/svg%3E%0A");
         margin-left: 10px;
+         font-size: 1.6rem;
     }
 
     &--secondary { 
@@ -130,6 +146,7 @@ $border-radius:7px;
         color: $primary-color;
         border-radius: $border-radius;
         margin-right: 30px;
+        font-size: 1.6rem;
     }
 
     &--primary {
@@ -137,6 +154,7 @@ $border-radius:7px;
         color: $contrast-light;
         padding: 12.5px 25px;
         border-radius: $border-radius;
+        font-size: 1.6rem;
         
     }
   }
