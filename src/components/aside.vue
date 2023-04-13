@@ -97,6 +97,11 @@ const changeStep = (e) => {
 .formnav {
     width: 245px;
     height: calc(100vh - 100px);
+    transition: .5s all;
+
+    ul {
+        padding: 25px 0;
+    }
 
     li {
         list-style: none;
@@ -106,11 +111,14 @@ const changeStep = (e) => {
         svg {
             position: absolute;
             left: 15px;
+            animation: slide-right .7s ease;
+
         }
 
         a {
-            padding: 0 15px;
+            padding: 0 0 0 15px;
             color: $primary-color;
+            user-select: none;
 
         }
     }
@@ -133,8 +141,19 @@ const changeStep = (e) => {
         opacity: 100%;
         font-size: 1.4rem;
     }
+}
 
+@keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+        opacity: 0%;
+    }
 
-
+    100% {
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px);
+        opacity: 100%;
+    }
 }
 </style>
