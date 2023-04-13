@@ -22,12 +22,8 @@ const imgUrl = computed(() => {
 </script>
 
 <template>
-  <button
-    class="form__button flex flex__align--center"
-    @mouseover="isHovering = true"
-    @mouseleave="isHovering = false"
-    @click="isButtonSelected = !isButtonSelected"
-  >
+  <button class="form__button flex flex__align--center" @mouseover="isHovering = true" @mouseleave="isHovering = false"
+    @click="isButtonSelected = !isButtonSelected">
     {{ props.name }}
     <img class="button__img" :src="imgUrl" />
   </button>
@@ -64,7 +60,7 @@ const imgUrl = computed(() => {
       color: $primary-color;
     }
 
-    &--light{
+    &--light {
       background-color: $contrast-light;
       border: solid 1.5px $contrast-light;
       color: $primary-color;

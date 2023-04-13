@@ -1,7 +1,14 @@
 <script setup>
 import Header from '/src/components/Header.vue';
-import asideComponents from '@/components/aside.vue'
-import Button from "../components/Button.vue";
+import asideComponents from '@/components/aside.vue';
+import TypeOfRobot from '@/components/form/1-type-of-robot.vue';
+import TypeOfMaterial from '@/components/form/2-type-of-material.vue';
+import TypeOfWork from '@/components/form/3-type-of-work.vue';
+import LevelOfDetail from '@/components/form/4-level-of-detail.vue';
+import SizeOfProduct from '@/components/form/5-size-of-product.vue';
+import SizeOfBatch from '@/components/form/6-size-of-batch.vue';
+import LevelOfAutomatision from '@/components/form/7-level-of-automatision.vue';
+import Solution from '@/components/form/8-solution.vue';
 </script>
 
 <template>
@@ -10,46 +17,34 @@ import Button from "../components/Button.vue";
     <div class="flex">
       <asideComponents />
       <div class="content">
-        <p>test</p>
-        <Button
-          class="form__button"
-          :class="{ 'form__button--selected': isButtonSelected }"
-          name="Sanding"
-          hover-img-url="src/assets/img/sanding-dark.svg"
-          img-url="src/assets/img/sanding-light.svg"
-        />
-        <Button
-          class="form__button--light"
-          :class="{ 'form__button--light-selected': isButtonSelected }"
-          name="Sanding"
-          hover-img-url="src/assets/img/sanding-light.svg"
-          img-url="src/assets/img/sanding-dark.svg"
-        />
-        <Button
-          class="form__button--rounded flex__justify--center"
-          name="Next"
-        />
-        <Button
-          class="form__button--rounded-light flex__justify--center"
-          name="Next"
-        />
-
-        <Button
-          class="form__button--selected"
-          name="selected"
-        />
+        <TypeOfRobot />
+        <TypeOfMaterial />
+        <TypeOfWork />
+        <LevelOfDetail />
+        <SizeOfProduct />
+        <SizeOfBatch />
+        <LevelOfAutomatision />
+        <Solution />
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/main.scss";
-@import "../assets/flex.scss";
+@import "@/assets/main.scss";
+@import "@/assets/flex.scss";
 
 .container {
   max-width: $max-width;
   margin: auto;
+
+}
+
+.form__content {
+  margin-top: -100px;
+  padding-top: 100px;
+  width: calc($max-width - 245px);
+  height: 100vh;
 }
 
 aside {
@@ -58,11 +53,13 @@ aside {
 }
 
 .content {
+  margin-left: 245px;
+  margin-top: 100px;
   width: calc(100vw - 245px);
-  height: calc(100vh - 100px);
+  height: fit-content;
   background-image: url("../assets/img/white-dots.png");
+  object-fit: contain;
 }
 
-@media only screen and (max-width: $breakpoint-sm) {
-}
+@media only screen and (max-width: $breakpoint-sm) {}
 </style>
