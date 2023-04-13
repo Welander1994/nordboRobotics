@@ -1,25 +1,14 @@
 <script setup>
-<<<<<<< HEAD
 import Header from '/src/components/Header.vue';
 import asideComponents from '@/components/aside.vue'
-
-=======
 import Button from "../components/Button.vue";
-import Header from "/src/components/Header.vue";
->>>>>>> button-component
 </script>
 
 <template>
   <div class="container">
     <Header />
     <div class="flex">
-<<<<<<< HEAD
-      <aside>
-        <asideComponents />
-      </aside>
-=======
-      <aside></aside>
->>>>>>> button-component
+      <asideComponents />
       <div class="content">
         <p>test</p>
         <Button
