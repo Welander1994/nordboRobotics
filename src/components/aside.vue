@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const list = ref([
     {
@@ -45,14 +45,18 @@ const list = ref([
     }
 ])
 
+onMounted(() => {
+    list.value = JSON.parse(localStorage.getItem('aside'));
+})
+
 const changeStep = (e) => {
     for (let i = 0; i < list.value.length; i++) {
         if (list.value[i].active === true) {
             list.value[i].active = false;
         }
     }
-
     e.active = true;
+    localStorage.setItem("aside", JSON.stringify(list.value));
 }
 
 </script>
@@ -101,22 +105,23 @@ const changeStep = (e) => {
 
     ul {
         padding: 25px 0;
+        width: 245px;
     }
 
     li {
         list-style: none;
-        padding: 15px 25px;
+        padding: 15px 0;
         position: relative;
 
         svg {
             position: absolute;
-            left: 15px;
+            left: -25px;
             animation: slide-right .7s ease;
 
         }
 
         a {
-            padding: 0 0 0 15px;
+            padding: 0;
             color: $primary-color;
             user-select: none;
 
