@@ -213,7 +213,7 @@ const btn_burger = () => {
 
     header {
         height: calc(100vh - 100px);
-        background-color: white;
+        background-color: $contrast-light;
         transform: translateX(-300px);
         transition: .5s;
     }
