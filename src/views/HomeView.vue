@@ -40,7 +40,7 @@ import Solution from '@/components/form/8-solution.vue';
 
 }
 
-.form__content {
+.form__section {
   margin-top: -100px;
   padding-top: 100px;
   width: calc($max-width - 245px);
