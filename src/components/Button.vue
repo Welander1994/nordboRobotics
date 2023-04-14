@@ -5,13 +5,11 @@ const props = defineProps({
   name: String,
   imgUrl: String,
   hoverImgUrl: String,
-  buttonSelected: Boolean,
-  light: Boolean,
+  selectedClass: String,
 });
 
 const isHovering = ref(false);
-const isButtonSelected = ref(props.buttonSelected);
-const formButtonColor = ref('')
+const isButtonSelected = ref(false);
 
 //Changing img url via the boolean value of 'isHovering' but also seeing if the button is selected
 const imgUrl = computed(() => {
@@ -20,34 +18,15 @@ const imgUrl = computed(() => {
   }
   return isHovering.value ? props.hoverImgUrl || props.imgUrl : props.imgUrl;
 });
-
-const toggleSelected = () => {
-  // console.log(isButtonSelected)
-  isButtonSelected.value = !isButtonSelected.value;
-  formButtonFunction()
-}
-
-const formButtonFunction = () => {
-  if (!props.light) {
-    return 'form__button--selected';
-  } else {
-    return 'hest';
-  }
-}
-
-const checkFormButtonColor = computed (() => {
-  formButtonFunction()
-})
-
 </script>
 
 <template>
   <button
-    :class="[formButtonFunction()]"
     class="form__button flex flex__align--center"
+    :class="{ [props.selectedClass]: isButtonSelected }"
     @mouseover="isHovering = true"
     @mouseleave="isHovering = false"
-    @click="toggleSelected()"
+    @click="isButtonSelected = !isButtonSelected"
   >
     {{ props.name }}
     <img class="button__img" :src="imgUrl" />
@@ -98,12 +77,12 @@ const checkFormButtonColor = computed (() => {
     }
 
     &--selected {
-      background-color: deeppink;
+      background-color: $contrast-light;
       color: $primary-color;
     }
 
     &--light-selected {
-      background-color: lime;
+      background-color: $primary-color;
       color: $contrast-light;
     }
 

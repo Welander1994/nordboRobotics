@@ -6,24 +6,23 @@ import Button from "../Button.vue";
   <div class="form__content" id="Type-of-Robot">
     <h1>type of robot</h1>
     <Button
-      class="form__button"
+      selected-class="form__button--selected"
       name="Sanding"
       hover-img-url="src/assets/img/sanding-dark.svg"
       img-url="src/assets/img/sanding-light.svg"
-      light="false"
     />
     <Button
-      :class="{'form__button--light-selected': isButtonSelected}"
+      selected-class="form__button--light-selected"
       class="form__button--light"
       name="Sanding"
       hover-img-url="src/assets/img/sanding-light.svg"
       img-url="src/assets/img/sanding-dark.svg"
-      light="true"
     />
-
-
-    <Button class="form__button--selected" name="selected" />
-    <Button class="form__button--light-selected" name="selected" />
+    <Button class="form__button--rounded flex__justify--center" name="Next" />
+    <Button
+      class="form__button--rounded-light flex__justify--center"
+      name="Next"
+    />
   </div>
 </template>
 
