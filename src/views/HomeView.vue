@@ -14,7 +14,7 @@ import Solution from '@/components/form/8-solution.vue';
 <template>
   <div class="container">
     <Header />
-    <div class="flex">
+    <main class="form flex">
       <asideComponents />
       <div class="content">
         <TypeOfRobot />
@@ -26,7 +26,7 @@ import Solution from '@/components/form/8-solution.vue';
         <LevelOfAutomatision />
         <Solution />
       </div>
-    </div>
+    </main>
   </div>
 </template>
 
@@ -36,6 +36,7 @@ import Solution from '@/components/form/8-solution.vue';
 
 .container {
   max-width: $max-width;
+  width: 100%;
   margin: auto;
 
 }
@@ -43,7 +44,7 @@ import Solution from '@/components/form/8-solution.vue';
 .form__section {
   margin-top: -100px;
   padding-top: 100px;
-  width: calc($max-width - 245px);
+  width: auto;
   height: 100vh;
 }
 
@@ -55,11 +56,29 @@ aside {
 .content {
   margin-left: 245px;
   margin-top: 100px;
-  width: calc(100vw - 245px);
+  width: calc(100vw - 250px);
   height: fit-content;
   background-image: url("../assets/img/white-dots.png");
   object-fit: contain;
 }
 
-@media only screen and (max-width: $breakpoint-sm) {}
+@media only screen and (max-width: $breakpoint-lg) {
+
+  .form {
+    flex-direction: column;
+
+
+    .content {
+      margin: 0;
+      width: 100%;
+      margin-top: 134px;
+    }
+
+    .form__section {
+      margin-top: -134px;
+      padding-top: 134px;
+    }
+
+  }
+}
 </style>
