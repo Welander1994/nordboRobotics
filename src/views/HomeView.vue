@@ -14,7 +14,7 @@ import Solution from '@/components/form/8-solution.vue';
 <template>
   <div class="container">
     <Header />
-    <div class="flex">
+    <main class="form flex">
       <asideComponents />
       <div class="content">
         <TypeOfRobot />
@@ -26,7 +26,7 @@ import Solution from '@/components/form/8-solution.vue';
         <LevelOfAutomatision />
         <Solution />
       </div>
-    </div>
+    </main>
   </div>
 </template>
 
@@ -40,11 +40,13 @@ import Solution from '@/components/form/8-solution.vue';
 
 }
 
-.form__content {
-  margin-top: -100px;
-  padding-top: 100px;
-  width: calc($max-width - 245px);
-  height: 100vh;
+.form {
+  &__section {
+    margin-top: -100px;
+    padding-top: 100px;
+    width: calc($max-width - 245px);
+    height: 100vh;
+  }
 }
 
 aside {
