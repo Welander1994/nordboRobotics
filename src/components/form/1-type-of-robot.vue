@@ -5,7 +5,7 @@ import Information from '../Information.vue';
    const lists = [
         {
             id: 1,
-            text: 'These are the robot brands that Nordbo Robotics solutions work with.'
+            text: 'These are the robot brands that Nordbo Robotics solutions work with.',
         },
         {
             id: 2,
