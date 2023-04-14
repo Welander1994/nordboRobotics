@@ -72,6 +72,7 @@ $border-radius: 7px;
     max-width: $max-width;
     width: 100%;
     background-color: $contrast-light;
+    z-index: 10;
 
     /* Mobile menu */
     &__mobile {
