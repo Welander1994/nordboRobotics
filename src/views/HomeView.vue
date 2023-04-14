@@ -11,6 +11,7 @@ import LevelOfAutomatision from '@/components/form/7-level-of-automatision.vue';
 import Solution from '@/components/form/8-solution.vue';
 </script>
 
+
 <template>
   <div class="container">
     <Header />
