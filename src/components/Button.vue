@@ -76,6 +76,20 @@ const imgUrl = computed(() => {
       }
     }
 
+    &--icon-right-space {
+      .button__img {
+        right: 9px;
+        top: auto;
+      }
+    }
+
+    &--icon-level {
+      .button__img {
+        right: 15px;
+        top: auto;
+      }
+    }
+
     &--selected {
       background-color: $contrast-light;
       color: $primary-color;
