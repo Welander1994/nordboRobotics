@@ -39,6 +39,7 @@ const imgUrl = computed(() => {
 
 .form {
   &__button {
+    cursor: pointer;
     position: relative;
     color: $contrast-light;
     background-color: $primary-color;
