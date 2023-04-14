@@ -216,6 +216,7 @@ const btn_burger = () => {
         background-color: $contrast-light;
         transform: translateX(-300px);
         transition: .5s;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
     }
 
     .btn__burger {
