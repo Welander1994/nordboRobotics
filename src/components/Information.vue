@@ -1,34 +1,33 @@
 <script setup>
-  const props = defineProps({
-    lists: {
-      type: Array,
-      required: true,
-    },
-    dark: {
-      type: Boolean,
-      default: false,
-    },
-  });
+const props = defineProps({
+  lists: {
+    type: Array,
+    required: true,
+  },
+  dark: {
+    type: Boolean,
+    default: false,
+  },
+});
 </script>
 
 <template>
-    <h3 class="form__subtitle">Information</h3>
-        <div :class="{ 'form__content': true, 'dark': dark }">
-            <ul class="flex--column">
-                <li v-for="list in lists" :key="list.id"> {{ list.text }}</li>
-            </ul>
-        </div>
+  <h3 class="form__subtitle">Information</h3>
+  <div :class="{ form__content: true, dark: dark }">
+    <ul class="flex--column">
+      <li v-for="list in lists" :key="list.id">{{ list.text }}</li>
+    </ul>
+  </div>
 </template>
 
 <style lang="scss">
 @import "@/assets/main.scss";
 @import "@/assets/flex.scss";
 
-
 .form {
   &__subtitle {
     font-size: 2.4rem;
-    font-family: 'primary-font-semibold';
+    font-family: "primary-font-semibold";
     color: $primary-color;
   }
 
@@ -43,9 +42,8 @@
       font-size: 16px;
       padding: 20px 20px 20px 48px;
       li {
-        
         color: $primary-color;
-        font-family: 'primary-font-regular';
+        font-family: "primary-font-regular";
         font-weight: 500;
         list-style: none;
         position: relative;
@@ -69,9 +67,6 @@
         }
       }
     }
-
   }
 }
-
-
 </style>

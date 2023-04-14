@@ -1,16 +1,15 @@
 <script setup>
-import Header from '/src/components/Header.vue';
-import asideComponents from '@/components/aside.vue';
-import TypeOfRobot from '@/components/form/1-type-of-robot.vue';
-import TypeOfMaterial from '@/components/form/2-type-of-material.vue';
-import TypeOfWork from '@/components/form/3-type-of-work.vue';
-import LevelOfDetail from '@/components/form/4-level-of-detail.vue';
-import SizeOfProduct from '@/components/form/5-size-of-product.vue';
-import SizeOfBatch from '@/components/form/6-size-of-batch.vue';
-import LevelOfAutomatision from '@/components/form/7-level-of-automatision.vue';
-import Solution from '@/components/form/8-solution.vue';
+import Header from "/src/components/Header.vue";
+import asideComponents from "@/components/aside.vue";
+import TypeOfRobot from "@/components/form/1-type-of-robot.vue";
+import TypeOfMaterial from "@/components/form/2-type-of-material.vue";
+import TypeOfWork from "@/components/form/3-type-of-work.vue";
+import LevelOfDetail from "@/components/form/4-level-of-detail.vue";
+import SizeOfProduct from "@/components/form/5-size-of-product.vue";
+import SizeOfBatch from "@/components/form/6-size-of-batch.vue";
+import LevelOfAutomatision from "@/components/form/7-level-of-automatision.vue";
+import Solution from "@/components/form/8-solution.vue";
 </script>
-
 
 <template>
   <div class="container">
@@ -39,7 +38,6 @@ import Solution from '@/components/form/8-solution.vue';
   max-width: $max-width;
   width: 100%;
   margin: auto;
-
 }
 
 .form__section {
@@ -64,10 +62,8 @@ aside {
 }
 
 @media only screen and (max-width: $breakpoint-lg) {
-
   .form {
     flex-direction: column;
-
 
     .content {
       margin: 0;
@@ -79,7 +75,6 @@ aside {
       margin-top: -134px;
       padding-top: 134px;
     }
-
   }
 }
 </style>

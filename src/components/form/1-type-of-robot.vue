@@ -1,6 +1,7 @@
 <script setup>
 import Button from "../Button.vue";
 import Information from "../Information.vue";
+import Slider from "../Slider.vue";
 
 const lists = [
   {
@@ -82,7 +83,7 @@ const lists = [
           hover-img-url="src/assets/img/level-light.svg"
           img-url="src/assets/img/level-dark.svg"
         />
-        
+
         <Button
           class="form__button--rounded flex__justify--center"
           name="Next"
@@ -92,6 +93,8 @@ const lists = [
           name="Next"
         />
       </ul>
+      <Slider />
+      <Slider class="slider--light" />
     </section>
 
     <section class="form__information flex--column">

@@ -1,10 +1,9 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
-    <div class="form__content" id="Solution">
-        <h1>Solution</h1>
-    </div>
+  <div class="form__content" id="Solution">
+    <h1>Solution</h1>
+  </div>
 </template>
 
 <style lang="scss" scoped>
