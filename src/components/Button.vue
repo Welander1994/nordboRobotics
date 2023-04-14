@@ -5,11 +5,11 @@ const props = defineProps({
   name: String,
   imgUrl: String,
   hoverImgUrl: String,
-  buttonSelected: Boolean,
+  selectedClass: String,
 });
 
 const isHovering = ref(false);
-const isButtonSelected = ref(props.buttonSelected);
+const isButtonSelected = ref(false);
 
 //Changing img url via the boolean value of 'isHovering' but also seeing if the button is selected
 const imgUrl = computed(() => {
@@ -18,12 +18,16 @@ const imgUrl = computed(() => {
   }
   return isHovering.value ? props.hoverImgUrl || props.imgUrl : props.imgUrl;
 });
-
 </script>
 
 <template>
-  <button class="form__button flex flex__align--center" @mouseover="isHovering = true" @mouseleave="isHovering = false"
-    @click="isButtonSelected = !isButtonSelected">
+  <button
+    class="form__button flex flex__align--center"
+    :class="{ [props.selectedClass]: isButtonSelected }"
+    @mouseover="isHovering = true"
+    @mouseleave="isHovering = false"
+    @click="isButtonSelected = !isButtonSelected"
+  >
     {{ props.name }}
     <img class="button__img" :src="imgUrl" />
   </button>
@@ -75,6 +79,11 @@ const imgUrl = computed(() => {
     &--selected {
       background-color: $contrast-light;
       color: $primary-color;
+    }
+
+    &--light-selected {
+      background-color: $primary-color;
+      color: $contrast-light;
     }
 
     &--rounded {
