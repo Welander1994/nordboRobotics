@@ -132,11 +132,14 @@ const btn_burger = () => {
 
 .formnav {
     position: fixed;
-    margin-top: 100px;
+    margin-top: 167px;
     width: 245px;
     height: calc(100vh - 100px);
     transition: .5s all;
     z-index: 9;
+    @media (max-width: $breakpoint-lg) {
+    margin-top: 100px;
+  }
 
     ul {
         padding: 25px 0;
