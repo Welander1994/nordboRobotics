@@ -24,6 +24,22 @@ describe('aside', () => {
         test("Check only one active", async () => {
             const navItems = wrapper.findAll('.selected');
             expect(navItems.length).toBe(1);
+        }),
+
+        test("btn_burger", async () => {
+            // Define a test case
+            it('should toggle the value of asideShow', () => {
+                // Set up any necessary test data or environment
+                const asideShow = { value: false };
+
+                // Call the function to be tested
+                btn_burger();
+
+                // Assert the expected outcome
+                expect(asideShow.value).toBe(true); // or any other appropriate assertion
+            });
+
         })
+
 
 });
