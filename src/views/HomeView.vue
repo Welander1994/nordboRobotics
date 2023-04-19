@@ -94,6 +94,9 @@ aside {
   height: fit-content;
   background-image: url("../assets/img/white-dots.png");
   object-fit: contain;
+  @media (max-width: $breakpoint-lg) {
+    margin-top: 100px;
+  }
 }
 
 @media only screen and (max-width: $breakpoint-lg) {
