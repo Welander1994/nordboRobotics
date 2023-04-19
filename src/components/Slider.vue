@@ -3,11 +3,7 @@
 <template>
   <div class="slider flex flex--column flex__align--center">
     <div class="slider__range-line-container">
-      <div
-        v-for="i in 4"
-        :key="i"
-        class="slider__range-line"
-      ></div>
+      <div v-for="i in 4" :key="i" class="slider__range-line"></div>
     </div>
     <input
       class="slider__range"
