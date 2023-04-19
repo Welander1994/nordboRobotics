@@ -112,14 +112,6 @@ aside {
       margin-top: 134px;
     }
 
-<<<<<<< HEAD
-    .form__section {
-      margin-top: -134px;
-      padding-top: 134px;
-    }
-=======
-
->>>>>>> develop
   }
 }
 </style>

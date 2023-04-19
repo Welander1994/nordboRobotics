@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-<script setup></script>
-
-<template>
-  <div class="form__content" id="Process">
-    <h1>type of process</h1>
-  </div>
-=======
 <script setup>
 import Button from "../Button.vue";
 import Information from "../Information.vue";
@@ -106,7 +98,6 @@ const lists = [
       <Information :lists="lists" />
     </section>
   </section>
->>>>>>> develop
 </template>
 
 <style lang="scss" scoped>
