@@ -6,7 +6,7 @@
       <div
         v-for="i in 4"
         :key="i"
-        :class="'slider__range-line line-' + i"
+        class="slider__range-line"
       ></div>
     </div>
     <input
@@ -51,22 +51,6 @@
     background-color: $primary-color;
     z-index: 1;
     position: relative;
-    /* 
-    &.line-1 {
-      left: calc(100%/5);
-    }
-
-    &.line-2 {
-      left: calc((100% / 5)*2);
-    }
-
-    &.line-3 {
-      left: calc((100%/5)*3);
-    }
-
-    &.line-4 {
-      left: 10px;
-    } */
   }
 
   &__range {
