@@ -31,7 +31,7 @@ import Solution from '@/components/form/8-solution.vue';
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/assets/main.scss";
 @import "@/assets/flex.scss";
 
@@ -39,15 +39,47 @@ import Solution from '@/components/form/8-solution.vue';
   max-width: $max-width;
   width: 100%;
   margin: auto;
-
 }
 
-.form__section {
+.form {
+  &__title {
+    font-size: 2.4rem;
+    font-family: 'primary-font-bold';
+    color: $primary-color;
+    margin-bottom: 30px;
+  }
+
+  &__subtitle{
+    margin-bottom: 35px;
+  }
+
+  &__text {
+    font-size: 1.6rem;
+    &--semibold {
+      font-family: 'primary-font-semibold';
+      color: $primary-color;
+    
+    }
+  }
+
+ &__section {
   margin-top: -100px;
-  padding-top: 100px;
+  padding-top: 200px;
   width: calc($max-width - 245px);
-  height: 100vh;
+  min-height: 100vh;
+  max-width: 891px;
+  @media (min-width: $breakpoint-lg) {
+    margin-left: 135px;
+    justify-content: space-between;
+  }
+
+  @media (max-width: $breakpoint-md) {
+   flex-direction: column;
+   margin-bottom: 50px;
+  }
+ } 
 }
+
 
 aside {
   width: 245px;
@@ -56,7 +88,7 @@ aside {
 
 .content {
   margin-left: 245px;
-  margin-top: 100px;
+  margin-top: 200px;
   width: calc(100vw - 250px);
   height: fit-content;
   background-image: url("../assets/img/white-dots.png");
@@ -67,6 +99,10 @@ aside {
 
   .form {
     flex-direction: column;
+    &__section {
+      margin-top: -134px;
+      padding-top: 134px;
+    }
 
 
     .content {
@@ -75,10 +111,6 @@ aside {
       margin-top: 134px;
     }
 
-    .form__section {
-      margin-top: -134px;
-      padding-top: 134px;
-    }
 
   }
 }
