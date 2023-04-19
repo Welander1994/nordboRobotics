@@ -5,14 +5,7 @@
     <div class="slider__range-line-container">
       <div v-for="i in 4" :key="i" :class="'slider__range-line line-' + i"></div>
     </div>
-    <input
-      class="slider__range"
-      type="range"
-      min="0"
-      max="5"
-      value="0"
-      steps="5"
-    />
+    <input class="slider__range" type="range" min="0" max="5" value="0" steps="5" />
     <div class="slider__description flex flex__justify--between">
       <p>Less</p>
       <p>More</p>
@@ -30,17 +23,19 @@
   position: relative;
 
   &__range-line-container {
-    width: 404px;
+    width: 375px;
+    display: flex;
+    justify-content: space-evenly;
   }
 
   &__range-line {
     width: 1px;
     height: 25px;
     background-color: $primary-color;
-    position: absolute;
     z-index: 1;
-    top: -7px;
-
+    position: relative;
+    top: 0px;
+    /* 
     &.line-1 {
       left: calc(100%/5);
     }
@@ -54,13 +49,13 @@
     }
 
     &.line-4 {
-      left: calc((100%/5)*4);
-    }
+      left: 10px;
+    } */
   }
 
   &__range {
     -webkit-appearance: none;
-    width: 404px;
+    width: 400px;
     height: 6px;
     background-color: $primary-color;
     outline: none;
@@ -69,12 +64,14 @@
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 28px;
-      height: 28px;
+      width: 25px;
+      height: 25px;
       outline: none;
       background: $primary-color;
       border-radius: 50%;
       cursor: pointer;
+      display: flex;
+      justify-content: center;
     }
 
     &::-moz-range-thumb {
@@ -101,6 +98,7 @@
     .slider__range-line {
       background-color: $contrast-light;
     }
+
     .slider__range {
       background-color: $contrast-light;
 
