@@ -2,14 +2,16 @@
 
 <template>
   <div class="slider flex flex--column flex__align--center">
-    <div class="slider__range-line"></div>
+    <div class="slider__range-line-container">
+      <div v-for="i in 4" :key="i" :class="'slider__range-line line-' + i"></div>
+    </div>
     <input
       class="slider__range"
       type="range"
       min="0"
-      max="6"
+      max="5"
       value="0"
-      steps="6"
+      steps="5"
     />
     <div class="slider__description flex flex__justify--between">
       <p>Less</p>
@@ -27,6 +29,10 @@
   background-color: salmon;
   position: relative;
 
+  &__range-line-container {
+    width: 404px;
+  }
+
   &__range-line {
     width: 1px;
     height: 25px;
@@ -34,7 +40,22 @@
     position: absolute;
     z-index: 1;
     top: -7px;
-    left: 50%;
+
+    &.line-1 {
+      left: calc(100%/5);
+    }
+
+    &.line-2 {
+      left: calc((100% / 5)*2);
+    }
+
+    &.line-3 {
+      left: calc((100%/5)*3);
+    }
+
+    &.line-4 {
+      left: calc((100%/5)*4);
+    }
   }
 
   &__range {
