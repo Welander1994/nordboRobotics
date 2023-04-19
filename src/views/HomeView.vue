@@ -48,36 +48,38 @@ import Solution from "@/components/form/8-solution.vue";
     margin-bottom: 30px;
   }
 
-  &__subtitle{
+  &__subtitle {
     margin-bottom: 35px;
   }
 
   &__text {
     font-size: 1.6rem;
     margin-bottom: 20px;
+
     &--semibold {
       font-family: 'primary-font-semibold';
       color: $primary-color;
-    
+
     }
   }
 
- &__section {
-  margin-top: -100px;
-  padding-top: 200px;
-  width: calc($max-width - 245px);
-  min-height: 100vh;
-  max-width: 891px;
-  @media (min-width: $breakpoint-lg) {
-    margin-left: 135px;
-    justify-content: space-between;
-  }
+  &__section {
+    margin-top: -100px;
+    padding-top: 200px;
+    width: calc($max-width - 245px);
+    min-height: 100vh;
+    max-width: 891px;
 
-  @media (max-width: $breakpoint-md) {
-   flex-direction: column;
-   margin-bottom: 50px;
+    @media (min-width: $breakpoint-lg) {
+      margin-left: 135px;
+      justify-content: space-between;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      margin-bottom: 50px;
+    }
   }
- } 
 }
 
 
@@ -93,14 +95,16 @@ aside {
   height: fit-content;
   background-image: url("../assets/img/white-dots.png");
   object-fit: contain;
+
   @media (max-width: $breakpoint-lg) {
     margin-top: 100px;
   }
 }
 
-@media only screen and (max-width: $breakpoint-lg) {
+@media only screen and (max-width: $breakpoint-xl) {
   .form {
     flex-direction: column;
+
     &__section {
       margin-top: -134px;
       padding-top: 134px;
@@ -109,7 +113,7 @@ aside {
     .content {
       margin: 0;
       width: 100%;
-      margin-top: 134px;
+      margin-top: 234px;
     }
 
   }
