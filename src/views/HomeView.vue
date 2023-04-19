@@ -55,6 +55,7 @@ import Solution from '@/components/form/8-solution.vue';
 
   &__text {
     font-size: 1.6rem;
+    margin-bottom: 20px;
     &--semibold {
       font-family: 'primary-font-semibold';
       color: $primary-color;

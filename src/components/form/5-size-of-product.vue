@@ -25,7 +25,7 @@ const lists = [
   >
     <section class="form__questions flex--column">
       <h2 class="form__title">Size of product</h2>
-      <p class="form__text--semibold">Choose a brand</p>
+      <p class="form__text--semibold form__text">Choose a brand</p>
       <ul class="flex--column">
         <Button
           selected-class="form__button--selected"
