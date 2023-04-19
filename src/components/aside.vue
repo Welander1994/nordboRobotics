@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
+let asideShow = ref(false);
+
 const list = ref([
     {
         name: 'Type of Robot',
@@ -69,17 +71,26 @@ const changeStep = (e) => {
     }
     e.active = true;
     localStorage.setItem("aside", JSON.stringify(list.value));
+    asideShow.value = !asideShow.value;
+}
+
+
+
+const btn_burger = () => {
+    asideShow.value = !asideShow.value;
+
 }
 
 </script>
 
 <template>
-    <div>
-
-    </div>
-
     <aside class="formnav">
-        <header>
+        <div class="btn__burger">
+            <p @click="btn_burger()"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
+                    <path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
+                </svg></p>
+        </div>
+        <header :class="{ btn__burger__show: asideShow }">
             <nav>
                 <ul class="flex flex--column flex__justify--between flex">
                     <li class="flex flex__alige--center" v-for="item in list">
@@ -110,12 +121,22 @@ const changeStep = (e) => {
 @import '../assets/main.scss';
 @import '../assets/flex.scss';
 
+.btn__burger {
+    display: none;
+    width: 100vw;
+    background-color: $contrast-light;
+    padding: 5px;
+    border-top: 1px solid $tertiary-color;
+    border-bottom: 1px solid $tertiary-color;
+}
+
 .formnav {
     position: fixed;
     margin-top: 100px;
     width: 245px;
     height: calc(100vh - 100px);
     transition: .5s all;
+    z-index: 9;
 
     ul {
         padding: 25px 0;
@@ -126,6 +147,7 @@ const changeStep = (e) => {
         list-style: none;
         padding: 15px 0;
         position: relative;
+
 
         svg {
             position: absolute;
@@ -150,9 +172,12 @@ const changeStep = (e) => {
         display: flex;
 
 
+
         &:hover {
             opacity: 100%;
         }
+
+
 
     }
 
@@ -174,5 +199,39 @@ const changeStep = (e) => {
         transform: translateX(0px);
         opacity: 100%;
     }
+}
+
+
+@media only screen and (max-width: $breakpoint-lg) {
+    .formnav {
+
+
+        li {
+            margin-left: 15%;
+        }
+    }
+
+    header {
+        height: calc(100vh - 100px);
+        background-color: $contrast-light;
+        transform: translateX(-300px);
+        transition: .5s;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn__burger {
+        display: block;
+
+
+    }
+
+    .btn__burger__show {
+        transform: translateX(0px);
+        width: 250px;
+    }
+
+
+
+
 }
 </style>
