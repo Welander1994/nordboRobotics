@@ -102,5 +102,5 @@ export const useAsideStore = defineStore("aside", () => {
 
     }
 
-    return { list, changeStep, btn_burger, localStorageOnLoad, onscroll };
+    return { list, changeStep, btn_burger, asideShow, localStorageOnLoad, onscroll };
 });
