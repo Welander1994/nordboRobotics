@@ -1,4 +1,5 @@
 <script setup>
+
 import Header from "/src/components/Header.vue";
 import asideComponents from "@/components/aside.vue";
 import TypeOfRobot from "@/components/form/1-type-of-robot.vue";
@@ -9,6 +10,18 @@ import SizeOfProduct from "@/components/form/5-size-of-product.vue";
 import SizeOfBatch from "@/components/form/6-size-of-batch.vue";
 import LevelOfAutomatision from "@/components/form/7-level-of-automatision.vue";
 import Solution from "@/components/form/8-solution.vue";
+
+
+import { useAsideStore } from '@/stores/aside';
+
+
+const asideStore = useAsideStore();
+
+
+
+window.onscroll = function () {
+  asideStore.onscroll();
+}
 </script>
 
 <template>
@@ -48,36 +61,38 @@ import Solution from "@/components/form/8-solution.vue";
     margin-bottom: 30px;
   }
 
-  &__subtitle{
+  &__subtitle {
     margin-bottom: 35px;
   }
 
   &__text {
     font-size: 1.6rem;
     margin-bottom: 20px;
+
     &--semibold {
       font-family: 'primary-font-semibold';
       color: $primary-color;
-    
+
     }
   }
 
- &__section {
-  margin-top: -100px;
-  padding-top: 200px;
-  width: calc($max-width - 245px);
-  min-height: 100vh;
-  max-width: 891px;
-  @media (min-width: $breakpoint-lg) {
-    margin-left: 135px;
-    justify-content: space-between;
-  }
+  &__section {
+    margin-top: -100px;
+    padding-top: 200px;
+    width: calc($max-width - 245px);
+    min-height: 95vh;
+    max-width: 891px;
 
-  @media (max-width: $breakpoint-md) {
-   flex-direction: column;
-   margin-bottom: 50px;
+    @media (min-width: $breakpoint-lg) {
+      margin-left: 135px;
+      justify-content: space-between;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      margin-bottom: 50px;
+    }
   }
- } 
 }
 
 
@@ -93,6 +108,7 @@ aside {
   height: fit-content;
   background-image: url("../assets/img/white-dots.png");
   object-fit: contain;
+
   @media (max-width: $breakpoint-lg) {
     margin-top: 100px;
   }
@@ -101,6 +117,7 @@ aside {
 @media only screen and (max-width: $breakpoint-lg) {
   .form {
     flex-direction: column;
+
     &__section {
       margin-top: -134px;
       padding-top: 134px;
