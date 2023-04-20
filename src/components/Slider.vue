@@ -5,19 +5,12 @@
     <div class="slider__range-line-container">
       <div v-for="i in 4" :key="i" class="slider__range-line"></div>
     </div>
-    <input
-      class="slider__range"
-      type="range"
-      min="0"
-      max="5"
-      value="0"
-      steps="5"
-    />
+    <input class="slider__range" type="range" min="0" max="5" steps="5" />
     <div
       class="slider__description flex flex__justify--between flex__align--end"
     >
-      <p>Less</p>
-      <p>More</p>
+      <p>Low</p>
+      <p>High</p>
     </div>
   </div>
 </template>
