@@ -41,11 +41,7 @@ function handleMenuClick() {
 
     <!-- Mobile menu hamburger -->
     <div class="mainheader__hamburger">
-      <div
-        class="menu-icon"
-        :class="{ active: isActive }"
-        @click="handleMenuClick()"
-      >
+      <div class="menu-icon" :class="{ active: isActive }" @click="handleMenuClick()">
         <span class="menu-icon__line menu-icon__line-left"></span>
         <span class="menu-icon__line menu-icon__line-center"></span>
         <span class="menu-icon__line menu-icon__line-right"></span>
@@ -53,52 +49,25 @@ function handleMenuClick() {
     </div>
 
     <!-- Mobile menu -->
-    <nav
-      class="mainheader__mobile flex flex__justify--center flex__align--center"
-      :class="{ active: showMenu }"
-    >
+    <nav class="mainheader__mobile flex flex__justify--center flex__align--center" :class="{ active: showMenu }">
       <ul class="flex flex--column">
         <li>
-          <a
-            href="#"
-            class="mainheader__link--mobile flex flex__justify--center"
-            >Solutions</a
-          >
+          <a href="#" class="mainheader__link--mobile flex flex__justify--center">Solutions</a>
         </li>
         <li>
-          <a
-            href="#"
-            class="mainheader__link--mobile flex flex__justify--center"
-            >Partners</a
-          >
+          <a href="#" class="mainheader__link--mobile flex flex__justify--center">Partners</a>
         </li>
         <li>
-          <a
-            href="#"
-            class="mainheader__link--mobile flex flex__justify--center"
-            >Resources</a
-          >
+          <a href="#" class="mainheader__link--mobile flex flex__justify--center">Resources</a>
         </li>
         <li>
-          <a
-            href="#"
-            class="mainheader__link--mobile flex flex__justify--center"
-            >About Us</a
-          >
+          <a href="#" class="mainheader__link--mobile flex flex__justify--center">About Us</a>
         </li>
         <li>
-          <a
-            href="#"
-            class="mainheader__link--secondary flex flex__justify--center"
-            >Partner Portal</a
-          >
+          <a href="#" class="mainheader__link--secondary flex flex__justify--center">Partner Portal</a>
         </li>
         <li>
-          <a
-            href="#"
-            class="mainheader__link--primary flex flex__justify--center"
-            >Get in Touch</a
-          >
+          <a href="#" class="mainheader__link--primary flex flex__justify--center">Get in Touch</a>
         </li>
       </ul>
     </nav>
@@ -121,6 +90,10 @@ $border-radius: 7px;
 
   /* Mobile menu */
   &__mobile {
+    @media (max-width: $breakpoint-xl) {
+      width: 100%;
+    }
+
     position: fixed;
     right: 0;
     top: 0;
@@ -143,6 +116,8 @@ $border-radius: 7px;
     }
 
     &.active {
+
+
       transform: translateX(0%);
       transition: 0.5s ease-in;
       left: unset;
@@ -338,5 +313,15 @@ $border-radius: 7px;
       font-size: 1.6rem;
     }
   }
+}
+
+@media (max-width: $breakpoint-xl) {
+  .mainheader {
+    max-width: 100dvw;
+    width: 100%;
+    padding: 0 15px;
+
+  }
+
 }
 </style>

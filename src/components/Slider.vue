@@ -3,23 +3,10 @@
 <template>
   <div class="slider flex flex--column flex__align--center">
     <div class="slider__range-line-container">
-      <div
-        v-for="i in 4"
-        :key="i"
-        :class="'slider__range-line line-' + i"
-      ></div>
+      <div v-for="i in 4" :key="i" :class="'slider__range-line line-' + i"></div>
     </div>
-    <input
-      class="slider__range"
-      type="range"
-      min="0"
-      max="5"
-      value="0"
-      steps="5"
-    />
-    <div
-      class="slider__description flex flex__justify--between flex__align--end"
-    >
+    <input class="slider__range" type="range" min="0" max="5" value="0" steps="5" />
+    <div class="slider__description flex flex__justify--between flex__align--end">
       <p>Less</p>
       <p>More</p>
     </div>
@@ -31,7 +18,8 @@
 @import "../assets/flex.scss";
 
 .slider {
-  width: 430px;
+  max-width: 430px;
+
   height: 76px;
   background-color: salmon;
   position: relative;

@@ -34,10 +34,17 @@ import Solution from "@/components/form/8-solution.vue";
 @import "@/assets/main.scss";
 @import "@/assets/flex.scss";
 
+.form__questions {
+  max-width: 430px;
+  width: 100%;
+}
+
 .container {
   max-width: $max-width;
   width: 100%;
   margin: auto;
+
+
 }
 
 .form {
@@ -65,7 +72,7 @@ import Solution from "@/components/form/8-solution.vue";
 
   &__section {
     margin-top: -100px;
-    padding-top: 200px;
+    padding-top: 175px;
     width: calc($max-width - 245px);
     min-height: 100vh;
     max-width: 891px;
@@ -78,6 +85,7 @@ import Solution from "@/components/form/8-solution.vue";
     @media (max-width: $breakpoint-md) {
       flex-direction: column;
       margin-bottom: 50px;
+      max-width: 100vw;
     }
   }
 }
@@ -101,21 +109,54 @@ aside {
   }
 }
 
+
+
 @media only screen and (max-width: $breakpoint-xl) {
   .form {
     flex-direction: column;
 
     &__section {
-      margin-top: -134px;
-      padding-top: 134px;
+      margin-top: -145px;
+      padding-top: 145px;
     }
 
     .content {
       margin: 0;
       width: 100%;
-      margin-top: 234px;
+      margin-top: 200px;
+      padding: 10px
     }
 
+
+    &__questions {
+      margin-top: 0px;
+    }
+  }
+}
+
+@media only screen and (max-width: $breakpoint-lg) {
+  .form__questions {
+
+    margin-top: 0px;
+
+  }
+
+  .form__section {
+    margin-top: -145px;
+    padding-top: 145px;
+  }
+}
+
+@media only screen and (max-width: $breakpoint-md) {
+  .form__questions {
+
+    margin-top: 90px;
+
+  }
+
+  .form__section {
+    margin-top: -50px;
+    padding-top: 50px;
   }
 }
 </style>
