@@ -17,8 +17,6 @@ import { useAsideStore } from '@/stores/aside';
 
 const asideStore = useAsideStore();
 
-
-
 window.onscroll = function () {
   asideStore.onscroll();
 }
