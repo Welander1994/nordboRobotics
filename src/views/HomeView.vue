@@ -87,7 +87,7 @@ window.onscroll = function () {
     margin-top: -100px;
     padding-top: 175px;
     width: calc($max-width - 245px);
-    min-height: 100vh;
+    min-height: 95vh;
     max-width: 891px;
 
     @media (min-width: $breakpoint-lg) {
