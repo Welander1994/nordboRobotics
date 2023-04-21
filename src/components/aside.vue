@@ -5,15 +5,32 @@ import { useAsideStore } from '@/stores/aside';
 
 const store = useAsideStore();
 
+
+
+
+
 </script>
 
 <template>
+
+  <div class="modal-overlay" :class="{active: store.modalShow}"></div>
+
+
+
   <aside class="formnav">
     <div class="btn__burger">
       <p @click="store.btn_burger()">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
+        <svg :class="{active: !store.asideShow}" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
           <path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
         </svg>
+
+        <svg :class="{active: store.asideShow}" width="20" height="20" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 19L5 5ZM19 5L5 19Z" fill="#D9D9D9"/>
+          <path d="M19 19L5 5M19 5L5 19" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+
+
       </p>
     </div>
     <header :class="{ btn__burger__show: store.asideShow }">
@@ -48,6 +65,29 @@ const store = useAsideStore();
 @import "../assets/main.scss";
 @import "../assets/flex.scss";
 
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  opacity: 0;
+  display: block;
+  pointer-events: none;
+  transition: 0.4s ease;
+  &.active {
+    opacity: 1;
+    display: block;
+    transition: 0.4s ease;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+  }
+}
+
+
 .btn__burger {
   display: none;
   width: 100vw;
@@ -55,6 +95,13 @@ const store = useAsideStore();
   padding: 5px;
   border-top: 1px solid $tertiary-color;
   border-bottom: 1px solid $tertiary-color;
+  cursor: pointer;
+  svg {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
 }
 
 .formnav {
