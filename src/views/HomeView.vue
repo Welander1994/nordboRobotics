@@ -9,6 +9,26 @@ import SizeOfProduct from "@/components/form/5-size-of-product.vue";
 import SizeOfBatch from "@/components/form/6-size-of-batch.vue";
 import LevelOfAutomatision from "@/components/form/7-level-of-automatision.vue";
 import Solution from "@/components/form/8-solution.vue";
+import { app } from "@/firebase.js";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { reactive, onMounted } from "vue";
+
+const process = reactive({})
+const getProcess = async () => {
+  try {
+    const response = await fetch(window.API_URL + '/process.json', {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    const data = await response.json()
+    process.value = data
+  } catch (error) {
+    console.error(error)
+    // show error message to user
+  }
+}
+
+onMounted(getProcess);
 </script>
 
 <template>
@@ -17,6 +37,14 @@ import Solution from "@/components/form/8-solution.vue";
     <main class="form flex">
       <asideComponents />
       <div class="content">
+        <div class="test">
+          <h2>process</h2>
+          <ul>
+            <li v-for="(p, index) in process.value" :key="index">
+              {{ p.name }}
+            </li>
+          </ul>
+        </div>
         <TypeOfRobot />
         <TypeOfMaterial />
         <TypeOfWork />
