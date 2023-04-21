@@ -46,7 +46,10 @@ export const useAsideStore = defineStore("aside", () => {
         },
     ]);
 
+    let modalShow = ref(false);
     let asideShow = ref(false);
+
+
 
     const changeStep = (e) => {
         for (let i = 0; i < list.value.length; i++) {
@@ -57,10 +60,16 @@ export const useAsideStore = defineStore("aside", () => {
         e.active = true;
         localStorage.setItem("aside", JSON.stringify(list.value));
         asideShow.value = !asideShow.value;
+
+        // Only toggle modalShow on mobile devices
+        if (window.matchMedia("(max-width: 1136px)").matches) {
+            modalShow.value = !modalShow.value;
+        }
     };
 
     const btn_burger = () => {
         asideShow.value = !asideShow.value;
+        modalShow.value = !modalShow.value;
     };
 
     const localStorageOnLoad = () => {
@@ -98,5 +107,5 @@ export const useAsideStore = defineStore("aside", () => {
             }
         }
     }
-    return { list, changeStep, btn_burger, asideShow, localStorageOnLoad, onscroll };
+    return { list, changeStep, btn_burger, modalShow, asideShow, localStorageOnLoad, onscroll };
 });
