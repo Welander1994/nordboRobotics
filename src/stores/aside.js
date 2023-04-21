@@ -1,4 +1,4 @@
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import { defineStore } from "pinia";
 
 export const useAsideStore = defineStore("aside", () => {
@@ -96,11 +96,7 @@ export const useAsideStore = defineStore("aside", () => {
             if (isInViewport) {
                 changeStep(list.value[i]);
             }
-
         }
-
-
     }
-
     return { list, changeStep, btn_burger, asideShow, localStorageOnLoad, onscroll };
 });
