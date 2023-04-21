@@ -29,7 +29,6 @@ const calculateScore = (product, userSelections) => {
   return score;
 };
 
-// Example usage:
 const product1 = {
   typeOfRobot: 'Nachi',
   material: 'wood',
