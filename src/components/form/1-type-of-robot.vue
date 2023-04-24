@@ -34,6 +34,11 @@ onMounted(() => {
   })
 })
 
+const selectedIndex = ref(null);
+
+function selectButton(index) {
+  selectedIndex.value = index;
+}
 
 
 </script>
@@ -45,12 +50,17 @@ onMounted(() => {
       <p class="form__text--semibold form__text">Choose a brand</p>
       <ul class="flex--column">
         <Button v-if="steps[0]?.robots" v-for="(brand, index) in steps[1].materials" :key="index" 
-                :selected-class="'form__button--selected'" 
-                :name="brand.name"
-                />
+
+            :name="brand.name"
+            :imgUrl="brand.imgUrl"
+            :hoverImgUrl="brand.hoverImgUrl"
+            :selectedClass="'form__button--selected'"
+            :index="index"
+            :isSelected="selectedIndex === index"
+            @click="selectButton(index)"
+          />
       </ul>
-      <Slider />
-      <Slider class="slider--light" />
+
     </section>
 
     <section class="form__information flex--column">

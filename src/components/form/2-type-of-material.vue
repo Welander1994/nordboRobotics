@@ -18,6 +18,13 @@ onMounted(() => {
   })
 })
 
+const selectedIndex = ref(null);
+
+function selectButton(index) {
+  selectedIndex.value = index;
+}
+
+
 const lists = [
   {
     id: 1,
@@ -48,7 +55,12 @@ const lists = [
                 :selected-class="'form__button--selected'" 
                 :name="materials.name"
                 :hover-img-url="materials.imgLight" 
-                :img-url="materials.imgDark" />
+                :img-url="materials.imgDark"
+                :index="index"
+                :isSelected="selectedIndex === index"
+                @click="selectButton(index)"
+                
+                />
    
       </ul>
     </section>
