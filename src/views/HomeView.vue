@@ -14,9 +14,7 @@ import Solution from "@/components/form/8-solution.vue";
 
 import { useAsideStore } from '@/stores/aside';
 
-
 const asideStore = useAsideStore();
-
 
 
 window.onscroll = function () {
