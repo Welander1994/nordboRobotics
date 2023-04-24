@@ -3,48 +3,9 @@ import { defineStore } from "pinia";
 
 export const useAsideStore = defineStore("aside", () => {
 
-    const list = ref([
-        {
-            name: "Type of Robot",
-            id: "Type-of-Robot",
-            active: true,
-        },
 
-        {
-            name: "Material",
-            id: "Material",
-            active: false,
-        },
-        {
-            name: "Process",
-            id: "Process",
-            active: false,
-        },
-        {
-            name: "Level of detail",
-            id: "Level-of-detail",
-            active: false,
-        },
-        {
-            name: "Size of product",
-            id: "Size-of-product",
-            active: false,
-        },
-        {
-            name: "Batch size",
-            id: "Batch-size",
-            active: false,
-        },
-        {
-            name: "Level of Automatisation",
-            id: "Level-of-Automatisation",
-            active: false,
-        },
-        {
-            name: "Solution",
-            id: "Solution",
-            active: false,
-        },
+    const list = ref([
+
     ]);
 
     let modalShow = ref(false);
@@ -89,7 +50,6 @@ export const useAsideStore = defineStore("aside", () => {
     }
 
     const onscroll = () => {
-
         for (let i = 0; i < list.value.length; i++) {
             const box = document.querySelectorAll("#" + list.value[i].id);
             const rect = box[0].getBoundingClientRect();
