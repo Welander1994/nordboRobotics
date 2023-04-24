@@ -17,11 +17,9 @@ const signInAccount = async () => {
       email.value,
       password.value
     );
-    // User has been created successfully
     const user = userCredential.user;
     router.push("/admin");
   } catch {
-    // Handle error
     error.value = "du er ikke en bruger";
   }
 };

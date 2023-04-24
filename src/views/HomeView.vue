@@ -9,26 +9,6 @@ import SizeOfProduct from "@/components/form/5-size-of-product.vue";
 import SizeOfBatch from "@/components/form/6-size-of-batch.vue";
 import LevelOfAutomatision from "@/components/form/7-level-of-automatision.vue";
 import Solution from "@/components/form/8-solution.vue";
-import { app } from "@/firebase.js";
-import { getDatabase, ref, onValue } from "firebase/database";
-import { reactive, onMounted } from "vue";
-
-const process = reactive({})
-const getProcess = async () => {
-  try {
-    const response = await fetch(window.API_URL + '/process.json', {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' }
-    })
-    const data = await response.json()
-    process.value = data
-  } catch (error) {
-    console.error(error)
-    // show error message to user
-  }
-}
-
-onMounted(getProcess);
 </script>
 
 <template>
@@ -37,14 +17,6 @@ onMounted(getProcess);
     <main class="form flex">
       <asideComponents />
       <div class="content">
-        <div class="test">
-          <h2>process</h2>
-          <ul>
-            <li v-for="(p, index) in process.value" :key="index">
-              {{ p.name }}
-            </li>
-          </ul>
-        </div>
         <TypeOfRobot />
         <TypeOfMaterial />
         <TypeOfWork />
@@ -71,12 +43,12 @@ onMounted(getProcess);
 .form {
   &__title {
     font-size: 2.4rem;
-    font-family: 'primary-font-bold';
+    font-family: "primary-font-bold";
     color: $primary-color;
     margin-bottom: 30px;
   }
 
-  &__subtitle{
+  &__subtitle {
     margin-bottom: 35px;
   }
 
@@ -84,30 +56,28 @@ onMounted(getProcess);
     font-size: 1.6rem;
     margin-bottom: 20px;
     &--semibold {
-      font-family: 'primary-font-semibold';
+      font-family: "primary-font-semibold";
       color: $primary-color;
-    
     }
   }
 
- &__section {
-  margin-top: -100px;
-  padding-top: 200px;
-  width: calc($max-width - 245px);
-  min-height: 100vh;
-  max-width: 891px;
-  @media (min-width: $breakpoint-lg) {
-    margin-left: 135px;
-    justify-content: space-between;
-  }
+  &__section {
+    margin-top: -100px;
+    padding-top: 200px;
+    width: calc($max-width - 245px);
+    min-height: 100vh;
+    max-width: 891px;
+    @media (min-width: $breakpoint-lg) {
+      margin-left: 135px;
+      justify-content: space-between;
+    }
 
-  @media (max-width: $breakpoint-md) {
-   flex-direction: column;
-   margin-bottom: 50px;
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      margin-bottom: 50px;
+    }
   }
- } 
 }
-
 
 aside {
   width: 245px;
@@ -139,7 +109,6 @@ aside {
       width: 100%;
       margin-top: 134px;
     }
-
   }
 }
 </style>
