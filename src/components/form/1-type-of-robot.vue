@@ -1,7 +1,21 @@
 <script setup>
 import Button from "../Button.vue";
+import { ref, onMounted } from 'vue';
 import Information from "../Information.vue";
 import Slider from "../Slider.vue";
+import { useFirebaseData } from '@/stores/firebaseData';
+
+const firebaseStore = useFirebaseData();
+
+const data = ref(firebaseStore.list)
+
+onMounted(async () => {
+
+  console.log(data.value[0].description["description-1"])
+
+})
+
+
 
 const lists = [
   {
