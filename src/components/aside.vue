@@ -206,4 +206,5 @@ const store = useAsideStore();
     transform: translateX(0px);
     width: 100vw;
   }
-}</style>
+}
+</style>
