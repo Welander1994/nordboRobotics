@@ -93,6 +93,7 @@ window.onscroll = function () {
     width: calc($max-width - 245px);
     min-height: 95vh;
     max-width: 891px;
+    scroll-snap-align: start;
 
     @media (min-width: $breakpoint-lg) {
       margin-left: 135px;
@@ -120,6 +121,7 @@ aside {
   height: fit-content;
   background-image: url("../assets/img/white-dots.png");
   object-fit: contain;
+
 
   @media (max-width: $breakpoint-lg) {
     margin-top: 100px;

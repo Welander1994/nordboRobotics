@@ -50,6 +50,7 @@ $breakpoint-sm: 576px;
 html {
   font-size: 10px;
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 * {
