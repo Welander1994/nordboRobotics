@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, onMounted } from "vue";
-import { getAuth, getIdToken } from "firebase/auth";
+import { getAuth, getIdToken  } from "firebase/auth";
 import "@/firebase.js";
 
 const auth = getAuth();
@@ -21,20 +21,15 @@ const getProducts = async () => {
 const updateProducts = async (index, value) => {
   const updateProducts = { ...products[index], name: value };
   try {
-    const user = auth.currentUser;
-    const token = await user.getIdToken(true);
-    await fetch(window.API_URL + 'products/' + index + '.json', {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-      },
-      body: JSON.stringify(updateProducts),
+    const idToken = await getIdToken(auth.currentUser); // Get the Firebase Auth ID token for the current user
+    const response = await fetch(`${window.API_URL}/products/${index}.json?auth=${idToken}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updateProducts)
     });
-    products[index] = updateProducts;
-    console.log(token);
-
-  } catch (error) {
+    const data = await response.json();
+    console.log(data); // Log the response for debugging
+  }catch (error) {
     console.error(error);
     console.log(token);
   }
