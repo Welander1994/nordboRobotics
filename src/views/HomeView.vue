@@ -22,7 +22,9 @@ const firebaseStore = useFirebaseData();
 
 const asideStore = useAsideStore();
 
-
+onMounted(() => {
+  asideStore.localStorageOnLoad();
+})
 
 window.onscroll = function () {
 

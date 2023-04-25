@@ -10,15 +10,15 @@ const steps = ref([])
 
 onMounted(() => {
   fetch('https://nordbo-robotics-default-rtdb.europe-west1.firebasedatabase.app/steps.json')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data); // check if the data is in the expected format
-    steps.value = data
-  })
-  .catch(error => {
-    console.error(error);
-    steps.value = [{ materials: [] }]; // set a default value
-  })
+    .then(response => response.json())
+    .then(data => {
+
+      steps.value = data
+    })
+    .catch(error => {
+      console.error(error);
+      steps.value = [{ materials: [] }]; // set a default value
+    })
 })
 
 const selectedIndex = ref(null);
@@ -45,26 +45,17 @@ const lists = [
 </script>
 
 <template>
-  <section 
-    class="form__section form__section--light flex flex__gap--lg"
-    id="Material"
-  >
+  <section class="form__section form__section--light flex flex__gap--lg" id="Type-of-material">
     <section class="form__questions flex--column">
       <h2 class="form__title">Type of Material</h2>
       <p class="form__text--semibold form__text">Choose a brand</p>
       <ul class="flex--column">
-   
-        <Button v-if="steps[1]?.materials" v-for="(materials, index) in steps[1].materials" :key="index" 
-                :selected-class="'form__button--selected'" 
-                :name="materials.name"
-                :hover-img-url="materials.imgLight" 
-                :img-url="materials.imgDark"
-                :index="index"
-                :isSelected="selectedIndex === index"
-                @click="selectButton(index)"
-                
-                />
-   
+
+        <Button v-if="steps[1]?.materials" v-for="(materials, index) in steps[1].materials" :key="index"
+          :selected-class="'form__button--selected'" :name="materials.name" :hover-img-url="materials.imgLight"
+          :img-url="materials.imgDark" :index="index" :isSelected="selectedIndex === index"
+          @click="selectButton(index)" />
+
       </ul>
     </section>
 
