@@ -2,20 +2,11 @@
 import Button from "../Button.vue";
 import Information from "../Information.vue";
 
-const lists = [
-  {
-    id: 1,
-    text: "These are the robot brands that Nordbo Robotics solutions work with.",
-  },
-  {
-    id: 2,
-    text: "The choice of software will depend on which brand of robot the company uses.",
-  },
-  {
-    id: 3,
-    text: "If the company does not currently have a robot then Nordbo can help to find which solution will suit them best.",
-  },
-];
+import { useFirebaseData } from '@/stores/firebaseData';
+
+const firebaseStore = useFirebaseData();
+
+
 </script>
 
 <template>
@@ -47,7 +38,7 @@ const lists = [
     </section>
 
     <section class="form__information flex--column">
-      <Information :lists="lists" />
+      <Information :lists="firebaseStore.LevelOfDetail" />
     </section>
   </section>
 </template>

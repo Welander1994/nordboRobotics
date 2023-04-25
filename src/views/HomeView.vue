@@ -13,15 +13,19 @@ import Solution from "@/components/form/8-solution.vue";
 import ScoreSystem from "@/components/ScoreSystem.vue";
 
 
-
+import { ref, onMounted } from 'vue';
 
 import { useAsideStore } from '@/stores/aside';
+import { useFirebaseData } from '@/stores/firebaseData';
 
+const firebaseStore = useFirebaseData();
 
 const asideStore = useAsideStore();
 
 
+
 window.onscroll = function () {
+
   asideStore.onscroll();
 }
 </script>

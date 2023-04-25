@@ -1,8 +1,6 @@
-<template>
-
-</template>
+<template></template>
   
-  <script setup>
+<script setup>
 const userSelections = {
   typeOfRobot: 'Nachi',
   material: 'wood',
@@ -46,7 +44,7 @@ const product2 = {
   batch: 1
 };
 
-console.log(calculateScore(product1, userSelections)); // Output: 13
-console.log(calculateScore(product2, userSelections)); // Output: 3
-  </script>
+/* console.log(calculateScore(product1, userSelections)); // Output: 13
+console.log(calculateScore(product2, userSelections)); // Output: 3 */
+</script>
   

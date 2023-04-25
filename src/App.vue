@@ -10,6 +10,9 @@ const firebaseStore = useFirebaseData();
 const products = ref([]);
 
 onMounted(async () => {
+
+  firebaseStore.foo();
+
   const response = await fetch('https://nordbo-robotics-default-rtdb.europe-west1.firebasedatabase.app/steps.json')
   products.value = await response.json();
   for (let i = 0; i < products.value.length; i++) {
@@ -19,8 +22,6 @@ onMounted(async () => {
       active: i == 0 ? true : false
     });
   }
-
-
 
   asideStore.list.push({
     name: 'Solution',

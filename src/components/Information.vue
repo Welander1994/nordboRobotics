@@ -2,7 +2,11 @@
 const props = defineProps({
   lists: {
     type: Array,
-    required: true,
+    required: false,
+  },
+  text: {
+    type: String,
+    required: false,
   },
   dark: {
     type: Boolean,
@@ -15,7 +19,8 @@ const props = defineProps({
   <h3 class="form__subtitle">Information</h3>
   <div :class="{ form__content: true, dark: dark }">
     <ul class="flex--column">
-      <li v-for="list in lists" :key="list.id">{{ list.text }}</li>
+      <li v-for="list in lists" :key="list.id">{{ list }}</li>
+      <li v-if="text">{{ text }}</li>
     </ul>
   </div>
 </template>
@@ -41,12 +46,14 @@ const props = defineProps({
     ul {
       font-size: 16px;
       padding: 20px 20px 20px 48px;
+
       li {
         color: $primary-color;
         font-family: "primary-font-regular";
         font-weight: 500;
         list-style: none;
         position: relative;
+
         &:before {
           position: absolute;
           left: -30px;
@@ -58,9 +65,11 @@ const props = defineProps({
     &.dark {
       background-color: $primary-color;
       border: 3px dashed $contrast-light;
+
       ul {
         li {
           color: $contrast-light;
+
           &:before {
             content: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='6' cy='6' r='6' fill='%23ffffff'/%3E%3C/svg%3E%0A");
           }
