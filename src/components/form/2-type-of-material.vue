@@ -2,6 +2,9 @@
 import { ref, onMounted } from "vue";
 import Button from "../Button.vue";
 import Information from "../Information.vue";
+import { useFirebaseData } from '@/stores/firebaseData';
+
+const firebaseStore = useFirebaseData();
 
 const steps = ref([])
 
@@ -66,7 +69,7 @@ const lists = [
     </section>
 
     <section class="form__information flex--column">
-      <Information :lists="lists" />
+      <Information :lists="firebaseStore.typeOfMaterial.description" />
     </section>
   </section>
 </template>

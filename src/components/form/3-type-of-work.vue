@@ -1,21 +1,33 @@
 <script setup>
 import Button from "../Button.vue";
+import { ref, onMounted } from 'vue';
 import Information from "../Information.vue";
+import { useFirebaseData } from '@/stores/firebaseData';
 
-const lists = [
-  {
-    id: 1,
-    text: "These are the robot brands that Nordbo Robotics solutions work with.",
-  },
-  {
-    id: 2,
-    text: "The choice of software will depend on which brand of robot the company uses.",
-  },
-  {
-    id: 3,
-    text: "If the company does not currently have a robot then Nordbo can help to find which solution will suit them best.",
-  },
-];
+const firebaseStore = useFirebaseData();
+
+const state = ref('choose type of work');
+
+const chooseWork = (e) => {
+
+  switch (e) {
+    case 'sanding':
+      state.value = firebaseStore.typeOfWork.sanding.description
+      break;
+    case 'finishing':
+      state.value = firebaseStore.typeOfWork.finishing.description
+      break;
+    case 'painting':
+      state.value = firebaseStore.typeOfWork.painting.description
+      break;
+    case 'dispensing':
+      state.value = firebaseStore.typeOfWork.dispensing.description
+      break;
+  }
+
+}
+
+
 </script>
 
 <template>
@@ -24,12 +36,16 @@ const lists = [
       <h2 class="form__title">Type of Process</h2>
       <p class="form__text--semibold form__text">Choose a brand</p>
       <ul class="flex--column">
-        <Button selected-class="form__button--selected" name="Sanding" hover-img-url="src/assets/img/sanding-dark.svg"
-          img-url="src/assets/img/sanding-light.svg" />
+        <Button selected-class="form__button--selected" name="Sanding" @click="chooseWork('sanding')"
+          hover-img-url="src/assets/img/sanding-dark.svg" img-url="src/assets/img/sanding-light.svg" />
+
         <Button selected-class="form__button--light-selected" class="form__button--light" name="Sanding"
           hover-img-url="src/assets/img/sanding-light.svg" img-url="src/assets/img/sanding-dark.svg" />
-        <Button selected-class="form__button--selected" name="Plastic" class="form__button--icon-right-space"
-          hover-img-url="src/assets/img/plastic-dark.svg" img-url="src/assets/img/plastic-light.svg" />
+
+        <Button selected-class="form__button--selected" @click="chooseWork('Plastic')" name="Plastic"
+          class="form__button--icon-right-space" hover-img-url="src/assets/img/plastic-dark.svg"
+          img-url="src/assets/img/plastic-light.svg" />
+
         <Button selected-class="form__button--light-selected" class="form__button--light form__button--icon-right-space"
           name="Plastic" hover-img-url="src/assets/img/plastic-light.svg" img-url="src/assets/img/plastic-dark.svg" />
         <Button selected-class="form__button--selected" name="Other" class="form__button--icon-right-space"
@@ -45,9 +61,9 @@ const lists = [
         <Button class="form__button--rounded-light flex__justify--center" name="Next" />
       </ul>
     </section>
-
     <section class="form__information flex--column">
-      <Information :lists="lists" />
+
+      <Information :text="state" />
     </section>
   </section>
 </template>

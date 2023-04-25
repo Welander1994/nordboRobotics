@@ -1,23 +1,12 @@
 <script setup>
 import {ref, onMounted} from 'vue';
 import Button from "../Button.vue";
+import { ref, onMounted } from 'vue';
 import Information from "../Information.vue";
 import Slider from "../Slider.vue";
+import { useFirebaseData } from '@/stores/firebaseData';
 
-const lists = [
-  {
-    id: 1,
-    text: "These are the robot brands that Nordbo Robotics solutions work with.",
-  },
-  {
-    id: 2,
-    text: "The choice of software will depend on which brand of robot the company uses.",
-  },
-  {
-    id: 3,
-    text: "If the company does not currently have a robot then Nordbo can help to find which solution will suit them best.",
-  },
-];
+const firebaseStore = useFirebaseData();
 
 const steps = ref([])
 
@@ -64,7 +53,7 @@ function selectButton(index) {
     </section>
 
     <section class="form__information flex--column">
-      <Information :lists="lists" />
+      <Information :lists="firebaseStore.typeOfRobot.description" />
     </section>
   </section>
 </template>
