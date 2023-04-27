@@ -12,7 +12,6 @@ function selectButton(index) {
   selectedIndex.value = index;
 }
 
-
 </script>
 
 <template>
@@ -24,13 +23,13 @@ function selectButton(index) {
         <Button v-if="firebaseStore.stepsData[0]?.robots" v-for="(robot, index) in firebaseStore.stepsData[0].robots"
           :key="index" :name="robot" :imgUrl="robot.imgUrl" :hoverImgUrl="robot.hoverImgUrl"
           :selectedClass="'form__button--selected'" :index="index" :isSelected="selectedIndex === index"
-          @click="selectButton(index)" />
+          @mouseup="selectButton(index), firebaseStore.addToProduct('typeOfRobot', robot)" />
       </ul>
 
     </section>
 
     <section class="form__information flex--column">
-      <Information :lists="lists" />
+      <Information :lists="firebaseStore.typeOfRobot.description" />
     </section>
   </section>
 </template>

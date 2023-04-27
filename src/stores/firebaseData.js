@@ -3,6 +3,8 @@ import { defineStore } from "pinia";
 
 export const useFirebaseData = defineStore("firebase", () => {
 
+    const selectedIndex = ref(null);
+
     const product = ref({
         typeOfRobot: '',
         typeOfMaterial: '',
@@ -22,8 +24,34 @@ export const useFirebaseData = defineStore("firebase", () => {
     const sizeOfBatch = ref([]);
     const LevelOfAutomation = ref([]);
 
-    const addToProduct = (e) => {
-        product.value.typeOfRobot += e
+    function selectButton(index) {
+        selectedIndex.value = index;
+    }
+
+    const addToProduct = (type, e) => {
+        switch (type) {
+            case 'typeOfRobot':
+                product.value.typeOfRobot = e
+                break;
+            case 1:
+                day = "Monday";
+                break;
+            case 2:
+                day = "Tuesday";
+                break;
+            case 3:
+                day = "Wednesday";
+                break;
+            case 4:
+                day = "Thursday";
+                break;
+            case 5:
+                day = "Friday";
+                break;
+            case 6:
+                day = "Saturday";
+        }
+
         console.log(product.value)
     }
 
@@ -48,5 +76,5 @@ export const useFirebaseData = defineStore("firebase", () => {
 
 
 
-    return { stepsData, typeOfRobot, typeOfMaterial, typeOfWork, LevelOfDetail, sizeOfProduct, sizeOfBatch, LevelOfAutomation, product, foo, addToProduct };
+    return { stepsData, typeOfRobot, typeOfMaterial, typeOfWork, LevelOfDetail, sizeOfProduct, sizeOfBatch, LevelOfAutomation, product, selectedIndex, foo, addToProduct };
 });
