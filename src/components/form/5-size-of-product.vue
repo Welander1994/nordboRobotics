@@ -20,23 +20,22 @@ function selectButton() {
   <section class="form__section form__section--light flex flex__gap--lg" id="Size-of-product">
 
 
-  <div class="form__section-wrapper">
-    <section class="form__questions flex--column flex">
-      <h2 class="form__title">What is the size of the product?</h2>
-      <p class="form__text--semibold form__text">Choose size of product</p>
-      <ul class="flex--column">
-        <Slider />
-      </ul>
+    <div class="form__section-wrapper">
+      <section class="form__questions flex--column flex">
+        <h2 class="form__title">What is the size of the product?</h2>
+        <p class="form__text--semibold form__text">Choose size of product</p>
+        <ul class="flex--column">
+          <Slider type="sizeOfProduct" />
+        </ul>
 
-      <Button class="form__button--bottom-left form__button--rounded flex__justify--center" name="Next" 
-      @click="selectButton"
-      />
-    </section>
+        <Button class="form__button--bottom-left form__button--rounded flex__justify--center" name="Next"
+          @click="selectButton" />
+      </section>
 
-    <section class="form__information flex--column">
-      <Information :lists="firebaseStore.sizeOfProduct.description" />
-    </section>
-  </div>
+      <section class="form__information flex--column">
+        <Information :lists="firebaseStore.sizeOfProduct.description" />
+      </section>
+    </div>
 
   </section>
 </template>

@@ -9,9 +9,9 @@ export const useFirebaseData = defineStore("firebase", () => {
         typeOfRobot: '',
         typeOfMaterial: '',
         typeOfWork: '',
-        LevelOfDetail: '',
-        sizeOfProduct: '',
-        sizeOfBatch: '',
+        LevelOfDetail: 0,
+        sizeOfProduct: 0,
+        sizeOfBatch: 0,
         LevelOfAutomation: ''
     })
 
@@ -24,38 +24,23 @@ export const useFirebaseData = defineStore("firebase", () => {
     const sizeOfBatch = ref([]);
     const LevelOfAutomation = ref([]);
 
-    function selectButton(index) {
-        selectedIndex.value = index;
-    }
-
     const addToProduct = (type, e) => {
         switch (type) {
             case 'typeOfRobot':
                 product.value.typeOfRobot = e
                 break;
-            case 1:
-                day = "Monday";
+            case 'typeOfMaterial':
+                product.value.typeOfMaterial = e
                 break;
-            case 2:
-                day = "Tuesday";
+            case 'typeOfWork':
+                product.value.typeOfWork = e
                 break;
-            case 3:
-                day = "Wednesday";
+            case 'LevelOfAutomation':
+                product.value.LevelOfAutomation = e
                 break;
-            case 4:
-                day = "Thursday";
-                break;
-            case 5:
-                day = "Friday";
-                break;
-            case 6:
-                day = "Saturday";
         }
-
-        console.log(product.value)
+        localStorage.setItem("product", JSON.stringify(product.value));
     }
-
-
 
     const foo = async () => {
         const response = await fetch('https://nordbo-robotics-default-rtdb.europe-west1.firebasedatabase.app/steps.json')
