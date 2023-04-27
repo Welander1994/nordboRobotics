@@ -71,6 +71,20 @@ window.onscroll = function () {
 }
 
 .form {
+
+
+
+  &__section-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+    }
+  }
+
+
   &__title {
     font-size: 2.4rem;
     font-family: 'primary-font-bold';

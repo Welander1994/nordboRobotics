@@ -16,8 +16,9 @@ function selectButton(index) {
 
 <template>
   <section class="form__section form__section--light flex flex__gap--lg" id="Type-of-process">
+    <div class="form__section-wrapper">
     <section class="form__questions flex--column">
-      <h2 class="form__title">Type of Process</h2>
+      <h2 class="form__title">Choose which process is needed?</h2>
       <p class="form__text--semibold form__text">Choose process</p>
       <ul class="flex--column">
         <Button v-if="firebaseStore.stepsData[2]?.process" v-for="(process, index) in firebaseStore.stepsData[2].process" :key="index"
@@ -30,6 +31,7 @@ function selectButton(index) {
     <section class="form__information flex--column">
       <Information :lists="firebaseStore.typeOfWork.description" />
     </section>
+  </div>
   </section>
 </template>
 

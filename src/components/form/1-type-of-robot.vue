@@ -17,6 +17,7 @@ function selectButton(index) {
 
 <template>
   <section class="form__section form__section--light flex flex__gap--lg" id="Type-of-robot">
+    <div class="form__section-wrapper">
     <section class="form__questions flex--column">
       <h2 class="form__title">What type of robot</h2>
       <p class="form__text--semibold form__text">Choose a brand</p>
@@ -37,6 +38,7 @@ function selectButton(index) {
     <section class="form__information flex--column">
       <Information :lists="lists" />
     </section>
+  </div>
   </section>
 </template>
 

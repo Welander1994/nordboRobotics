@@ -22,6 +22,7 @@ const lists = [
 
 <template>
   <section class="form__section form__section--light flex flex__gap--lg" id="Size-of-product">
+    <div class="form__section-wrapper">
     <section class="form__questions flex--column">
       <h2 class="form__title">Size of product</h2>
       <p class="form__text--semibold form__text">Choose a brand</p>
@@ -51,6 +52,7 @@ const lists = [
     <section class="form__information flex--column">
       <Information :lists="firebaseStore.sizeOfProduct" />
     </section>
+    </div>
   </section>
 </template>
 
