@@ -10,12 +10,6 @@ const props = defineProps({
 
 });
 
-const sliderValue = ref(0);
-
-const getSliderValue = () => {
-
-}
-
 onMounted(() => {
   switch (props.type) {
     case 'levelOfDetail':
