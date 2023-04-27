@@ -1,0 +1,217 @@
+{
+    "products": {
+        "0": {
+            "name": "Mimic",
+            "description": {
+                "0": "Fits the description: Wood, Sanding, Not detailed, product big, batch big, 75% auto = Mimic",
+                "1": "Mimic is excellent to handle bigger wood products in big batches, and is more than efficient with less detailed products"
+            },
+            "img": "https://we-lander.dk/nordbor-img/mimic.svg",
+            "type-of-robot": {
+                "0": "Nachi",
+                "1": "Universal Robots"
+            },
+            "type-of-material": {
+                "0": "Wood",
+                "1": "Plastic",
+                "2": "Metal"
+            },
+            "type-of-process": {
+                "0": "Sanding",
+                "1": "Finishing"
+            },
+            "level-of-detail": 3,
+            "size-of-product": 4,
+            "size-of-batch": 1,
+            "level-of-automation": {
+                "0": "25%",
+                "1": "50%"
+            }
+        },
+        "1": {
+            "name": "AI",
+            "description": {
+                "0": "Fits the description: Wood, Sanding, Not detailed, product big, batch big, 75% auto = AI",
+                "1": "AI is excellent to handle bigger wood products in big batches, and is more than efficient with less detailed products"
+            },
+            "img": "https://we-lander.dk/nordbor-img/mimic.svg",
+            "type-of-robot": {
+                "0": "Nachi",
+                "1": "Universal Robots"
+            },
+            "type-of-material": {
+                "0": "Wood",
+                "1": "Plastic",
+                "2": "Metal"
+            },
+            "type-of-process": {
+                "0": "Sanding",
+                "1": "Finishing"
+            },
+            "level-of-detail": 3,
+            "size-of-product": 4,
+            "size-of-batch": 1,
+            "level-of-automation": {
+                "0": "25%",
+                "1": "50%"
+            }
+        },
+        "2": {
+            "name": "CraftMate",
+            "description": {
+                "0": "Fits the description: Wood, Sanding, Not detailed, product big, batch big, 75% auto = CraftMate",
+                "1": "CraftMate is excellent to handle bigger wood products in big batches, and is more than efficient with less detailed products"
+            },
+            "img": "https://we-lander.dk/nordbor-img/mimic.svg",
+            "type-of-robot": {
+                "0": "Nachi",
+                "1": "Universal Robots"
+            },
+            "type-of-material": {
+                "0": "Wood",
+                "1": "Plastic",
+                "2": "Metal"
+            },
+            "type-of-process": {
+                "0": "Sanding",
+                "1": "Finishing"
+            },
+            "level-of-detail": 3,
+            "size-of-product": 4,
+            "size-of-batch": 1,
+            "level-of-automation ": {
+                "0": "25%",
+                "1": "50%"
+            }
+        } 
+    },
+    "steps": {
+        "0": {
+            "name": "Type of robot",
+            "description": {
+                "description-1": "text for the description 1",
+                "description-2": "text for the description 2",
+                "description-3": "text for the description 3"
+            },
+            "robots": {
+                "0": "Nachi",
+                "1": "Universal Robots",
+                "2": "KUKA",
+                "3": "None"
+            }
+        },
+        "1": {
+            "name": "Type of material",
+            "description": {
+                "description-1": "text for the description 1",
+                "description-2": "text for the description 2",
+                "description-3": "text for the description 3"
+            },
+            "materials": {
+                "0": {
+                    "name": "Wood",
+                    "imgLight": "https://we-lander.dk/nordbor-img/wood-light.svg",
+                    "imgDark": "https://we-lander.dk/nordbor-img/wood-dark.svg"
+                },
+                "1": {
+                    "name": "Plastic",
+                    "imgLight": "https://we-lander.dk/nordbor-img/plastic-light.svg",
+                    "imgDark": "https://we-lander.dk/nordbor-img/plastic-dark.svg"
+                },
+                "2": {
+                    "name": "Metal",
+                    "imgLight": "https://we-lander.dk/nordbor-img/metal-light.svg",
+                    "imgDark": "https://we-lander.dk/nordbor-img/metal-dark.svg"
+                },
+                  "3": {
+                    "name": "Other",
+                    "imgLight": "https://we-lander.dk/nordbor-img/other-light.svg",
+                    "imgDark": "https://we-lander.dk/nordbor-img/other-dark.svg"
+                }
+            }
+        },
+        "2": {
+            "name": "Type of process",
+            "process": {
+                "0": {
+                    "name": "Sanding",
+                    "imgLight": "https://we-lander.dk/nordbor-img/sanding-light.svg",
+                    "imgDark": "https://we-lander.dk/nordbor-img/sanding-dark.svg",
+                    "description": "Sanding description"
+                },
+                "1": {
+                    "name": "Finishing",
+                    "imgLight": "https://we-lander.dk/nordbor-img/finishing-light.svg",
+                    "imgDark": "https://we-lander.dk/nordbor-img/finishing-dark.svg",
+                    "description": "Finishing description"
+                },
+                "2": {
+                    "name": "Painting",
+                    "imgLight": "https://we-lander.dk/nordbor-img/painting-light.svg",
+                    "imgDark": "https://we-lander.dk/nordbor-img/painting-dark.svg",
+                    "description": "Painting description"
+                },
+                  "3": {
+                    "name": "Dispensing",
+                    "imgLight": "https://we-lander.dk/nordbor-img/dispensing-light.svg",
+                    "imgDark": "https://we-lander.dk/nordbor-img/dispensing-dark.svg",
+                    "description": "Dispensing description"
+                }
+            }
+        },
+        "3": {
+            "name": "Level of detail",
+            "description": {
+                "description-1": "text for the description 1",
+                "description-2": "text for the description 2",
+                "description-3": "text for the description 3"
+            }
+        },
+        "4": {
+            "name": "Size of product",
+            "description": {
+                "description-1": "text for the description 1",
+                "description-2": "text for the description 2",
+                "description-3": "text for the description 3"
+            }
+        },
+        "5": {
+            "name": "Size of batch",
+            "description": {
+                "description-1": "text for the description 1",
+                "description-2": "text for the description 2",
+                "description-3": "text for the description 3"
+            }
+        },
+        "6": {
+            "name": "Level of automation",
+            "description": {
+                "description-1": "text for the description 1",
+                "description-2": "text for the description 2",
+                "description-3": "text for the description 3"
+            },
+            "automation": {
+                "0": {
+                    "name": "25%",
+                    "imgLight": "https://we-lander.dk/nordbor-img/25-light.svg",
+                    "imgDark": "https://we-lander.dk/nordbor-img/25-dark.svg"
+                },
+                "1": {
+                    "name": "50%",
+                    "imgLight": "https://we-lander.dk/nordbor-img/50-light.svg",
+                    "imgDark": "https://we-lander.dk/nordbor-img/50-dark.svg"
+                },
+                "2": {
+                    "name": "75%",
+                    "imgLight": "https://we-lander.dk/nordbor-img/75-light.svg",
+                    "imgDark": "https://we-lander.dk/nordbor-img/75-dark.svg"
+                },
+                "3": {
+                    "name": "100%",
+                    "imgLight": "https://we-lander.dk/nordbor-img/100-light.svg",
+                    "imgDark": "https://we-lander.dk/nordbor-img/100-dark.svg"
+                }
+            }
+        }
+    }
+}

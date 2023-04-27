@@ -11,12 +11,14 @@ const selectedIndex = ref(null);
 
 function selectButton(index) {
   selectedIndex.value = index;
+  window.location.href = "#Solution";
 }
 
 </script>
 
 <template>
   <section class="form__section form__section--light flex flex__gap--lg" id="Level-of-automation">
+    <div class="form__section-wrapper">
     <section class="form__questions flex--column">
       <h2 class="form__title">What is the desired level of automatisation?</h2>
       <p class="form__text--semibold form__text">Choose level of automatisation</p>
@@ -36,6 +38,7 @@ function selectButton(index) {
     <section class="form__information flex--column">
       <Information :lists="firebaseStore.LevelOfAutomation.description" />
     </section>
+    </div>
   </section>
 </template>
 

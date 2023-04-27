@@ -11,12 +11,14 @@ const selectedIndex = ref(null);
 
 function selectButton(index) {
   selectedIndex.value = index;
+  window.location.href = "#Type-of-process";
 }
 
 </script>
 
 <template>
-  <section class="form__section form__section--light flex flex__gap--lg" id="Type-of-material">
+  <section class="form__section form__section--dark flex flex__gap--lg" id="Type-of-material">
+    <div class="form__section-wrapper">
     <section class="form__questions flex--column">
       <h2 class="form__title">Which material is being used?</h2>
       <p class="form__text--semibold form__text">Choose Material</p>
@@ -33,6 +35,7 @@ function selectButton(index) {
     <section class="form__information flex--column">
       <Information :lists="firebaseStore.typeOfMaterial.description" />
     </section>
+    </div>
   </section>
 </template>
 

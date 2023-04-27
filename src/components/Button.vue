@@ -65,6 +65,11 @@ const imgUrl = computed(() => {
       color: $primary-color;
     }
 
+    &--bottom-left {
+      margin-top: auto;
+      margin-left: auto;
+    }
+
     &--light {
       background-color: $contrast-light;
       border: solid 1.5px $contrast-light;
