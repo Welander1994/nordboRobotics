@@ -10,6 +10,7 @@ const selectedIndex = ref(null);
 
 function selectButton(index) {
   selectedIndex.value = index;
+  window.location.href = "#Type-of-material";
 }
 
 
@@ -36,7 +37,7 @@ function selectButton(index) {
     </section>
 
     <section class="form__information flex--column">
-      <Information :lists="lists" />
+      <Information :lists="firebaseStore.typeOfRobot.description" />
     </section>
   </div>
   </section>

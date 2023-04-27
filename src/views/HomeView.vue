@@ -57,10 +57,7 @@ window.onscroll = function () {
 @import "@/assets/main.scss";
 @import "@/assets/flex.scss";
 
-.form__questions {
-  max-width: 430px;
-  width: 100%;
-}
+
 
 .container {
   max-width: $max-width;
@@ -71,9 +68,6 @@ window.onscroll = function () {
 }
 
 .form {
-
-
-
   &__section-wrapper {
     display: flex;
     justify-content: space-between;
@@ -82,6 +76,17 @@ window.onscroll = function () {
     @media (max-width: $breakpoint-md) {
       flex-direction: column;
     }
+  }
+
+  &__questions {
+    max-width: 430px;
+    width: 100%;
+    
+  }
+
+  &__information {
+    max-width: 440px;
+    width: 100%;
   }
 
 
@@ -114,6 +119,7 @@ window.onscroll = function () {
     max-width: 891px;
     scroll-snap-align: start;
 
+ 
     @media (min-width: $breakpoint-lg) {
       margin-left: 135px;
       justify-content: space-between;
