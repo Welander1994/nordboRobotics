@@ -62,8 +62,7 @@ const chooseWork = (e) => {
       </ul>
     </section>
     <section class="form__information flex--column">
-
-      <Information :text="state" />
+      <Information :lists="firebaseStore.typeOfWork" />
     </section>
   </section>
 </template>

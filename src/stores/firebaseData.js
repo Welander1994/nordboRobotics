@@ -3,6 +3,16 @@ import { defineStore } from "pinia";
 
 export const useFirebaseData = defineStore("firebase", () => {
 
+    const product = ref({
+        typeOfRobot: '',
+        typeOfMaterial: '',
+        typeOfWork: '',
+        LevelOfDetail: '',
+        sizeOfProduct: '',
+        sizeOfBatch: '',
+        LevelOfAutomation: ''
+    })
+
     const stepsData = ref([]);
     const typeOfRobot = ref([]);
     const typeOfMaterial = ref([]);
@@ -18,10 +28,10 @@ export const useFirebaseData = defineStore("firebase", () => {
         typeOfRobot.value = stepsData.value[0];
         typeOfMaterial.value = stepsData.value[1];
         typeOfWork.value = {
-            sanding: stepsData.value[2].process[0],
-            finishing: stepsData.value[2].process[1],
-            painting: stepsData.value[2].process[2],
-            dispensing: stepsData.value[2].process[3],
+            sanding: stepsData.value[2].process[0].description,
+            finishing: stepsData.value[2].process[1].description,
+            painting: stepsData.value[2].process[2].description,
+            dispensing: stepsData.value[2].process[3].description,
         };
         LevelOfDetail.value = stepsData.value[3].description;
         sizeOfProduct.value = stepsData.value[4].description;
@@ -33,5 +43,5 @@ export const useFirebaseData = defineStore("firebase", () => {
 
 
 
-    return { stepsData, typeOfRobot, typeOfMaterial, typeOfWork, LevelOfDetail, sizeOfProduct, sizeOfBatch, LevelOfAutomation, foo };
+    return { stepsData, typeOfRobot, typeOfMaterial, typeOfWork, LevelOfDetail, sizeOfProduct, sizeOfBatch, LevelOfAutomation, product, foo };
 });
