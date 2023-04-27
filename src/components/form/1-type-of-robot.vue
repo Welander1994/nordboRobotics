@@ -9,6 +9,7 @@ const firebaseStore = useFirebaseData();
 
 const steps = ref([])
 
+
 onMounted(() => {
   fetch('https://nordbo-robotics-default-rtdb.europe-west1.firebasedatabase.app/steps.json')
     .then(response => response.json())
@@ -37,15 +38,9 @@ function selectButton(index) {
       <h2 class="form__title">What type of robot</h2>
       <p class="form__text--semibold form__text">Choose a brand</p>
       <ul class="flex--column">
-        <Button v-if="steps[0]?.robots" v-for="(robot, index) in steps[0].robots" :key="index" 
-          :name="robot"
-          :imgUrl="robot.imgUrl"
-          :hoverImgUrl="robot.hoverImgUrl"
-          :selectedClass="'form__button--selected'"
-          :index="index"
-          :isSelected="selectedIndex === index"
-          @click="selectButton(index)"
-        />
+        <Button v-if="steps[0]?.robots" v-for="(robot, index) in steps[0].robots" :key="index" :name="robot"
+          :imgUrl="robot.imgUrl" :hoverImgUrl="robot.hoverImgUrl" :selectedClass="'form__button--selected'" :index="index"
+          :isSelected="selectedIndex === index" @click="selectButton(index)" />
       </ul>
 
     </section>
