@@ -17,7 +17,7 @@ const firebaseStore = useFirebaseData();
       <p class="form__text--semibold form__text">Choose a brand</p>
       <ul class="flex--column">
         <Button selected-class="form__button--selected" name="Sanding" hover-img-url="src/assets/img/sanding-dark.svg"
-          img-url="src/assets/img/sanding-light.svg" />
+          img-url="src/assets/img/sanding-light.svg" @click="firebaseStore.addToProduct('sanding')" />
         <Button selected-class="form__button--light-selected" class="form__button--light" name="Sanding"
           hover-img-url="src/assets/img/sanding-light.svg" img-url="src/assets/img/sanding-dark.svg" />
         <Button selected-class="form__button--selected" name="Plastic" class="form__button--icon-right-space"
