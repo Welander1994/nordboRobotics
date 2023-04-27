@@ -1,5 +1,7 @@
 # nordboRobotics
 
+[![codecov](https://codecov.io/gh/Welander1994/nordboRobotics/branch/main/graph/badge.svg?token=bR3WwwE64i)](https://codecov.io/gh/Welander1994/nordboRobotics)
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
