@@ -7,20 +7,19 @@ import Slider from "../Slider.vue";
 
 const firebaseStore = useFirebaseData();
 
-const selectedIndex = ref(null);
-
-function selectButton(index) {
-  selectedIndex.value = index;
+function selectButton() {
+  window.location.href = "#Size-of-product";
 }
+
 
 </script>
 
 <template>
-  <section class="form__section form__section--light flex flex__gap--lg" id="Level-of-detail">
+  <section class="form__section form__section--dark flex flex__gap--lg" id="Level-of-detail">
 
 
   <div class="form__section-wrapper">
-    <section class="form__questions flex--column">
+    <section class="form__questions flex--column flex">
       <h2 class="form__title">What is the level of detail?</h2>
       <p class="form__text--semibold form__text">Choose level of detail</p>
       <ul class="flex--column">
@@ -28,11 +27,13 @@ function selectButton(index) {
    
 
       </ul>
-      <Button class="form__button--rounded flex__justify--center" name="Next" />
+      <Button class="form__button--bottom-left form__button--rounded flex__justify--center" name="Next" 
+      @click="selectButton"
+      />
     </section>
 
     <section class="form__information flex--column">
-      <Information :lists="firebaseStore.typeOfWork.description" />
+      <Information :lists="firebaseStore.LevelOfDetail.description" />
     </section>
   </div>
 

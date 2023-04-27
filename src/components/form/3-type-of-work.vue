@@ -10,6 +10,7 @@ const selectedIndex = ref(null);
 
 function selectButton(index) {
   selectedIndex.value = index;
+  window.location.href = "#Level-of-detail";
 }
 
 </script>

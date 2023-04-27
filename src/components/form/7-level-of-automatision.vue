@@ -11,6 +11,7 @@ const selectedIndex = ref(null);
 
 function selectButton(index) {
   selectedIndex.value = index;
+  window.location.href = "#Solution";
 }
 
 </script>

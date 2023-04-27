@@ -23,10 +23,10 @@ export const useFirebaseData = defineStore("firebase", () => {
             painting: stepsData.value[2].process[2],
             dispensing: stepsData.value[2].process[3],
         };
-        LevelOfDetail.value = stepsData.value[3].description;
-        sizeOfProduct.value = stepsData.value[4].description;
-        sizeOfBatch.value = stepsData.value[5].description;
-        LevelOfAutomation.value = stepsData.value[6].description;
+        LevelOfDetail.value = stepsData.value[3];
+        sizeOfProduct.value = stepsData.value[4];
+        sizeOfBatch.value = stepsData.value[5];
+        LevelOfAutomation.value = stepsData.value[6];
 
 
     }
