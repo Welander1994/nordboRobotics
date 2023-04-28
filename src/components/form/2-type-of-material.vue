@@ -29,8 +29,6 @@ function selectButton(index) {
             :selected-class="'form__button--selected'" :name="materials.name" :hover-img-url="materials.imgLight"
             :img-url="materials.imgDark" :index="index" :isSelected="selectedIndex === index"
             @mouseup="selectButton(index), firebaseStore.addToProduct('typeOfMaterial', materials.name)" />
-          />
-
         </ul>
       </section>
 
