@@ -57,8 +57,7 @@ export const useFirebaseData = defineStore("firebase", () => {
         sizeOfProduct.value = stepsData.value[4];
         sizeOfBatch.value = stepsData.value[5];
         LevelOfAutomation.value = stepsData.value[6];
-
-        console.log(LevelOfAutomation);
+        
         if (!JSON.parse(localStorage.getItem("product"))) {
             return;
         } else {

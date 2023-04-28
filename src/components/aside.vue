@@ -1,8 +1,12 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useAsideStore } from '@/stores/aside';
+import { useFirebaseData } from '@/stores/firebaseData';
+
+const firebaseStore = useFirebaseData();
 
 const store = useAsideStore();
+
 
 </script>
 
@@ -48,8 +52,10 @@ const store = useAsideStore();
             </svg>
             <a class="formnav__link" :class="{ selected: item.active }" @click="store.changeStep(item)"
               :href="'#' + item.id">{{
-                item.name }}
+                item.name}}  {{ firebaseStore.product.typeOfRobot }}
             </a>
+
+           
           </li>
         </ul>
       </nav>
@@ -131,6 +137,8 @@ const store = useAsideStore();
       color: $primary-color;
       user-select: none;
     }
+
+
   }
 
   .formnav__link {
