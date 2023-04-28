@@ -6,14 +6,15 @@ const props = defineProps({
   imgUrl: String,
   hoverImgUrl: String,
   selectedClass: String,
+  index: Number,
+  isSelected: Boolean,
 });
 
 const isHovering = ref(false);
-const isButtonSelected = ref(false);
 
 //Changing img url via the boolean value of 'isHovering' but also seeing if the button is selected
 const imgUrl = computed(() => {
-  if (isButtonSelected.value) {
+  if (props.isSelected) {
     return props.hoverImgUrl;
   }
   return isHovering.value ? props.hoverImgUrl || props.imgUrl : props.imgUrl;
@@ -23,16 +24,15 @@ const imgUrl = computed(() => {
 <template>
   <button
     class="form__button flex flex__align--center"
-    :class="{ [props.selectedClass]: isButtonSelected }"
+    :class="{ [props.selectedClass]: props.isSelected }"
     @mouseover="isHovering = true"
     @mouseleave="isHovering = false"
-    @click="isButtonSelected = !isButtonSelected"
+    @click="$emit('click')"
   >
     {{ props.name }}
     <img class="button__img" :src="imgUrl" />
   </button>
 </template>
-
 <style lang="scss" scoped>
 @import "../assets/main.scss";
 @import "../assets/flex.scss";
@@ -63,6 +63,11 @@ const imgUrl = computed(() => {
     &:hover {
       background-color: $contrast-light;
       color: $primary-color;
+    }
+
+    &--bottom-left {
+      margin-top: auto;
+      margin-left: auto;
     }
 
     &--light {

@@ -20,6 +20,7 @@ export const useAsideStore = defineStore("aside", () => {
             }
         }
         e.active = true;
+
         localStorage.setItem("aside", JSON.stringify(list.value));
         asideShow.value = !asideShow.value;
 
@@ -35,10 +36,10 @@ export const useAsideStore = defineStore("aside", () => {
     };
 
     const localStorageOnLoad = () => {
-
         if (!JSON.parse(localStorage.getItem("aside"))) {
             return;
         } else {
+
             list.value = JSON.parse(localStorage.getItem("aside"));
         }
 

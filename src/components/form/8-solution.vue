@@ -1,6 +1,11 @@
 <script setup>
 import Button from "../Button.vue";
 import Information from "../Information.vue";
+import { useFirebaseData } from '@/stores/firebaseData';
+
+const firebaseStore = useFirebaseData();
+
+console.log(firebaseStore.product)
 
 const lists = [
   {
@@ -47,7 +52,7 @@ const lists = [
     </section>
 
     <section class="form__information flex--column">
-      <Information :lists="lists" />
+      <Information :text="firebaseStore.product" />
     </section>
   </section>
 </template>

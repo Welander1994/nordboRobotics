@@ -22,7 +22,9 @@ const firebaseStore = useFirebaseData();
 
 const asideStore = useAsideStore();
 
-
+onMounted(() => {
+  asideStore.localStorageOnLoad();
+})
 
 window.onscroll = function () {
 
@@ -55,10 +57,7 @@ window.onscroll = function () {
 @import "@/assets/main.scss";
 @import "@/assets/flex.scss";
 
-.form__questions {
-  max-width: 430px;
-  width: 100%;
-}
+
 
 .container {
   max-width: $max-width;
@@ -69,9 +68,31 @@ window.onscroll = function () {
 }
 
 .form {
+  &__section-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+    }
+  }
+
+  &__questions {
+    max-width: 430px;
+    width: 100%;
+    
+  }
+
+  &__information {
+    max-width: 440px;
+    width: 100%;
+  }
+
+
   &__title {
     font-size: 2.4rem;
-    font-family: 'primary-font-bold';
+    font-family: "primary-font-bold";
     color: $primary-color;
     margin-bottom: 30px;
   }
@@ -85,9 +106,8 @@ window.onscroll = function () {
     margin-bottom: 20px;
 
     &--semibold {
-      font-family: 'primary-font-semibold';
+      font-family: "primary-font-semibold";
       color: $primary-color;
-
     }
   }
 
@@ -99,6 +119,7 @@ window.onscroll = function () {
     max-width: 891px;
     scroll-snap-align: start;
 
+ 
     @media (min-width: $breakpoint-lg) {
       margin-left: 135px;
       justify-content: space-between;
@@ -111,7 +132,6 @@ window.onscroll = function () {
     }
   }
 }
-
 
 aside {
   width: 245px;
