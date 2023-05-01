@@ -22,8 +22,9 @@ onMounted(() => {
       break;
     case 'sizeOfProduct':
       const slider2 = document.querySelector("#sizeOfProduct");
+      console.log(slider2.value);
       slider2.addEventListener("input", () => {
-        firebaseStore.product.sizeOfProduct = slider2.value
+        firebaseStore.product.SizeOfProduct = slider2.value
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
       });
 
@@ -31,7 +32,7 @@ onMounted(() => {
     case 'sizeOfBatch':
       const slider3 = document.querySelector("#sizeOfBatch");
       slider3.addEventListener("input", () => {
-        firebaseStore.product.sizeOfBatch = slider3.value
+        firebaseStore.product.SizeOfBatch = slider3.value
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
       });
       break;

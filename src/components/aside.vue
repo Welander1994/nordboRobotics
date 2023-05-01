@@ -50,13 +50,17 @@ const store = useAsideStore();
                 </clipPath>
               </defs>
             </svg>
-            <a class="formnav__link" :class="{ selected: item.active }" @click="store.changeStep(item)"
-              :href="'#' + item.id">{{
-                item.name}}  {{ firebaseStore.product.typeOfRobot }}
-            </a>
+            <div>
+              <a class="formnav__link" :class="{ selected: item.active }" @click="store.changeStep(item)"
+                :href="'#' + item.id">{{
+                  item.name }}
+              </a>
+              <span> {{ firebaseStore.product[item.result] }}</span>
+            </div>
 
-           
+
           </li>
+
         </ul>
       </nav>
     </header>
@@ -121,10 +125,13 @@ const store = useAsideStore();
     margin-top: 100px;
   }
 
+
+
   li {
     list-style: none;
     padding: 15px 0;
     position: relative;
+    font-size: 14px;
 
     svg {
       position: absolute;
@@ -136,6 +143,16 @@ const store = useAsideStore();
       padding: 0;
       color: $primary-color;
       user-select: none;
+    }
+
+    span {
+      color: $primary-color;
+      font-size: 12px;
+      opacity: 45%;
+      font-family: primary-font-medium;
+      display: flex;
+      width: 120px;
+      justify-content: start;
     }
 
 
@@ -151,6 +168,8 @@ const store = useAsideStore();
     &:hover {
       opacity: 100%;
     }
+
+
   }
 
   .selected {

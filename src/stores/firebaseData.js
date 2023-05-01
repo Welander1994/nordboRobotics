@@ -1,17 +1,18 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
+import { useAsideStore } from '@/stores/aside';
 
 export const useFirebaseData = defineStore("firebase", () => {
 
     const selectedIndex = ref(null);
 
     const product = ref({
-        typeOfRobot: '',
-        typeOfMaterial: '',
-        typeOfWork: '',
-        LevelOfDetail: 0,
-        sizeOfProduct: 0,
-        sizeOfBatch: 0,
+        TypeOfRobot: '',
+        TypeOfMaterial: '',
+        TypeOfProcess: '',
+        LevelOfDetail: '',
+        SizeOfProduct: '',
+        SizeOfBatch: '',
         LevelOfAutomation: ''
     })
 
@@ -27,13 +28,13 @@ export const useFirebaseData = defineStore("firebase", () => {
     const addToProduct = (type, e) => {
         switch (type) {
             case 'typeOfRobot':
-                product.value.typeOfRobot = e
+                product.value.TypeOfRobot = e
                 break;
             case 'typeOfMaterial':
-                product.value.typeOfMaterial = e
+                product.value.TypeOfMaterial = e
                 break;
             case 'typeOfWork':
-                product.value.typeOfWork = e
+                product.value.TypeOfProcess = e
                 break;
             case 'LevelOfAutomation':
                 product.value.LevelOfAutomation = e
@@ -57,7 +58,7 @@ export const useFirebaseData = defineStore("firebase", () => {
         sizeOfProduct.value = stepsData.value[4];
         sizeOfBatch.value = stepsData.value[5];
         LevelOfAutomation.value = stepsData.value[6];
-        
+
         if (!JSON.parse(localStorage.getItem("product"))) {
             return;
         } else {
