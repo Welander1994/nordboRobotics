@@ -15,7 +15,7 @@ onMounted(() => {
     case 'levelOfDetail':
       const slider = document.querySelector("#levelOfDetail");
       slider.addEventListener("input", () => {
-        firebaseStore.product.LevelOfDetail = slider.value
+        firebaseStore.product.LevelOfDetail = parseInt(slider.value)
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
       });
 
@@ -24,7 +24,7 @@ onMounted(() => {
       const slider2 = document.querySelector("#sizeOfProduct");
       console.log(slider2.value);
       slider2.addEventListener("input", () => {
-        firebaseStore.product.SizeOfProduct = slider2.value
+        firebaseStore.product.SizeOfProduct = parseInt(slider2.value)
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
       });
 
@@ -32,7 +32,7 @@ onMounted(() => {
     case 'sizeOfBatch':
       const slider3 = document.querySelector("#sizeOfBatch");
       slider3.addEventListener("input", () => {
-        firebaseStore.product.SizeOfBatch = slider3.value
+        firebaseStore.product.SizeOfBatch = parseInt(slider3.value)
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
       });
       break;
