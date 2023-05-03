@@ -23,7 +23,7 @@ function selectButton() {
         <h2 class="form__title">What is the level of detail?</h2>
         <p class="form__text--semibold form__text">Choose level of detail</p>
         <ul class="flex--column">
-          <Slider type="levelOfDetail" />
+          <Slider type="levelOfDetail" name1="Low" name2="High" />
 
 
         </ul>

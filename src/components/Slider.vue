@@ -1,46 +1,43 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-import { useFirebaseData } from '@/stores/firebaseData';
+import { useFirebaseData } from "@/stores/firebaseData";
 
 const firebaseStore = useFirebaseData();
 
 const props = defineProps({
   type: String,
-
+  name1: String,
+  name2: String,
 });
 
 onMounted(() => {
   switch (props.type) {
-    case 'levelOfDetail':
+    case "levelOfDetail":
       const slider = document.querySelector("#levelOfDetail");
       slider.addEventListener("input", () => {
-        firebaseStore.product.LevelOfDetail = slider.value
+        firebaseStore.product.LevelOfDetail = slider.value;
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
       });
 
       break;
-    case 'sizeOfProduct':
+    case "sizeOfProduct":
       const slider2 = document.querySelector("#sizeOfProduct");
       slider2.addEventListener("input", () => {
-        firebaseStore.product.sizeOfProduct = slider2.value
+        firebaseStore.product.sizeOfProduct = slider2.value;
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
       });
 
       break;
-    case 'sizeOfBatch':
+    case "sizeOfBatch":
       const slider3 = document.querySelector("#sizeOfBatch");
       slider3.addEventListener("input", () => {
-        firebaseStore.product.sizeOfBatch = slider3.value
+        firebaseStore.product.sizeOfBatch = slider3.value;
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
       });
       break;
   }
-
-
-
 });
-
 </script>
 
 <template>
@@ -48,10 +45,20 @@ onMounted(() => {
     <div class="slider__range-line-container">
       <div v-for="i in 4" :key="i" class="slider__range-line"></div>
     </div>
-    <input class="slider__range" type="range" :id="type" value="0" min="0" max="5" steps="5" />
-    <div class="slider__description flex flex__justify--between flex__align--end">
-      <p>Low</p>
-      <p>High</p>
+    <input
+      class="slider__range"
+      type="range"
+      :id="type"
+      value="0"
+      min="0"
+      max="5"
+      steps="5"
+    />
+    <div
+      class="slider__description flex flex__justify--between flex__align--end"
+    >
+      <p>{{ name1 }}</p>
+      <p>{{ name2 }}</p>
     </div>
   </div>
 </template>

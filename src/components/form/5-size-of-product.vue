@@ -25,7 +25,7 @@ function selectButton() {
         <h2 class="form__title">What is the size of the product?</h2>
         <p class="form__text--semibold form__text">Choose size of product</p>
         <ul class="flex--column">
-          <Slider type="sizeOfProduct" />
+          <Slider type="sizeOfProduct" name1="Smaller" name2="Larger" />
         </ul>
 
         <Button class="form__button--bottom-left form__button--rounded flex__justify--center" name="Next"
