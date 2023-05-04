@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import { useAsideStore } from '@/stores/aside';
+import { useAsideStore } from '@/stores/Aside';
 import { usefirebaseSteps } from '@/stores/firebaseSteps';
 import { ref, onMounted } from 'vue';
 
