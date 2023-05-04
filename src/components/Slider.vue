@@ -12,7 +12,7 @@ const props = defineProps({
 });
 
 onMounted(() => {
-  switch (props.type) {
+  switch (props.type ) {
     case "levelOfDetail":
       const slider = document.querySelector("#levelOfDetail");
       slider.addEventListener("input", () => {
