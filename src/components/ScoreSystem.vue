@@ -44,7 +44,7 @@ const calculateScore = (product, userSelections) => {
   score += (5 - Math.abs(product.sizeOfProduct - userSelections.SizeOfProduct));
   score += (5 - Math.abs(product.sizeOfBatch - userSelections.SizeOfBatch));
 
-  if (product.LevelOfAutomation === userSelections.LevelOfAutomation) {
+  if (product.levelOfAutomation === userSelections.LevelOfAutomation) {
     score += 1;
   }
 
@@ -72,8 +72,9 @@ const product2 = {
 };
 
 const updateScores = () => {
-  console.log(calculateScore(product1, userSelections));
-  console.log(calculateScore(product2, userSelections));
+  console.log(calculateScore(firebaseProduct.product[0], userSelections));
+  console.log(calculateScore(firebaseProduct.product[1], userSelections));
+  console.log(calculateScore(firebaseProduct.product[2], userSelections));
 };
 
 onMounted(async () => {
