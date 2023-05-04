@@ -1,12 +1,10 @@
 <script setup>
-import { useFirebaseData } from '@/stores/firebaseData';
+
 import { onMounted, ref } from 'vue';
 import { useFirebaseProduct } from '@/stores/products';
 
 const firebaseProduct = useFirebaseProduct();
-const firebaseStore = useFirebaseData();
 
-console.log(firebaseStore.product)
 
 
 const getProductFromLocalStorage = () => {
@@ -76,7 +74,7 @@ const updateScores = () => {
   <section class="form__section form__section--light flex flex__gap--lg" id="Solution">
     <section class="form__questions flex--column">
       <template v-if="highestScoreProduct">
-      <p>{{ highestScoreProduct.name }}</p>
+        <p>{{ highestScoreProduct.name }}</p>
 
         <ul>
           <li v-for="(description, index) in highestScoreProduct.description" :key="index">
