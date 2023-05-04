@@ -1,9 +1,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-import { useFirebaseData } from "@/stores/firebaseData";
+import { usefirebaseSteps } from "@/stores/firebaseSteps";
 
-const firebaseStore = useFirebaseData();
+const firebaseStore = usefirebaseSteps();
 
 const props = defineProps({
   type: String,
@@ -12,7 +12,7 @@ const props = defineProps({
 });
 
 onMounted(() => {
-  switch (props.type ) {
+  switch (props.type) {
     case "levelOfDetail":
       const slider = document.querySelector("#levelOfDetail");
       slider.addEventListener("input", () => {
