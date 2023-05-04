@@ -68,7 +68,8 @@ const updateScores = () => {
 
   
   console.log(`Produktet med højest score: ${JSON.stringify(highestScoreProduct.value.name)}`);
-  console.log(highestScoreProduct.name)
+  console.log(highestScoreProduct.value.name)
+  console.log("test")
 
 };
 
