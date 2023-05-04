@@ -145,4 +145,10 @@ onMounted(() => {
     }
   }
 }
+
+@media (max-width: $breakpoint-lg) {
+  .slider {
+    transform: scale(90%);
+  }
+}
 </style>

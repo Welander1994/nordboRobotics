@@ -65,7 +65,10 @@ export const useAsideStore = defineStore("aside", () => {
                 rect.right <= viewportWidth;
 
             if (isInViewport) {
-                changeStep(list.value[i]);
+                if (!window.matchMedia("(max-width: 1136px)").matches) {
+                    changeStep(list.value[i]);
+                }
+
             }
         }
     }

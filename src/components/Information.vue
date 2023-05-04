@@ -78,4 +78,11 @@ const props = defineProps({
     }
   }
 }
+
+@media (max-width: $breakpoint-lg) {
+  .form__content {
+    max-width: 395px;
+    height: auto;
+  }
+}
 </style>
