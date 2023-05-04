@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header > renders correctly 1`] = `
+"<header data-v-c970699f=\\"\\" class=\\"mainheader flex flex__justify--between flex__align--center\\">
+  <!-- Logo container -->
+  <div class=\\"mainheader__logo-container\\" data-v-c970699f=\\"\\">
+    <h1 class=\\"mainheader__logo\\" data-v-c970699f=\\"\\"><img src=\\"/src/assets/img/logo.jpg\\" class=\\"mainheader__img\\" data-v-c970699f=\\"\\"></h1><!-- Language selector container -->
+    <div class=\\"mainheader__lang-container\\" data-v-c970699f=\\"\\"><a href=\\"#\\" class=\\"mainheader__lang\\" data-v-c970699f=\\"\\">DK</a><a href=\\"#\\" class=\\"mainheader__lang--selected\\" data-v-c970699f=\\"\\">EN</a></div>
+  </div><!-- Desktop navigation -->
+  <nav class=\\"mainheader__nav\\" data-v-c970699f=\\"\\">
+    <ul class=\\"flex\\" data-v-c970699f=\\"\\">
+      <li data-v-c970699f=\\"\\"><a href=\\"#\\" class=\\"mainheader__link\\" data-v-c970699f=\\"\\">Solutions</a></li>
+      <li data-v-c970699f=\\"\\"><a href=\\"#\\" class=\\"mainheader__link\\" data-v-c970699f=\\"\\">Partners</a></li>
+      <li data-v-c970699f=\\"\\"><a href=\\"#\\" class=\\"mainheader__link\\" data-v-c970699f=\\"\\">Resources</a></li>
+      <li data-v-c970699f=\\"\\"><a href=\\"#\\" class=\\"mainheader__link\\" data-v-c970699f=\\"\\">About Us</a></li>
+      <li data-v-c970699f=\\"\\"><a href=\\"#\\" class=\\"mainheader__link--secondary\\" data-v-c970699f=\\"\\">Partner Portal</a></li>
+      <li data-v-c970699f=\\"\\"><a href=\\"#\\" class=\\"mainheader__link--primary\\" data-v-c970699f=\\"\\">Get in Touch</a></li>
+    </ul>
+  </nav><!-- Mobile menu hamburger -->
+  <div data-v-c970699f=\\"\\" class=\\"mainheader__hamburger\\">
+    <div data-v-c970699f=\\"\\" class=\\"menu-icon\\"><span data-v-c970699f=\\"\\" class=\\"menu-icon__line menu-icon__line-left\\"></span><span data-v-c970699f=\\"\\" class=\\"menu-icon__line menu-icon__line-center\\"></span><span data-v-c970699f=\\"\\" class=\\"menu-icon__line menu-icon__line-right\\"></span></div>
+  </div><!-- Mobile menu -->
+  <nav data-v-c970699f=\\"\\" class=\\"mainheader__mobile flex flex__justify--center flex__align--center\\">
+    <ul class=\\"flex flex--column\\" data-v-c970699f=\\"\\">
+      <li data-v-c970699f=\\"\\"><a href=\\"#\\" class=\\"mainheader__link--mobile flex flex__justify--center\\" data-v-c970699f=\\"\\">Solutions</a></li>
+      <li data-v-c970699f=\\"\\"><a href=\\"#\\" class=\\"mainheader__link--mobile flex flex__justify--center\\" data-v-c970699f=\\"\\">Partners</a></li>
+      <li data-v-c970699f=\\"\\"><a href=\\"#\\" class=\\"mainheader__link--mobile flex flex__justify--center\\" data-v-c970699f=\\"\\">Resources</a></li>
+      <li data-v-c970699f=\\"\\"><a href=\\"#\\" class=\\"mainheader__link--mobile flex flex__justify--center\\" data-v-c970699f=\\"\\">About Us</a></li>
+      <li data-v-c970699f=\\"\\"><a href=\\"#\\" class=\\"mainheader__link--secondary flex flex__justify--center\\" data-v-c970699f=\\"\\">Partner Portal</a></li>
+      <li data-v-c970699f=\\"\\"><a href=\\"#\\" class=\\"mainheader__link--primary flex flex__justify--center\\" data-v-c970699f=\\"\\">Get in Touch</a></li>
+    </ul>
+  </nav>
+</header>"
+`;

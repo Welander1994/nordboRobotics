@@ -1,47 +1,62 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
-import { useAsideStore } from '@/stores/aside';
-import { useFirebaseData } from '@/stores/firebaseData';
+import { useAsideStore } from "@/stores/aside";
+import { useFirebaseData } from "@/stores/firebaseData";
 
 const firebaseStore = useFirebaseData();
 
 const store = useAsideStore();
+
 
 </script>
 
 <template>
   <div class="modal-overlay" :class="{ active: store.modalShow }"></div>
 
-
-
   <aside class="formnav">
     <div class="btn__burger">
       <p @click="store.btn_burger()">
-        <svg :class="{ active: !store.asideShow }" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960"
-          width="20">
-          <path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
+        <svg
+          :class="{ active: !store.asideShow }"
+          xmlns="http://www.w3.org/2000/svg"
+          height="20"
+          viewBox="0 96 960 960"
+          width="20"
+        >
+          <path
+            d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"
+          />
         </svg>
 
-        <svg :class="{ active: store.asideShow }" width="20" height="20" viewBox="0 0 25 25" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
+        <svg
+          :class="{ active: store.asideShow }"
+          width="20"
+          height="20"
+          viewBox="0 0 25 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path d="M19 19L5 5ZM19 5L5 19Z" fill="#D9D9D9" />
-          <path d="M19 19L5 5M19 5L5 19" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+          <path
+            d="M19 19L5 5M19 5L5 19"
+            stroke="black"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
-
-
-
       </p>
     </div>
     <header :class="{ btn__burger__show: store.asideShow }">
       <nav>
         <ul class="flex flex--column flex__justify--between flex">
-          <li class="flex flex__alige--center" v-for="item in               store.list              ">
+          <li class="flex flex__alige--center" v-for="item in store.list">
             <svg v-if="item.active" width="11" height="17" viewBox="0 0 11 17" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_1_10468)">
                 <path
                   d="M0 0.522186V2.06974C0 2.48088 0.183333 2.87354 0.497619 3.123L6.77897 8.09827C7.03214 8.30153 7.03214 8.70806 6.77897 8.9067L0.497619 13.8773C0.183333 14.1268 0 14.5148 0 14.9306V16.4782C0 16.9078 0.462698 17.148 0.785714 16.8939L10.7643 8.99909C11.0786 8.74963 11.0786 8.25072 10.7643 8.00588L0.785714 0.106425C0.462698 -0.15227 0 0.0925666 0 0.522186Z"
-                  fill="#363973" />
+                  fill="#363973"
+                />
               </g>
               <defs>
                 <clipPath id="clip0_1_10468">
@@ -50,16 +65,13 @@ const store = useAsideStore();
               </defs>
             </svg>
             <div>
-              <a class="formnav__link" :class="{ selected: item.active }"
-                @click="store.changeStep(item), store.btn_burger(); " :href="'#' + item.id">{{
-                item.name }}
+              <a class="formnav__link" :class="{ selected: item.active }" @click="store.changeStep(item)"
+                :href="'#' + item.id">{{
+                  item.name }}
               </a>
               <span> {{ firebaseStore.product[item.result] }}</span>
             </div>
-
-
           </li>
-
         </ul>
       </nav>
     </header>
@@ -69,7 +81,6 @@ const store = useAsideStore();
 <style lang="scss" scoped>
 @import "../assets/main.scss";
 @import "../assets/flex.scss";
-
 
 .modal-overlay {
   position: fixed;
@@ -92,7 +103,6 @@ const store = useAsideStore();
     backdrop-filter: blur(2px);
   }
 }
-
 
 .btn__burger {
   display: none;
@@ -117,14 +127,12 @@ const store = useAsideStore();
   margin-top: 167px;
   width: 245px;
   height: calc(100vh - 100px);
-  transition: .5s all;
+  transition: 0.5s all;
   z-index: 9;
 
   @media (max-width: $breakpoint-lg) {
     margin-top: 100px;
   }
-
-
 
   li {
     list-style: none;
@@ -153,8 +161,6 @@ const store = useAsideStore();
       width: 120px;
       justify-content: start;
     }
-
-
   }
 
   .formnav__link {
@@ -167,8 +173,6 @@ const store = useAsideStore();
     &:hover {
       opacity: 100%;
     }
-
-
   }
 
   .selected {
@@ -196,7 +200,6 @@ const store = useAsideStore();
     margin-top: 100px;
     height: 36px;
 
-
     li {
       margin-left: 15%;
     }
@@ -205,8 +208,6 @@ const store = useAsideStore();
   header {
     transform: translateX(-100%);
     transition: 0.5s;
-
-
 
     nav {
       background-color: $contrast-light;
