@@ -5,6 +5,8 @@ import { usefirebaseSteps } from "@/stores/firebaseSteps";
 
 const firebaseStore = usefirebaseSteps();
 
+const sliderRef = ref(null);
+
 const props = defineProps({
   type: String,
   name1: String,
@@ -12,31 +14,25 @@ const props = defineProps({
 });
 
 onMounted(() => {
-  switch (props.type) {
-    case "levelOfDetail":
-      const slider = document.querySelector("#levelOfDetail");
-      slider.addEventListener("input", () => {
+  const slider = sliderRef.value;
+  slider.addEventListener("input", () => {
+    switch (props.type) {
+      case "levelOfDetail":
         firebaseStore.product.LevelOfDetail = parseInt(slider.value);
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
-      });
-      break;
+        break;
 
-    case "sizeOfProduct":
-      const slider2 = document.querySelector("#sizeOfProduct");
-      slider2.addEventListener("input", () => {
-        firebaseStore.product.SizeOfProduct = parseInt(slider2.value);
+      case "sizeOfProduct":
+        firebaseStore.product.SizeOfProduct = parseInt(slider.value);
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
-      });
-      break;
+        break;
 
-    case "sizeOfBatch":
-      const slider3 = document.querySelector("#sizeOfBatch");
-      slider3.addEventListener("input", () => {
-        firebaseStore.product.SizeOfBatch = parseInt(slider3.value);
+      case "sizeOfBatch":
+        firebaseStore.product.SizeOfBatch = parseInt(slider.value);
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
-      });
-      break;
-  }
+        break;
+    }
+  });
 });
 
 </script>
@@ -46,7 +42,7 @@ onMounted(() => {
     <div class="slider__range-line-container">
       <div v-for="i in 4" :key="i" class="slider__range-line"></div>
     </div>
-    <input class="slider__range" type="range" :id="type" value="0" min="0" max="5" steps="5" />
+    <input class="slider__range" type="range" :id="type" value="0" min="0" max="5" steps="5" ref="sliderRef" />
     <div class="slider__description flex flex__justify--between flex__align--end">
       <p>{{ name1 }}</p>
       <p>{{ name2 }}</p>
