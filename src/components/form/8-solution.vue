@@ -5,7 +5,6 @@ import { useFirebaseData } from '@/stores/firebaseData';
 
 const firebaseStore = useFirebaseData();
 
-console.log(firebaseStore.product)
 
 const lists = [
   {

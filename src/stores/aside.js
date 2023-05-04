@@ -26,8 +26,12 @@ export const useAsideStore = defineStore("aside", () => {
     };
 
     const btn_burger = () => {
-        asideShow.value = !asideShow.value;
-        modalShow.value = !modalShow.value;
+        if (window.innerWidth < 1155) {
+            asideShow.value = !asideShow.value;
+            modalShow.value = !modalShow.value;
+        }
+
+
     };
 
     const localStorageOnLoad = () => {
