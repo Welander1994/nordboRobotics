@@ -2,16 +2,20 @@
 import { RouterLink, RouterView } from "vue-router";
 import { useAsideStore } from '@/stores/aside';
 import { useFirebaseData } from '@/stores/firebaseData';
+import { useFirebaseProduct } from '@/stores/products';
 import { ref, onMounted } from 'vue';
 
 const asideStore = useAsideStore();
 const firebaseStore = useFirebaseData();
+const firebaseProduct = useFirebaseProduct();
+
 
 const products = ref([]);
 
 onMounted(async () => {
 
   firebaseStore.foo();
+  firebaseProduct.fetchProduct();
 
 
   const response = await fetch('https://nordbo-robotics-default-rtdb.europe-west1.firebasedatabase.app/steps.json')
