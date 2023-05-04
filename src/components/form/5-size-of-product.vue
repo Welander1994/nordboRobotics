@@ -2,10 +2,10 @@
 import { ref, onMounted } from "vue";
 import Button from "../Button.vue";
 import Information from "../Information.vue";
-import { useFirebaseData } from '@/stores/firebaseData';
 import Slider from "../Slider.vue";
+import { usefirebaseSteps } from "@/stores/firebaseSteps";
 
-const firebaseStore = useFirebaseData();
+const firebaseStore = usefirebaseSteps();
 
 
 

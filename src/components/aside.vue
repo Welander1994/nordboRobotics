@@ -1,12 +1,11 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import { useAsideStore } from '@/stores/aside';
-import { useFirebaseData } from '@/stores/firebaseData';
+import { usefirebaseSteps } from '@/stores/firebaseSteps';
 
-const firebaseStore = useFirebaseData();
+const firebaseStore = usefirebaseSteps();
 
 const store = useAsideStore();
-
 
 </script>
 
@@ -36,7 +35,7 @@ const store = useAsideStore();
     <header :class="{ btn__burger__show: store.asideShow }">
       <nav>
         <ul class="flex flex--column flex__justify--between flex">
-          <li class="flex flex__alige--center" v-for="item in store.list">
+          <li class="flex flex__alige--center" v-for="item in                 store.list                ">
             <svg v-if="item.active" width="11" height="17" viewBox="0 0 11 17" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_1_10468)">
@@ -51,9 +50,9 @@ const store = useAsideStore();
               </defs>
             </svg>
             <div>
-              <a class="formnav__link" :class="{ selected: item.active }" @click="store.changeStep(item)"
-                :href="'#' + item.id">{{
-                  item.name }}
+              <a class="formnav__link" :class="{ selected: item.active }"
+                @click="store.changeStep(item), store.btn_burger(); " :href="'#' + item.id">{{
+                item.name }}
               </a>
               <span> {{ firebaseStore.product[item.result] }}</span>
             </div>

@@ -2,7 +2,7 @@ import { ref } from "vue";
 import { defineStore } from "pinia";
 import { useAsideStore } from '@/stores/aside';
 
-export const useFirebaseData = defineStore("firebase", () => {
+export const usefirebaseSteps = defineStore("firebase", () => {
 
     const selectedIndex = ref(null);
 
@@ -43,7 +43,7 @@ export const useFirebaseData = defineStore("firebase", () => {
         localStorage.setItem("product", JSON.stringify(product.value));
     }
 
-    const foo = async () => {
+    const fetchStepsData = async () => {
         const response = await fetch('https://nordbo-robotics-default-rtdb.europe-west1.firebasedatabase.app/steps.json')
         stepsData.value = await response.json();
         typeOfRobot.value = stepsData.value[0];
@@ -68,5 +68,5 @@ export const useFirebaseData = defineStore("firebase", () => {
 
 
 
-    return { stepsData, typeOfRobot, typeOfMaterial, typeOfWork, LevelOfDetail, sizeOfProduct, sizeOfBatch, LevelOfAutomation, product, selectedIndex, foo, addToProduct };
+    return { stepsData, typeOfRobot, typeOfMaterial, typeOfWork, LevelOfDetail, sizeOfProduct, sizeOfBatch, LevelOfAutomation, product, selectedIndex, fetchStepsData, addToProduct };
 });

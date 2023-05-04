@@ -1,11 +1,10 @@
 <script setup>
 import Button from "../Button.vue";
 import Information from "../Information.vue";
-import { useFirebaseData } from '@/stores/firebaseData';
+import { usefirebaseSteps } from "@/stores/firebaseSteps";
 
-const firebaseStore = useFirebaseData();
+const firebaseStore = usefirebaseSteps();
 
-console.log(firebaseStore.product)
 
 const lists = [
   {
