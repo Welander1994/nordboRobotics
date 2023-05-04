@@ -1,5 +1,29 @@
+
+<template>
+  <li v-for="(product, index) in firebaseProduct.product" :key="index">
+
+    <p>{{ product.typeOfMaterial }}</p>
+    <p>{{ product.sizeOfProduct }}</p>
+    <p>{{ product.levelOfAutomation }}</p>
+    <p>{{ product.sizeOfBatch }}</p>
+    <p>{{ product.levelOfDetail }}</p>
+    <p>{{ product.typeOfMaterial }}</p>
+    <p>{{ product.typeOfProcess }}</p>
+  </li>
+</template>
+
+
 <script setup>
 import { onMounted } from 'vue';
+
+import { useFirebaseProduct } from '@/stores/products';
+const firebaseProduct = useFirebaseProduct();
+
+
+
+console.log(firebaseProduct.product); // log the first element of the product array
+
+
 
 const getProductFromLocalStorage = () => {
   try {
@@ -12,31 +36,31 @@ const getProductFromLocalStorage = () => {
 };
 
 const userSelections = getProductFromLocalStorage() || {
-  typeOfRobot: 'Nachi',
-  material: 'Wood',
-  process: 'Sanding',
-  levelOfDetail: 6,
-  size: 6,
-  batch: 6,
-  automatisation: '50%'
+  LevelOfAutomation: '',
+  LevelOfDetail: 0,
+  SizeOfBatch: 0,
+  SizeOfProduct: 0,
+  TypeOfMaterial: '',
+  TypeOfProcess: '',
+  TypeOfRobot: ''
 };
 
 const calculateScore = (product, userSelections) => {
   let score = 0;
-  if (product.typeOfRobot === userSelections.typeOfRobot) {
+  if (product.TypeOfRobot === userSelections.TypeOfRobot) {
     score += 1;
   }
-  if (product.material === userSelections.material) {
+  if (product.TypeOfMaterial === userSelections.TypeOfMaterial) {
     score += 1;
   }
-  if (product.process === userSelections.process) {
+  if (product.TypeOfProcess === userSelections.TypeOfProcess) {
     score += 1;
   }
-  score += (5 - Math.abs(product.levelOfDetail - userSelections.levelOfDetail));
-  score += (5 - Math.abs(product.size - userSelections.size));
-  score += (5 - Math.abs(product.batch - userSelections.batch));
+  score += (5 - Math.abs(product.LevelOfDetail - userSelections.LevelOfDetail));
+  score += (5 - Math.abs(product.SizeOfProduct - userSelections.SizeOfProduct));
+  score += (5 - Math.abs(product.SizeOfBatch - userSelections.SizeOfBatch));
 
-  if (product.automatisation === userSelections.automatisation) {
+  if (product.LevelOfAutomation === userSelections.LevelOfAutomation) {
     score += 1;
   }
 
@@ -44,22 +68,22 @@ const calculateScore = (product, userSelections) => {
 };
 
 const product1 = {
-  typeOfRobot: 'Nachi',
-  material: 'Wood',
-  process: 'Sanding',
-  levelOfDetail: 2,
-  size: 6,
-  batch: 6,
-  automatisation: '50%'
+  TypeOfRobot: 'Nachi',
+  TypeOfMaterial: 'Wood',
+  TypeOfProcess: 'Sanding',
+  LevelOfDetail: 2,
+  SizeOfProduct: 3,
+  SizeOfBatch: 1,
+  LevelOfAutomation: '50%'
 };
 const product2 = {
-  typeOfRobot: 'Universal Robots',
-  material: 'Metal',
-  process: 'Painting',
-  levelOfDetail: 1,
-  size: 5,
-  batch: 4,
-  automatisation: '25%'
+  TypeOfRobot: 'Universal Robots',
+  TypeOfMaterial: 'Metal',
+  TypeOfProcess: 'Painting',
+  LevelOfDetail: 1,
+  SizeOfProduct: 5,
+  SizeOfBatch: 4,
+  LevelOfAutomation: '25%'
 };
 
 const updateScores = () => {
@@ -70,4 +94,7 @@ const updateScores = () => {
 onMounted(() => {
   updateScores();
 });
+
+
+
 </script>
