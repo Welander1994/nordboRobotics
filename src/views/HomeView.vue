@@ -73,6 +73,7 @@ window.onscroll = function () {
     justify-content: space-between;
     width: 100%;
     height: 100%;
+
     @media (max-width: $breakpoint-md) {
       flex-direction: column;
     }
@@ -81,7 +82,7 @@ window.onscroll = function () {
   &__questions {
     max-width: 430px;
     width: 100%;
-    
+
   }
 
   &__information {
@@ -119,7 +120,7 @@ window.onscroll = function () {
     max-width: 891px;
     scroll-snap-align: start;
 
- 
+
     @media (min-width: $breakpoint-lg) {
       margin-left: 135px;
       justify-content: space-between;
@@ -187,6 +188,7 @@ aside {
   .form__section {
     margin-top: -145px;
     padding-top: 145px;
+    max-width: 95vw;
   }
 }
 

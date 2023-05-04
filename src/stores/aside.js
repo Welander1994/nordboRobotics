@@ -22,12 +22,7 @@ export const useAsideStore = defineStore("aside", () => {
         e.active = true;
 
         localStorage.setItem("aside", JSON.stringify(list.value));
-        asideShow.value = !asideShow.value;
 
-        // Only toggle modalShow on mobile devices
-        if (window.matchMedia("(max-width: 1136px)").matches) {
-            modalShow.value = !modalShow.value;
-        }
     };
 
     const btn_burger = () => {
