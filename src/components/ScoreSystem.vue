@@ -1,14 +1,8 @@
-
 <template>
   <li v-for="(product, index) in firebaseProduct.product" :key="index">
-
-    <p>{{ product.typeOfMaterial }}</p>
-    <p>{{ product.sizeOfProduct }}</p>
-    <p>{{ product.levelOfAutomation }}</p>
-    <p>{{ product.sizeOfBatch }}</p>
-    <p>{{ product.levelOfDetail }}</p>
-    <p>{{ product.typeOfMaterial }}</p>
-    <p>{{ product.typeOfProcess }}</p>
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <p>{{ product.score }}</p>
   </li>
 </template>
 
@@ -17,22 +11,12 @@
 import { onMounted } from 'vue';
 
 import { useFirebaseProduct } from '@/stores/products';
+
 const firebaseProduct = useFirebaseProduct();
 
-
-
-console.log(firebaseProduct.product); // log the first element of the product array
-
-
-
 const getProductFromLocalStorage = () => {
-  try {
-    const product = localStorage.getItem('product');
-    return product ? JSON.parse(product) : null;
-  } catch (error) {
-    console.error('Error parsing data from localStorage:', error);
-    return null;
-  }
+  const product = localStorage.getItem('product');
+  return product ? JSON.parse(product) : null;
 };
 
 const userSelections = getProductFromLocalStorage() || {
@@ -47,18 +31,18 @@ const userSelections = getProductFromLocalStorage() || {
 
 const calculateScore = (product, userSelections) => {
   let score = 0;
-  if (product.TypeOfRobot === userSelections.TypeOfRobot) {
+  if (product.typeOfRobot === userSelections.TypeOfRobot) {
     score += 1;
   }
-  if (product.TypeOfMaterial === userSelections.TypeOfMaterial) {
+  if (product.typeOfMaterial === userSelections.TypeOfMaterial) {
     score += 1;
   }
-  if (product.TypeOfProcess === userSelections.TypeOfProcess) {
+  if (product.typeOfProcess === userSelections.TypeOfProcess) {
     score += 1;
   }
-  score += (5 - Math.abs(product.LevelOfDetail - userSelections.LevelOfDetail));
-  score += (5 - Math.abs(product.SizeOfProduct - userSelections.SizeOfProduct));
-  score += (5 - Math.abs(product.SizeOfBatch - userSelections.SizeOfBatch));
+  score += (5 - Math.abs(product.levelOfDetail - userSelections.LevelOfDetail));
+  score += (5 - Math.abs(product.sizeOfProduct - userSelections.SizeOfProduct));
+  score += (5 - Math.abs(product.sizeOfBatch - userSelections.SizeOfBatch));
 
   if (product.LevelOfAutomation === userSelections.LevelOfAutomation) {
     score += 1;
@@ -66,6 +50,7 @@ const calculateScore = (product, userSelections) => {
 
   return score;
 };
+
 
 const product1 = {
   TypeOfRobot: 'Nachi',
@@ -91,10 +76,9 @@ const updateScores = () => {
   console.log(calculateScore(product2, userSelections));
 };
 
-onMounted(() => {
+onMounted(async () => {
+  await firebaseProduct.fetchProduct();
   updateScores();
 });
-
-
 
 </script>
