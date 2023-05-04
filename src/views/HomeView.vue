@@ -186,7 +186,7 @@ aside {
   }
 
   .form__section {
-    margin-top: -145px;
+    margin-top: -100px;
     padding-top: 145px;
     max-width: 95vw;
   }
