@@ -55,24 +55,17 @@ onMounted(async () => {
 const highestScoreProduct = ref(null);
 
 const updateScores = () => {
-
   let highScore = 0;
-  firebaseProduct.product.forEach(product => {
+  firebaseProduct.product.forEach((product) => {
     const score = calculateScore(product, userSelections);
     if (score > highScore) {
       highScore = score;
       highestScoreProduct.value = product;
     }
-  })
+  });
 
-
-  
-  console.log(`Produktet med højest score: ${JSON.stringify(highestScoreProduct.value.name)}`);
-  console.log(highestScoreProduct.value.name)
-  console.log("test")
-
+  console.log(highestScoreProduct.value);
 };
-
 
 
 
@@ -82,11 +75,23 @@ const updateScores = () => {
 <template>
   <section class="form__section form__section--light flex flex__gap--lg" id="Solution">
     <section class="form__questions flex--column">
-   
+      <template v-if="highestScoreProduct">
+      <p>{{ highestScoreProduct.name }}</p>
+
+        <ul>
+          <li v-for="(description, index) in highestScoreProduct.description" :key="index">
+            {{ description }}
+          </li>
+        </ul>
+
+
+      </template>
     </section>
 
     <section class="form__information flex--column">
-  
+      <template v-if="highestScoreProduct">
+        <img :src="highestScoreProduct.img" alt="">
+      </template>
     </section>
   </section>
 </template>
