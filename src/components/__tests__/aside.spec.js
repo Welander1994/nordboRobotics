@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { expect, describe, it } from "vitest";
 import { createPinia } from "pinia";
-import Aside from "@/components/Aside.vue";
+import Aside from "../Aside.vue";
 
 describe("Aside component", () => {
   let mockPinia;
