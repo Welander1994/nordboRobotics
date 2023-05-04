@@ -1,13 +1,13 @@
-import { describe, test, expect } from "vitest";
+import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import Button from "../Button.vue";
 
 describe("Button component", () => {
-  test("Component exists", async () => {
+  it("Component exists", async () => {
     expect(Button).toBeTruthy();
   });
 
-  test("Renders button name", async () => {
+  it("Renders button name", async () => {
     const wrapper = mount(Button, {
       props: {
         name: "Button name",
@@ -16,7 +16,7 @@ describe("Button component", () => {
     expect(wrapper.text()).toContain("Button name");
   });
 
-  test("Changes image url on hover", async () => {
+  it("Changes image url on hover", async () => {
     const wrapper = mount(Button, {
       props: {
         name: "Button name",
@@ -36,20 +36,28 @@ describe("Button component", () => {
     );
   });
 
-  test("add class on click", async () => {
+  it("Returns imgUrl when isHovering is false", async () => {
     const wrapper = mount(Button, {
       props: {
         name: "Button name",
-        selectedClass: "new-class",
+        imgUrl: "/original-image-url.png",
+        hoverImgUrl: "/hover-image-url.png",
       },
     });
 
-/*     expect(wrapper.classes()).not.toContain("new-class");
+    expect(wrapper.vm.imgUrl).toBe("/original-image-url.png");
+  });
 
-    await wrapper.trigger("click");
-    expect(wrapper.classes()).toContain("new-class");
+  it("Returns hoverImgUrl when isSelected is true", async () => {
+    const wrapper = mount(Button, {
+      props: {
+        name: "Button name",
+        imgUrl: "/original-image-url.png",
+        hoverImgUrl: "/hover-image-url.png",
+        isSelected: true,
+      },
+    });
 
-    await wrapper.trigger("click");
-    expect(wrapper.classes()).not.toContain("new-class"); */
+    expect(wrapper.vm.imgUrl).toBe("/hover-image-url.png");
   });
 });
