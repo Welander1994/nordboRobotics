@@ -1,8 +1,12 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useAsideStore } from '@/stores/aside';
+import { useFirebaseData } from '@/stores/firebaseData';
+
+const firebaseStore = useFirebaseData();
 
 const store = useAsideStore();
+
 
 </script>
 
@@ -46,11 +50,17 @@ const store = useAsideStore();
                 </clipPath>
               </defs>
             </svg>
-            <a class="formnav__link" :class="{ selected: item.active }" @click="store.changeStep(item)"
-              :href="'#' + item.id">{{
-                item.name }}
-            </a>
+            <div>
+              <a class="formnav__link" :class="{ selected: item.active }" @click="store.changeStep(item)"
+                :href="'#' + item.id">{{
+                  item.name }}
+              </a>
+              <span> {{ firebaseStore.product[item.result] }}</span>
+            </div>
+
+
           </li>
+
         </ul>
       </nav>
     </header>
@@ -115,10 +125,13 @@ const store = useAsideStore();
     margin-top: 100px;
   }
 
+
+
   li {
     list-style: none;
     padding: 15px 0;
     position: relative;
+    font-size: 14px;
 
     svg {
       position: absolute;
@@ -131,6 +144,18 @@ const store = useAsideStore();
       color: $primary-color;
       user-select: none;
     }
+
+    span {
+      color: $primary-color;
+      font-size: 12px;
+      opacity: 45%;
+      font-family: primary-font-medium;
+      display: flex;
+      width: 120px;
+      justify-content: start;
+    }
+
+
   }
 
   .formnav__link {
@@ -143,6 +168,8 @@ const store = useAsideStore();
     &:hover {
       opacity: 100%;
     }
+
+
   }
 
   .selected {

@@ -16,26 +16,27 @@ onMounted(() => {
     case "levelOfDetail":
       const slider = document.querySelector("#levelOfDetail");
       slider.addEventListener("input", () => {
-        firebaseStore.product.LevelOfDetail = slider.value;
-        localStorage.setItem("product", JSON.stringify(firebaseStore.product));
-      });
+        firebaseStore.product.LevelOfDetail = parseInt(slider.value;)
+      localStorage.setItem("product", JSON.stringify(firebaseStore.product));
+  });
 
-      break;
+break;
     case "sizeOfProduct":
-      const slider2 = document.querySelector("#sizeOfProduct");
-      slider2.addEventListener("input", () => {
-        firebaseStore.product.sizeOfProduct = slider2.value;
-        localStorage.setItem("product", JSON.stringify(firebaseStore.product));
-      });
+const slider2 = document.querySelector("#sizeOfProduct");
+console.log(slider2.value);
+slider2.addEventListener("input", () => {
+  firebaseStore.product.SizeOfProduct = parseInt(slider2.value)
+  localStorage.setItem("product", JSON.stringify(firebaseStore.product));
+});
 
-      break;
+break;
     case "sizeOfBatch":
-      const slider3 = document.querySelector("#sizeOfBatch");
-      slider3.addEventListener("input", () => {
-        firebaseStore.product.sizeOfBatch = slider3.value;
-        localStorage.setItem("product", JSON.stringify(firebaseStore.product));
-      });
-      break;
+const slider3 = document.querySelector("#sizeOfBatch");
+slider3.addEventListener("input", () => {
+  firebaseStore.product.SizeOfBatch = parseInt(slider3.value)
+  localStorage.setItem("product", JSON.stringify(firebaseStore.product));
+});
+break;
   }
 });
 </script>
@@ -45,18 +46,8 @@ onMounted(() => {
     <div class="slider__range-line-container">
       <div v-for="i in 4" :key="i" class="slider__range-line"></div>
     </div>
-    <input
-      class="slider__range"
-      type="range"
-      :id="type"
-      value="0"
-      min="0"
-      max="5"
-      steps="5"
-    />
-    <div
-      class="slider__description flex flex__justify--between flex__align--end"
-    >
+    <input class="slider__range" type="range" :id="type" value="0" min="0" max="5" steps="5" />
+    <div class="slider__description flex flex__justify--between flex__align--end">
       <p>{{ name1 }}</p>
       <p>{{ name2 }}</p>
     </div>
