@@ -2,7 +2,6 @@ import { expect, describe, it } from "vitest";
 import { mount } from "@vue/test-utils";
 import Information from "src/components/Information.vue";
 
-// This is a test suite
 describe("Information.vue", () => {
   it("Renders the component correctly", () => {
     const lists = [

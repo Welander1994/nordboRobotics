@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>237/237</span>
+                <span class='fraction'>244/244</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>237/237</span>
+                <span class='fraction'>244/244</span>
             </div>
         
             
@@ -300,7 +300,21 @@
 <a name='L235'></a><a href='#L235'>235</a>
 <a name='L236'></a><a href='#L236'>236</a>
 <a name='L237'></a><a href='#L237'>237</a>
-<a name='L238'></a><a href='#L238'>238</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L238'></a><a href='#L238'>238</a>
+<a name='L239'></a><a href='#L239'>239</a>
+<a name='L240'></a><a href='#L240'>240</a>
+<a name='L241'></a><a href='#L241'>241</a>
+<a name='L242'></a><a href='#L242'>242</a>
+<a name='L243'></a><a href='#L243'>243</a>
+<a name='L244'></a><a href='#L244'>244</a>
+<a name='L245'></a><a href='#L245'>245</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -539,49 +553,67 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;script setup&gt;
 import { ref, onMounted, computed } from "vue";
-import { useAsideStore } from '@/stores/aside';
-import { useFirebaseData } from '@/stores/firebaseData';
+import { useAsideStore } from "@/stores/aside";
+import { useFirebaseData } from "@/stores/firebaseData";
 &nbsp;
 const firebaseStore = useFirebaseData();
 &nbsp;
 const store = useAsideStore();
-&nbsp;
-&nbsp;
 &lt;/script&gt;
 &nbsp;
 &lt;template&gt;
   &lt;div class="modal-overlay" :class="{ active: store.modalShow }"&gt;&lt;/div&gt;
 &nbsp;
-&nbsp;
-&nbsp;
   &lt;aside class="formnav"&gt;
     &lt;div class="btn__burger"&gt;
-      &lt;p @click="store.btn_burger()"&gt;
-        &lt;svg :class="{ active: !store.asideShow }" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960"
-          width="20"&gt;
-          &lt;path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" /&gt;
+      &lt;p @click<span class="fstat-no" title="function not covered" >="store.btn_burger()"&gt;</span>
+        &lt;svg
+          :class="{ active: !store.asideShow }"
+          xmlns="http://www.w3.org/2000/svg"
+          height="20"
+          viewBox="0 96 960 960"
+          width="20"
+        &gt;
+          &lt;path
+            d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"
+          /&gt;
         &lt;/svg&gt;
 &nbsp;
-        &lt;svg :class="{ active: store.asideShow }" width="20" height="20" viewBox="0 0 25 25" fill="none"
-          xmlns="http://www.w3.org/2000/svg"&gt;
+        &lt;svg
+          :class="{ active: store.asideShow }"
+          width="20"
+          height="20"
+          viewBox="0 0 25 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        &gt;
           &lt;path d="M19 19L5 5ZM19 5L5 19Z" fill="#D9D9D9" /&gt;
-          &lt;path d="M19 19L5 5M19 5L5 19" stroke="black" stroke-linecap="round" stroke-linejoin="round" /&gt;
+          &lt;path
+            d="M19 19L5 5M19 5L5 19"
+            stroke="black"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          /&gt;
         &lt;/svg&gt;
-&nbsp;
-&nbsp;
-&nbsp;
       &lt;/p&gt;
     &lt;/div&gt;
     &lt;header :class="{ btn__burger__show: store.asideShow }"&gt;
       &lt;nav&gt;
         &lt;ul class="flex flex--column flex__justify--between flex"&gt;
           &lt;li class="flex flex__alige--center" v-for="item in store.list"&gt;
-            &lt;svg v-if="item.active" width="11" height="17" viewBox="0 0 11 17" fill="none"
-              xmlns="http://www.w3.org/2000/svg"&gt;
+            &lt;svg
+              v-if="item.active"
+              width="11"
+              height="17"
+              viewBox="0 0 11 17"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            &gt;
               &lt;g clip-path="url(#clip0_1_10468)"&gt;
                 &lt;path
                   d="M0 0.522186V2.06974C0 2.48088 0.183333 2.87354 0.497619 3.123L6.77897 8.09827C7.03214 8.30153 7.03214 8.70806 6.77897 8.9067L0.497619 13.8773C0.183333 14.1268 0 14.5148 0 14.9306V16.4782C0 16.9078 0.462698 17.148 0.785714 16.8939L10.7643 8.99909C11.0786 8.74963 11.0786 8.25072 10.7643 8.00588L0.785714 0.106425C0.462698 -0.15227 0 0.0925666 0 0.522186Z"
-                  fill="#363973" /&gt;
+                  fill="#363973"
+                /&gt;
               &lt;/g&gt;
               &lt;defs&gt;
                 &lt;clipPath id="clip0_1_10468"&gt;
@@ -590,16 +622,16 @@ const store = useAsideStore();
               &lt;/defs&gt;
             &lt;/svg&gt;
             &lt;div&gt;
-              &lt;a class="formnav__link" :class="{ selected: item.active }" @click="store.changeStep(item)"
-                :href="'#' + item.id"&gt;{{
-                  item.name }}
+              &lt;a
+                class="formnav__link"
+                :class="{ selected: item.active }"
+                @click="store.changeStep(item)"
+                :href="'#' + item.id"
+                &gt;{{ item.name }}
               &lt;/a&gt;
               &lt;span&gt; {{ firebaseStore.product[item.result] }}&lt;/span&gt;
             &lt;/div&gt;
-&nbsp;
-&nbsp;
           &lt;/li&gt;
-&nbsp;
         &lt;/ul&gt;
       &lt;/nav&gt;
     &lt;/header&gt;
@@ -609,7 +641,6 @@ const store = useAsideStore();
 &lt;style lang="scss" scoped&gt;
 @import "../assets/main.scss";
 @import "../assets/flex.scss";
-&nbsp;
 &nbsp;
 .modal-overlay {
   position: fixed;
@@ -632,7 +663,6 @@ const store = useAsideStore();
     backdrop-filter: blur(2px);
   }
 }
-&nbsp;
 &nbsp;
 .btn__burger {
   display: none;
@@ -657,14 +687,12 @@ const store = useAsideStore();
   margin-top: 167px;
   width: 245px;
   height: calc(100vh - 100px);
-  transition: .5s all;
+  transition: 0.5s all;
   z-index: 9;
 &nbsp;
   @media (max-width: $breakpoint-lg) {
     margin-top: 100px;
   }
-&nbsp;
-&nbsp;
 &nbsp;
   li {
     list-style: none;
@@ -693,8 +721,6 @@ const store = useAsideStore();
       width: 120px;
       justify-content: start;
     }
-&nbsp;
-&nbsp;
   }
 &nbsp;
   .formnav__link {
@@ -707,8 +733,6 @@ const store = useAsideStore();
     &amp;:hover {
       opacity: 100%;
     }
-&nbsp;
-&nbsp;
   }
 &nbsp;
   .selected {
@@ -736,7 +760,6 @@ const store = useAsideStore();
     margin-top: 100px;
     height: 36px;
 &nbsp;
-&nbsp;
     li {
       margin-left: 15%;
     }
@@ -745,8 +768,6 @@ const store = useAsideStore();
   header {
     transform: translateX(-100%);
     transition: 0.5s;
-&nbsp;
-&nbsp;
 &nbsp;
     nav {
       background-color: $contrast-light;
@@ -781,7 +802,7 @@ const store = useAsideStore();
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-05-04T07:33:04.837Z
+                at 2023-05-04T08:56:06.844Z
             </div>
         <script src="../prettify.js"></script>
         <script>
