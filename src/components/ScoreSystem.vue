@@ -1,6 +1,7 @@
 <script setup>
-import { onMounted } from 'vue';
+/* 
 
+import { onMounted } from 'vue';
 import { useFirebaseProduct } from '@/stores/products';
 
 const firebaseProduct = useFirebaseProduct();
@@ -44,6 +45,21 @@ const calculateScore = (product, userSelections) => {
 
 
 const updateScores = () => {
+
+  let highScore = 0;
+  let highestScoreProduct = null;
+  firebaseProduct.product.forEach(product => {
+    const score = calculateScore(product, userSelections);
+    if (score > highScore) {
+      highScore = score;
+      highestScoreProduct = product;
+    }
+  })
+
+  
+  console.log(`Produktet med højest score: ${JSON.stringify(highestScoreProduct.name)}`)
+
+
   console.log(calculateScore(firebaseProduct.product[0], userSelections));
   console.log(calculateScore(firebaseProduct.product[1], userSelections));
   console.log(calculateScore(firebaseProduct.product[2], userSelections));
@@ -54,4 +70,5 @@ onMounted(async () => {
   updateScores();
 });
 
+ */
 </script>
