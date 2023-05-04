@@ -1,12 +1,3 @@
-<template>
-  <li v-for="(product, index) in firebaseProduct.product" :key="index">
-    <h2>{{ product.name }}</h2>
-    <p>{{ product.description }}</p>
-    <p>{{ product.score }}</p>
-  </li>
-</template>
-
-
 <script setup>
 import { onMounted } from 'vue';
 
@@ -51,25 +42,6 @@ const calculateScore = (product, userSelections) => {
   return score;
 };
 
-
-const product1 = {
-  TypeOfRobot: 'Nachi',
-  TypeOfMaterial: 'Wood',
-  TypeOfProcess: 'Sanding',
-  LevelOfDetail: 2,
-  SizeOfProduct: 3,
-  SizeOfBatch: 1,
-  LevelOfAutomation: '50%'
-};
-const product2 = {
-  TypeOfRobot: 'Universal Robots',
-  TypeOfMaterial: 'Metal',
-  TypeOfProcess: 'Painting',
-  LevelOfDetail: 1,
-  SizeOfProduct: 5,
-  SizeOfBatch: 4,
-  LevelOfAutomation: '25%'
-};
 
 const updateScores = () => {
   console.log(calculateScore(firebaseProduct.product[0], userSelections));
