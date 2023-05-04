@@ -4,6 +4,7 @@ import Button from "../Button.vue";
 import Information from "../Information.vue";
 import { useFirebaseData } from '@/stores/firebaseData';
 
+
 const firebaseStore = useFirebaseData();
 
 
@@ -13,6 +14,9 @@ function selectButton(index) {
   selectedIndex.value = index;
   window.location.href = "#Solution";
 }
+
+
+
 
 </script>
 
@@ -34,6 +38,8 @@ function selectButton(index) {
       <section class="form__information flex--column">
         <Information :lists="firebaseStore.LevelOfAutomation.description" />
       </section>
+
+
     </div>
   </section>
 </template>
