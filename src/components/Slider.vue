@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
 
 import { usefirebaseSteps } from "@/stores/firebaseSteps";
 
