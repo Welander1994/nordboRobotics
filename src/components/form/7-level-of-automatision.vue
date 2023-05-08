@@ -15,16 +15,17 @@ function selectButton(index) {
 }
 
 </script>
+
 <template>
-  <section class="formsection formsection--light flex flexgap--lg" id="Level-of-automation">
-    <div class="formsection-wrapper">
-      <section class="formquestions flex--column">
-        <h2 class="formtitle">What is the desired level of automatisation?</h2>
-        <p class="formtext--semibold formtext">Choose level of automatisation</p>
+  <section class="form__section form__section--light flex flex__gap--lg" id="Level-of-automation">
+    <div class="form__section-wrapper">
+      <section class="form__questions flex--column">
+        <h2 class="form__title">What is the desired level of automatisation?</h2>
+        <p class="form__text--semibold form__text">Choose level of automatisation</p>
         <ul class="flex--column">
-          <Button class="formbutton--icon-level" v-if="firebaseStore.stepsData[6]?.automation"
+          <Button class="form__button--icon-level" v-if="firebaseStore.stepsData[6]?.automation"
             v-for="(automation, index) in firebaseStore.stepsData[6].automation" :key="index"
-            :selected-class="'formbutton--selected'" :name="automation.name" :hover-img-url="automation.imgLight"
+            :selected-class="'form__button--selected'" :name="automation.name" :hover-img-url="automation.imgLight"
             :img-url="automation.imgDark" :index="index" :isSelected="selectedIndex === index"
             @mouseup="selectButton(index), firebaseStore.addToProduct('LevelOfAutomation', automation.name)" />
         </ul>
