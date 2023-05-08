@@ -17,5 +17,5 @@ jobs:
         uses: JetBrains/qodana-action@main
         env:
           QODANA_TOKEN: ${{ secrets.QODANA }}
-    with:
+        with:
           exclude: Eslint,CommaExpressionJS
