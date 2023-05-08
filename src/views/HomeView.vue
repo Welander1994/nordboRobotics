@@ -1,5 +1,4 @@
 <script setup>
-
 import Header from "/src/components/Header.vue";
 import asideComponents from "@/components/Aside.vue";
 import TypeOfRobot from "@/components/form/1-type-of-robot.vue";
@@ -12,11 +11,10 @@ import LevelOfAutomatision from "@/components/form/7-level-of-automatision.vue";
 import Solution from "@/components/form/8-solution.vue";
 import ScoreSystem from "@/components/ScoreSystem.vue";
 
+import { ref, onMounted } from "vue";
 
-import { ref, onMounted } from 'vue';
-
-import { useAsideStore } from '@/stores/aside';
-import { usefirebaseSteps } from '@/stores/firebaseSteps';
+import { useAsideStore } from "@/stores/aside";
+import { usefirebaseSteps } from "@/stores/firebaseSteps";
 
 const firebaseStore = usefirebaseSteps();
 
@@ -24,12 +22,11 @@ const asideStore = useAsideStore();
 
 onMounted(() => {
   asideStore.localStorageOnLoad();
-})
+});
 
 window.onscroll = function () {
-
   asideStore.onscroll();
-}
+};
 </script>
 
 <template>
@@ -38,7 +35,6 @@ window.onscroll = function () {
     <main class="form flex">
       <asideComponents />
       <div class="content">
-
         <TypeOfRobot />
         <ScoreSystem />
         <TypeOfMaterial />
@@ -57,14 +53,10 @@ window.onscroll = function () {
 @import "@/assets/main.scss";
 @import "@/assets/flex.scss";
 
-
-
 .container {
   max-width: $max-width;
   width: 100%;
   margin: auto;
-
-
 }
 
 .form {
@@ -82,14 +74,12 @@ window.onscroll = function () {
   &__questions {
     max-width: 430px;
     width: 100%;
-
   }
 
   &__information {
     max-width: 440px;
     width: 100%;
   }
-
 
   &__title {
     font-size: 2.4rem;
@@ -120,7 +110,6 @@ window.onscroll = function () {
     max-width: 891px;
     scroll-snap-align: start;
 
-
     @media (min-width: $breakpoint-lg) {
       margin-left: 135px;
       justify-content: space-between;
@@ -147,13 +136,10 @@ aside {
   background-image: url("../assets/img/white-dots.png");
   object-fit: contain;
 
-
   @media (max-width: $breakpoint-lg) {
     margin-top: 100px;
   }
 }
-
-
 
 @media only screen and (max-width: $breakpoint-xl) {
   .form {
@@ -168,9 +154,8 @@ aside {
       margin: 0;
       width: 100%;
       margin-top: 200px;
-      padding: 10px
+      padding: 10px;
     }
-
 
     &__questions {
       margin-top: 0px;
@@ -180,9 +165,7 @@ aside {
 
 @media only screen and (max-width: $breakpoint-lg) {
   .form__questions {
-
     margin-top: 0px;
-
   }
 
   .form__section {
@@ -194,9 +177,7 @@ aside {
 
 @media only screen and (max-width: $breakpoint-md) {
   .form__questions {
-
     margin-top: 90px;
-
   }
 
   .form__section {

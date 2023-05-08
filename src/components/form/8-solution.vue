@@ -1,25 +1,22 @@
 <script setup>
-
-import { onMounted, ref } from 'vue';
-import { useFirebaseProduct } from '@/stores/products';
+import { onMounted, ref } from "vue";
+import { useFirebaseProduct } from "@/stores/products";
 
 const firebaseProduct = useFirebaseProduct();
 
-
-
 const getProductFromLocalStorage = () => {
-  const product = localStorage.getItem('product');
+  const product = localStorage.getItem("product");
   return product ? JSON.parse(product) : null;
 };
 
 const userSelections = getProductFromLocalStorage() || {
-  LevelOfAutomation: '',
+  LevelOfAutomation: "",
   LevelOfDetail: 0,
   SizeOfBatch: 0,
   SizeOfProduct: 0,
-  TypeOfMaterial: '',
-  TypeOfProcess: '',
-  TypeOfRobot: ''
+  TypeOfMaterial: "",
+  TypeOfProcess: "",
+  TypeOfRobot: "",
 };
 
 const calculateScore = (product, userSelections) => {
@@ -33,9 +30,9 @@ const calculateScore = (product, userSelections) => {
   if (product.typeOfProcess === userSelections.TypeOfProcess) {
     score += 1;
   }
-  score += (5 - Math.abs(product.levelOfDetail - userSelections.LevelOfDetail));
-  score += (5 - Math.abs(product.sizeOfProduct - userSelections.SizeOfProduct));
-  score += (5 - Math.abs(product.sizeOfBatch - userSelections.SizeOfBatch));
+  score += 5 - Math.abs(product.levelOfDetail - userSelections.LevelOfDetail);
+  score += 5 - Math.abs(product.sizeOfProduct - userSelections.SizeOfProduct);
+  score += 5 - Math.abs(product.sizeOfBatch - userSelections.SizeOfBatch);
 
   if (product.levelOfAutomation === userSelections.LevelOfAutomation) {
     score += 1;
@@ -43,7 +40,6 @@ const calculateScore = (product, userSelections) => {
 
   return score;
 };
-
 
 onMounted(async () => {
   await firebaseProduct.fetchProduct();
@@ -62,37 +58,36 @@ const updateScores = () => {
     }
   });
 
-
   console.log(calculateScore(firebaseProduct.product[0], userSelections));
   console.log(calculateScore(firebaseProduct.product[1], userSelections));
   console.log(calculateScore(firebaseProduct.product[2], userSelections));
   console.log(highestScoreProduct.value);
 };
-
-
-
-
 </script>
 
 <template>
-  <section class="form__section form__section--light flex flex__gap--lg" id="Solution">
+  <section
+    class="form__section form__section--light flex flex__gap--lg"
+    id="Solution"
+  >
     <section class="form__questions flex--column">
       <template v-if="highestScoreProduct">
         <p>{{ highestScoreProduct.name }}</p>
 
         <ul>
-          <li v-for="(description, index) in highestScoreProduct.description" :key="index">
+          <li
+            v-for="(description, index) in highestScoreProduct.description"
+            :key="index"
+          >
             {{ description }}
           </li>
         </ul>
-
-
       </template>
     </section>
 
     <section class="form__information flex--column">
       <template v-if="highestScoreProduct">
-        <img :src="highestScoreProduct.img" alt="">
+        <img :src="highestScoreProduct.img" alt="" />
       </template>
     </section>
   </section>
