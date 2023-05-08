@@ -64,6 +64,10 @@ const updateScores = () => {
     }
   });
 
+
+  console.log(calculateScore(firebaseProduct.product[0], userSelections));
+  console.log(calculateScore(firebaseProduct.product[1], userSelections));
+  console.log(calculateScore(firebaseProduct.product[2], userSelections));
   console.log(highestScoreProduct.value);
 };
 
