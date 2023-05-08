@@ -1,7 +1,7 @@
 <script setup>
 
 import Header from "/src/components/Header.vue";
-import asideComponents from "@/components/aside.vue";
+import asideComponents from "@/components/Aside.vue";
 import TypeOfRobot from "@/components/form/1-type-of-robot.vue";
 import TypeOfMaterial from "@/components/form/2-type-of-material.vue";
 import TypeOfWork from "@/components/form/3-type-of-work.vue";
@@ -16,9 +16,9 @@ import ScoreSystem from "@/components/ScoreSystem.vue";
 import { ref, onMounted } from 'vue';
 
 import { useAsideStore } from '@/stores/aside';
-import { useFirebaseData } from '@/stores/firebaseData';
+import { usefirebaseSteps } from '@/stores/firebaseSteps';
 
-const firebaseStore = useFirebaseData();
+const firebaseStore = usefirebaseSteps();
 
 const asideStore = useAsideStore();
 
@@ -73,6 +73,7 @@ window.onscroll = function () {
     justify-content: space-between;
     width: 100%;
     height: 100%;
+
     @media (max-width: $breakpoint-md) {
       flex-direction: column;
     }
@@ -81,7 +82,7 @@ window.onscroll = function () {
   &__questions {
     max-width: 430px;
     width: 100%;
-    
+
   }
 
   &__information {
@@ -119,7 +120,7 @@ window.onscroll = function () {
     max-width: 891px;
     scroll-snap-align: start;
 
- 
+
     @media (min-width: $breakpoint-lg) {
       margin-left: 135px;
       justify-content: space-between;
@@ -185,8 +186,9 @@ aside {
   }
 
   .form__section {
-    margin-top: -145px;
+    margin-top: -100px;
     padding-top: 145px;
+    max-width: 95vw;
   }
 }
 

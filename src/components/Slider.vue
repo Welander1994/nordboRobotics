@@ -1,9 +1,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-import { useFirebaseData } from "@/stores/firebaseData";
+import { usefirebaseSteps } from "@/stores/firebaseSteps";
 
-const firebaseStore = useFirebaseData();
+const firebaseStore = usefirebaseSteps();
 
 const sliderRef = ref(null);
 
@@ -16,7 +16,7 @@ const props = defineProps({
 onMounted(() => {
   const slider = sliderRef.value;
   slider.addEventListener("input", () => {
-    switch (props.type ) {
+    switch (props.type) {
       case "levelOfDetail":
         firebaseStore.product.LevelOfDetail = parseInt(slider.value);
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
@@ -139,6 +139,12 @@ onMounted(() => {
     .slider__description {
       color: $contrast-light;
     }
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .slider {
+    transform: scale(90%);
   }
 }
 </style>
