@@ -19,12 +19,9 @@ const createAccount = async () => {
       email.value,
       password.value
     );
-    // User has been created successfully
-    const user = userCredential.user;
     router.push("/login");
   } catch {
-    // Handle error
-    error.value = "det lykkes ikke";
+    error.value = "Det lykkes ikke";
   }
 };
 </script>
