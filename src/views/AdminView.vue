@@ -3,9 +3,9 @@ import { reactive, onMounted } from "vue";
 import { getAuth, getIdToken } from "firebase/auth";
 import "@/firebase.js";
 import AdminNavigation from "../components/Admin-navigation.vue";
-import { useFirebaseData } from "@/stores/firebaseData";
+import { usefirebaseSteps } from "@/stores/firebaseSteps";
 
-const firebaseStore = useFirebaseData();
+const firebaseStore = usefirebaseSteps();
 
 const auth = getAuth();
 const products = reactive({});
