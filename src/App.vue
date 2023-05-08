@@ -1,6 +1,6 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
-import { useAsideStore } from '@/stores/Aside';
+import { RouterView } from "vue-router";
+import { useAsideStore } from '@/stores/aside';
 import { usefirebaseSteps } from '@/stores/firebaseSteps';
 import { ref, onMounted } from 'vue';
 
@@ -11,7 +11,7 @@ const products = ref([]);
 
 onMounted(async () => {
 
-  firebaseStore.fetchStepsData();
+  await firebaseStore.fetchStepsData();
 
 
   const response = await fetch('https://nordbo-robotics-default-rtdb.europe-west1.firebasedatabase.app/steps.json')
@@ -36,7 +36,7 @@ onMounted(async () => {
         name: products.value[i].name,
         id: products.value[i].name.split(' ').join('-'),
         result: camelCaseStr,
-        active: i == 0 ? true : false
+        active: i === 0 ? true : false
       });
     }
     asideStore.list.push({

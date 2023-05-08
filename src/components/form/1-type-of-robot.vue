@@ -1,8 +1,7 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import Button from "../Button.vue";
 import Information from "../Information.vue";
-import Slider from "../Slider.vue";
 import { usefirebaseSteps } from "@/stores/firebaseSteps";
 
 const firebaseStore = usefirebaseSteps();

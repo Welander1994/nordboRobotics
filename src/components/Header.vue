@@ -1,6 +1,6 @@
 <!-- Importing Vue and creating reactive states -->
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 const isActive = ref(false);
 const showMenu = ref(false);
 
