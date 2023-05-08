@@ -1,5 +1,4 @@
 <script setup>
-import { ref, onMounted, computed } from "vue";
 import { useAsideStore } from '@/stores/aside';
 import { usefirebaseSteps } from '@/stores/firebaseSteps';
 
@@ -51,8 +50,8 @@ const store = useAsideStore();
             </svg>
             <div>
               <a class="formnav__link" :class="{ selected: item.active }"
-                @click="store.changeStep(item), store.btn_burger(); " :href="'#' + item.id">{{
-                item.name }}
+                @click="store.changeStep(item), store.btn_burger();" :href="'#' + item.id">{{
+                  item.name }}
               </a>
               <span> {{ firebaseStore.product[item.result] }}</span>
             </div>

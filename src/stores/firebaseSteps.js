@@ -1,6 +1,6 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
-import { useAsideStore } from '@/stores/aside';
+
 
 export const usefirebaseSteps = defineStore("firebase", () => {
 
@@ -60,7 +60,7 @@ export const usefirebaseSteps = defineStore("firebase", () => {
         LevelOfAutomation.value = stepsData.value[6];
 
         if (!JSON.parse(localStorage.getItem("product"))) {
-            return;
+
         } else {
             product.value = JSON.parse(localStorage.getItem("product"));
         }

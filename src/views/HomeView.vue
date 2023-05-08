@@ -13,7 +13,7 @@ import Solution from "@/components/form/8-solution.vue";
 import ScoreSystem from "@/components/ScoreSystem.vue";
 
 
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 
 import { useAsideStore } from '@/stores/aside';
 import { usefirebaseSteps } from '@/stores/firebaseSteps';
