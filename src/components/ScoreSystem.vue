@@ -1,50 +1,74 @@
-<template></template>
-  
 <script setup>
-const userSelections = {
-  typeOfRobot: 'Nachi',
-  material: 'wood',
-  process: 'Sanding',
-  levelOfDetail: 1,
-  size: 1,
-  batch: 1
+/* 
+
+import { onMounted } from 'vue';
+import { useFirebaseProduct } from '@/stores/products';
+
+const firebaseProduct = useFirebaseProduct();
+
+const getProductFromLocalStorage = () => {
+  const product = localStorage.getItem('product');
+  return product ? JSON.parse(product) : null;
+};
+
+const userSelections = getProductFromLocalStorage() || {
+  LevelOfAutomation: '',
+  LevelOfDetail: 0,
+  SizeOfBatch: 0,
+  SizeOfProduct: 0,
+  TypeOfMaterial: '',
+  TypeOfProcess: '',
+  TypeOfRobot: ''
 };
 
 const calculateScore = (product, userSelections) => {
   let score = 0;
-  if (product.typeOfRobot === userSelections.typeOfRobot) {
+  if (product.typeOfRobot === userSelections.TypeOfRobot) {
     score += 1;
   }
-  if (product.material === userSelections.material) {
+  if (product.typeOfMaterial === userSelections.TypeOfMaterial) {
     score += 1;
   }
-  if (product.process === userSelections.process) {
+  if (product.typeOfProcess === userSelections.TypeOfProcess) {
     score += 1;
   }
-  score += (6 - Math.abs(product.levelOfDetail - userSelections.levelOfDetail));
-  score += (6 - Math.abs(product.size - userSelections.size));
-  score += (6 - Math.abs(product.batch - userSelections.batch));
+  score += (5 - Math.abs(product.levelOfDetail - userSelections.LevelOfDetail));
+  score += (5 - Math.abs(product.sizeOfProduct - userSelections.SizeOfProduct));
+  score += (5 - Math.abs(product.sizeOfBatch - userSelections.SizeOfBatch));
+
+  if (product.levelOfAutomation === userSelections.LevelOfAutomation) {
+    score += 1;
+  }
+
   return score;
 };
 
-const product1 = {
-  typeOfRobot: 'Nachi',
-  material: 'wood',
-  process: 'Sanding',
-  levelOfDetail: 6,
-  size: 6,
-  batch: 6
-};
-const product2 = {
-  typeOfRobot: 'Universal Robots',
-  material: 'metal',
-  process: 'Painting',
-  levelOfDetail: 1,
-  size: 1,
-  batch: 1
+
+const updateScores = () => {
+
+  let highScore = 0;
+  let highestScoreProduct = null;
+  firebaseProduct.product.forEach(product => {
+    const score = calculateScore(product, userSelections);
+    if (score > highScore) {
+      highScore = score;
+      highestScoreProduct = product;
+    }
+  })
+
+  
+  console.log(`Produktet med højest score: ${JSON.stringify(highestScoreProduct.name)}`)
+
+
+  console.log(calculateScore(firebaseProduct.product[0], userSelections));
+  console.log(calculateScore(firebaseProduct.product[1], userSelections));
+  console.log(calculateScore(firebaseProduct.product[2], userSelections));
 };
 
-/* console.log(calculateScore(product1, userSelections)); // Output: 13
-console.log(calculateScore(product2, userSelections)); // Output: 3 */
+onMounted(async () => {
+  await firebaseProduct.fetchProduct();
+  updateScores();
+});
+
+ */
 </script>
-  
