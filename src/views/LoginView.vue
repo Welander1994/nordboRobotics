@@ -18,10 +18,9 @@ const signInAccount = async () => {
       email.value,
       password.value
     );
-    const user = userCredential.user;
     router.push("/admin");
   } catch {
-    error.value = "du er ikke en bruger";
+    error.value = "Du er ikke en bruger";
   }
 };
 </script>
@@ -54,7 +53,7 @@ const signInAccount = async () => {
   font-family: primary-font-bold;
   background-color: $tertiary-color;
   padding: 30px;
-  
+
   h1 {
     margin-bottom: 30px;
   }
@@ -74,7 +73,7 @@ const signInAccount = async () => {
       margin-bottom: 20px;
       border-radius: 8px;
       border: none;
-      padding-left: 8px ;
+      padding-left: 8px;
 
       &:focus {
         outline: none;
