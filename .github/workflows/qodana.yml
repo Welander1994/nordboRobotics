@@ -21,4 +21,3 @@ jobs:
         exclude:
           - name: Eslint
           - name: CommaExpressionJS
-
