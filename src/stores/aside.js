@@ -34,10 +34,11 @@ export const useAsideStore = defineStore("aside", () => {
 
     for (let i = 0; i < list.value.length; i++) {
       if (list.value[i].active === true) {
-        window.location.replace("/#" + list.value[i].id);
+        window.location.replace("/nordbo/#" + list.value[i].id);
       }
     }
   };
+
 
   const onscroll = () => {
     for (let i = 0; i < list.value.length; i++) {
