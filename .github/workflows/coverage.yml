@@ -1,4 +1,5 @@
 name: Run Unit Tests
+run-name: Coverage 🚀
 "on": push
 jobs:
   unit_test-lint:
