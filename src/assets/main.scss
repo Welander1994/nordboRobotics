@@ -12,38 +12,38 @@ $breakpoint-sm: 576px;
 
 @font-face {
   font-family: "primary-font-extrabold";
-  src: url("../assets/fonts/Poppins/Poppins-extraBold.ttf");
+  src: url("@/assets/fonts/Poppins/Poppins-extraBold.ttf");
 }
 
 @font-face {
   font-family: "primary-font-regular";
-  src: url("../assets/fonts/Poppins/Poppins-regular.ttf");
+  src: url("@/assets/fonts/Poppins/Poppins-regular.ttf");
 }
 
 @font-face {
   font-family: "primary-font-medium";
-  src: url("../assets/fonts/Poppins/Poppins-medium.ttf");
+  src: url("@/assets/fonts/Poppins/Poppins-medium.ttf");
 }
 
 @font-face {
   font-family: "primary-font-bold";
-  src: url("../assets/fonts/Poppins/Poppins-Bold.ttf");
+  src: url("@/assets/fonts/Poppins/Poppins-Bold.ttf");
 }
 
 @font-face {
   font-family: "primary-font-semibold";
-  src: url("../assets/fonts/Poppins/Poppins-SemiBold.ttf");
+  src: url("@/assets/fonts/Poppins/Poppins-SemiBold.ttf");
 }
 
 @font-face {
   font-family: "secondary-font-medium";
-  src: url("../assets/fonts/Raleway/Raleway-VariableFont_wght.ttf");
+  src: url("@/assets/fonts/Raleway/Raleway-VariableFont_wght.ttf");
   font-weight: 500;
 }
 
 @font-face {
   font-family: "secondary-font-bold";
-  src: url("../assets/fonts/Raleway/Raleway-VariableFont_wght.ttf");
+  src: url("@/assets/fonts/Raleway/Raleway-VariableFont_wght.ttf");
   font-weight: 700;
 }
 
