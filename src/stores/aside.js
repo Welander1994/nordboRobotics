@@ -36,7 +36,7 @@ export const useAsideStore = defineStore("aside", () => {
       if (list.value[i].active === true) {
         console.log("test");
         console.log(window.location.href("/nordbo/#" + list.value[i].id));
-        window.location.href("/nordbo/#" + list.value[i].id);
+/*         window.location.href("/nordbo/#" + list.value[i].id); */
       }
     }
   };
