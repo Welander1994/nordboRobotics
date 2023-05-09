@@ -34,7 +34,8 @@ export const useAsideStore = defineStore("aside", () => {
 
     for (let i = 0; i < list.value.length; i++) {
       if (list.value[i].active === true) {
-        window.location.href("/nordbo/#" + list.value[i].id);
+
+        window.location.replace("/nordbo/#" + list.value[i].id);
       }
     }
   };
