@@ -30,6 +30,5 @@ jobs:
         username: we-lander.dk
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/
-        server-dir: ./nordbor/
+        server-dir: ./nordbo/
 
-        
