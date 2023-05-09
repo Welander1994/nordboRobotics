@@ -38,7 +38,7 @@ export const useAsideStore = defineStore("aside", () => {
             window.location.replace("#" + list.value[i].id);
           }
         } */
-        console.log("this does not work");
+       
   };
 
 

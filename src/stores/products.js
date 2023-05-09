@@ -10,7 +10,7 @@ export const useFirebaseProduct = defineStore("firebaseProduct", () => {
     );
     const data = await response.json();
     product.value.push(...data);
-    console.log(product.value);
+
   };
 
   return { product, fetchProduct };
