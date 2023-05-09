@@ -1,4 +1,4 @@
-name: Deploy to One.com
+name: 🚀 Deploy website on push
 
 on:
   push:
@@ -6,15 +6,27 @@ on:
       - develop
 
 jobs:
-  deploy:
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Deploy to One.com
-      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
+    - name: Use Node.js 16
+      uses: actions/setup-node@v2
       with:
-        server: ftp.one.com
-        username: ${{ secrets.FTP_USERNAME }}
+        node-version: '16'
+      
+    - name: 🔨 Build Project
+      run: |
+        npm install
+        npm run build
+      
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ftp.we-lander.dk
+        username: we-lander.dk
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist
-        remote-dir: /nordbor-robotics
+        local-dir: ./dist/
