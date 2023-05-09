@@ -12,12 +12,12 @@ $breakpoint-sm: 576px;
 
 @font-face {
   font-family: "primary-font-extrabold";
-  src: url("../assets/fonts/Poppins/Poppins-extraBold.ttf");
+  src: url("@/assets/fonts/Poppins/Poppins-extraBold.ttf");
 }
 
 @font-face {
   font-family: "primary-font-regular";
-  src: url("../assets/fonts/Poppins/Poppins-regular.ttf");
+  src: url("@/assets/fonts/Poppins/Poppins-regular.ttf");
 }
 
 @font-face {
