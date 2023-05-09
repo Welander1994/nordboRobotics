@@ -50,7 +50,8 @@ export const useScore = defineStore("useScoreProduct", () => {
 
     const clearFlow = () => {
         localStorage.clear();
-        window.location.reload();
+        window.location.href = "#Type-of-robot";
+        window.location.reload(); 
     }
 
     const updateScoresOnClick = async () => {
