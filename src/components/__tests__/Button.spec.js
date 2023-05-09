@@ -5,7 +5,6 @@ import Button from "../Button.vue";
 describe("Button component", () => {
   it("Component exists", async () => {
     expect(Button).toBeTruthy();
-    
   });
 
   it("Renders button name", async () => {
