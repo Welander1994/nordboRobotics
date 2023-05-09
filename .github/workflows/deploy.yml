@@ -24,10 +24,10 @@ jobs:
     needs: build
     steps:
     - name: Deploy to One.com
-      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
         server: ftp.we-lander.dk
-        username: ${{ secrets.FTP_USERNAME }}
+        username: we-lander.dk
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist
-        remote-dir: /nordbor-robotics
+        local-dir: ./dist/
+        remote-dir: /nordbor
