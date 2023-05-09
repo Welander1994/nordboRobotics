@@ -72,7 +72,7 @@ const store = useAsideStore();
               <a
                 class="formnav__link"
                 :class="{ selected: item.active }"
-                @click="store.changeStep(item)"
+                @click="store.changeStep(item), store.btn_burger()"
                 :href="'#' + item.id"
                 >{{ item.name }}
               </a>
