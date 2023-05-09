@@ -26,8 +26,8 @@ jobs:
     - name: Deploy to One.com
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
-      server: ftp.we-lander.dk
-        username: we-lander.dk
+        server: ftp.we-lander.dk
+        username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist
         remote-dir: /nordbor-robotics
