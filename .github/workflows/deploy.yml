@@ -29,5 +29,5 @@ jobs:
         server: ftp.we-lander.dk
         username: we-lander.dk
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ../../dist/  
+        local-dir: ./dist
         remote-dir: /nordbor
