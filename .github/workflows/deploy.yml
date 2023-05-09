@@ -1,0 +1,20 @@
+name: Deploy to One.com
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Deploy to One.com
+      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      with:
+        server: ftp.one.com
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./dist
+        remote-dir: /nordbor-robotics
