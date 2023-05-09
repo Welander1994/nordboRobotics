@@ -48,6 +48,11 @@ export const useScore = defineStore("useScoreProduct", () => {
         updateScores();
     });
 
+    const clearFlow = () => {
+        localStorage.clear();
+        window.location.reload();
+    }
+
     const updateScoresOnClick = async () => {
         userSelections = JSON.parse(localStorage.getItem("product"));
         updateScores();
@@ -75,5 +80,5 @@ export const useScore = defineStore("useScoreProduct", () => {
 
 
 
-    return { updateScoresOnClick, updateScores, highestScoreProduct, calculateScore, userSelections, getProductFromLocalStorage };
+    return { clearFlow, updateScoresOnClick, updateScores, highestScoreProduct, calculateScore, userSelections, getProductFromLocalStorage };
 });

@@ -24,7 +24,7 @@ const scoreProduct = useScore();
 
     <section class="form__information flex--column">
       <template v-if="scoreProduct.highestScoreProduct">
-        <img :src="scoreProduct.highestScoreProduct.img" alt="" @click="scoreProduct.test()" />
+        <img :src="scoreProduct.highestScoreProduct.img" alt="" @click="scoreProduct.clearFlow()" />
       </template>
     </section>
   </section>
@@ -60,5 +60,9 @@ const scoreProduct = useScore();
 .form__information {
   display: flex;
   align-items: center;
+
+  img {
+    transform: translateY(-40px) translateX(-10px) scale(80%);
+  }
 }
 </style>
