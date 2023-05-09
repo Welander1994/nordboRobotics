@@ -18,6 +18,7 @@ const scoreProduct = useScore();
             <p class="form__text--semibold form__text">{{ description }}</p>
           </li>
         </ul>
+
       </template>
     </section>
 
