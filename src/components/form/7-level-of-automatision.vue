@@ -3,7 +3,9 @@ import { ref } from "vue";
 import Button from "../Button.vue";
 import Information from "../Information.vue";
 import { usefirebaseSteps } from "@/stores/firebaseSteps";
+import { useScore } from "@/stores/score";
 
+const scoreProduct = useScore();
 const firebaseStore = usefirebaseSteps();
 
 const selectedIndex = ref(null);
@@ -15,10 +17,7 @@ function selectButton(index) {
 </script>
 
 <template>
-  <section
-    class="form__section form__section--light flex flex__gap--lg"
-    id="Level-of-automation"
-  >
+  <section class="form__section form__section--light flex flex__gap--lg" id="Level-of-automation">
     <div class="form__section-wrapper">
       <section class="form__questions flex--column">
         <h2 class="form__title">
@@ -28,22 +27,14 @@ function selectButton(index) {
           Choose level of automatisation
         </p>
         <ul class="flex--column">
-          <Button
-            class="form__button--icon-level"
-            v-if="firebaseStore.stepsData[6]?.automation"
-            v-for="(automation, index) in firebaseStore.stepsData[6].automation"
-            :key="index"
-            :selected-class="'form__button--selected'"
-            :name="automation.name"
-            :hover-img-url="automation.imgLight"
-            :img-url="automation.imgDark"
-            :index="index"
-            :isSelected="selectedIndex === index"
-            @mouseup="
+          <Button class="form__button--icon-level" v-if="firebaseStore.stepsData[6]?.automation"
+            v-for="(automation, index) in firebaseStore.stepsData[6].automation" :key="index"
+            :selected-class="'form__button--selected'" :name="automation.name" :hover-img-url="automation.imgLight"
+            :img-url="automation.imgDark" :index="index" :isSelected="selectedIndex === index" @mouseup="
               selectButton(index),
-                firebaseStore.addToProduct('LevelOfAutomation', automation.name)
-            "
-          />
+              firebaseStore.addToProduct('LevelOfAutomation', automation.name),
+              scoreProduct.updateScoresOnClick()
+              " />
         </ul>
       </section>
 

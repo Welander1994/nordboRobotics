@@ -3,7 +3,9 @@ import Button from "../Button.vue";
 import Information from "../Information.vue";
 import Slider from "../Slider.vue";
 import { usefirebaseSteps } from "@/stores/firebaseSteps";
+import { useScore } from "@/stores/score";
 
+const scoreProduct = useScore();
 const firebaseStore = usefirebaseSteps();
 
 function selectButton() {
@@ -12,10 +14,7 @@ function selectButton() {
 </script>
 
 <template>
-  <section
-    class="form__section form__section--dark flex flex__gap--lg"
-    id="Size-of-batch"
-  >
+  <section class="form__section form__section--dark flex flex__gap--lg" id="Size-of-batch">
     <div class="form__section-wrapper">
       <section class="form__questions flex--column flex">
         <h2 class="form__title">How large is the batch?</h2>
@@ -23,11 +22,8 @@ function selectButton() {
         <ul class="flex--column">
           <Slider type="sizeOfBatch" name1="Smaller" name2="Larger" />
         </ul>
-        <Button
-          class="form__button--bottom-left form__button--rounded flex__justify--center"
-          name="Next"
-          @click="selectButton"
-        />
+        <Button class="form__button--bottom-left form__button--rounded flex__justify--center" name="Next"
+          @click="selectButton(), scoreProduct.updateScoresOnClick()" />
       </section>
 
       <section class="form__information flex--column">

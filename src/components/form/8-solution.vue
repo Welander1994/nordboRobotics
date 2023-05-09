@@ -1,93 +1,29 @@
 <script setup>
-import { onMounted, ref } from "vue";
-import { useFirebaseProduct } from "@/stores/products";
 
-const firebaseProduct = useFirebaseProduct();
+import { useScore } from "@/stores/score";
 
-const getProductFromLocalStorage = () => {
-  const product = localStorage.getItem("product");
-  return product ? JSON.parse(product) : null;
-};
+const scoreProduct = useScore();
 
-const userSelections = getProductFromLocalStorage() || {
-  LevelOfAutomation: "",
-  LevelOfDetail: 0,
-  SizeOfBatch: 0,
-  SizeOfProduct: 0,
-  TypeOfMaterial: "",
-  TypeOfProcess: "",
-  TypeOfRobot: "",
-};
-
-const calculateScore = (product, userSelections) => {
-  let score = 0;
-  if (product.typeOfRobot === userSelections.TypeOfRobot) {
-    score += 1;
-  }
-  if (product.typeOfMaterial === userSelections.TypeOfMaterial) {
-    score += 1;
-  }
-  if (product.typeOfProcess === userSelections.TypeOfProcess) {
-    score += 1;
-  }
-  score += 5 - Math.abs(product.levelOfDetail - userSelections.LevelOfDetail);
-  score += 5 - Math.abs(product.sizeOfProduct - userSelections.SizeOfProduct);
-  score += 5 - Math.abs(product.sizeOfBatch - userSelections.SizeOfBatch);
-
-  if (product.levelOfAutomation === userSelections.LevelOfAutomation) {
-    score += 1;
-  }
-
-  return score;
-};
-
-onMounted(async () => {
-  await firebaseProduct.fetchProduct();
-  updateScores();
-});
-
-const highestScoreProduct = ref(null);
-
-const updateScores = () => {
-  let highScore = 0;
-  firebaseProduct.product.forEach((product) => {
-    const score = calculateScore(product, userSelections);
-    if (score > highScore) {
-      highScore = score;
-      highestScoreProduct.value = product;
-    }
-  });
-
-  console.log(calculateScore(firebaseProduct.product[0], userSelections));
-  console.log(calculateScore(firebaseProduct.product[1], userSelections));
-  console.log(calculateScore(firebaseProduct.product[2], userSelections));
-  console.log(highestScoreProduct.value);
-};
 </script>
 
 <template>
-  <section
-    class="form__section form__section--light flex flex__gap--lg"
-    id="Solution"
-  >
+  <section class="form__section form__section--light flex flex__gap--lg" id="Solution">
     <section class="form__questions flex--column">
-      <template v-if="highestScoreProduct">
-        <p>{{ highestScoreProduct.name }}</p>
+      <template v-if="scoreProduct.highestScoreProduct">
+        <p class="form__text--semibold form__text">The optimal solution for you is:</p>
+        <h2 class="form__title">{{ scoreProduct.highestScoreProduct.name }}</h2>
 
         <ul>
-          <li
-            v-for="(description, index) in highestScoreProduct.description"
-            :key="index"
-          >
-            {{ description }}
+          <li v-for="(description, index) in scoreProduct.highestScoreProduct.description" :key="index">
+            <p class="form__text--semibold form__text">{{ description }}</p>
           </li>
         </ul>
       </template>
     </section>
 
     <section class="form__information flex--column">
-      <template v-if="highestScoreProduct">
-        <img :src="highestScoreProduct.img" alt="" />
+      <template v-if="scoreProduct.highestScoreProduct">
+        <img :src="scoreProduct.highestScoreProduct.img" alt="" @click="scoreProduct.test()" />
       </template>
     </section>
   </section>
@@ -99,5 +35,29 @@ const updateScores = () => {
 
 .form__section {
   margin-bottom: 20px;
+
+  ul {
+    li {
+      list-style-type: none;
+      display: flex;
+      transform: translateX(-30px);
+
+      &::before {
+        content: ' ';
+        display: block;
+        aspect-ratio: 1/1;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin: 5px 15px 0 0;
+        background-color: $primary-color;
+      }
+    }
+  }
+}
+
+.form__information {
+  display: flex;
+  align-items: center;
 }
 </style>

@@ -3,19 +3,19 @@ import Button from "../Button.vue";
 import Information from "../Information.vue";
 import Slider from "../Slider.vue";
 import { usefirebaseSteps } from "@/stores/firebaseSteps";
+import { useScore } from "@/stores/score";
 
+const scoreProduct = useScore();
 const firebaseStore = usefirebaseSteps();
 
 function selectButton() {
+
   window.location.href = "#Size-of-product";
 }
 </script>
 
 <template>
-  <section
-    class="form__section form__section--dark flex flex__gap--lg"
-    id="Level-of-detail"
-  >
+  <section class="form__section form__section--dark flex flex__gap--lg" id="Level-of-detail">
     <div class="form__section-wrapper">
       <section class="form__questions flex--column flex">
         <h2 class="form__title">What is the level of detail?</h2>
@@ -23,11 +23,8 @@ function selectButton() {
         <ul class="flex--column">
           <Slider type="levelOfDetail" name1="Low" name2="High" />
         </ul>
-        <Button
-          class="form__button--bottom-left form__button--rounded flex__justify--center"
-          name="Next"
-          @click="selectButton"
-        />
+        <Button class="form__button--bottom-left form__button--rounded flex__justify--center" name="Next"
+          @click="selectButton(), scoreProduct.updateScoresOnClick()" />
       </section>
 
       <section class="form__information flex--column">

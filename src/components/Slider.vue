@@ -2,7 +2,9 @@
 import { ref, onMounted } from "vue";
 
 import { usefirebaseSteps } from "@/stores/firebaseSteps";
+import { useScore } from "@/stores/score";
 
+const scoreProduct = useScore();
 const firebaseStore = usefirebaseSteps();
 
 const sliderRef = ref(null);
@@ -20,16 +22,19 @@ onMounted(() => {
       case "levelOfDetail":
         firebaseStore.product.LevelOfDetail = parseInt(slider.value);
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
+        scoreProduct.updateScoresOnClick();
         break;
 
       case "sizeOfProduct":
         firebaseStore.product.SizeOfProduct = parseInt(slider.value);
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
+        scoreProduct.updateScoresOnClick();
         break;
 
       case "sizeOfBatch":
         firebaseStore.product.SizeOfBatch = parseInt(slider.value);
         localStorage.setItem("product", JSON.stringify(firebaseStore.product));
+        scoreProduct.updateScoresOnClick();
         break;
     }
   });
@@ -41,19 +46,8 @@ onMounted(() => {
     <div class="slider__range-line-container">
       <div v-for="i in 4" :key="i" class="slider__range-line"></div>
     </div>
-    <input
-      class="slider__range"
-      type="range"
-      :id="type"
-      value="0"
-      min="0"
-      max="5"
-      steps="5"
-      ref="sliderRef"
-    />
-    <div
-      class="slider__description flex flex__justify--between flex__align--end"
-    >
+    <input class="slider__range" type="range" :id="type" value="0" min="0" max="5" steps="5" ref="sliderRef" />
+    <div class="slider__description flex flex__justify--between flex__align--end">
       <p>{{ name1 }}</p>
       <p>{{ name2 }}</p>
     </div>
