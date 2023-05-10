@@ -31,8 +31,6 @@ function selectButton(index) {
               scoreProduct.updateScoresOnClick()
               " />
         </ul>
-
-        <h1>test</h1>
       </section>
 
       <section class="form__information flex--column">
