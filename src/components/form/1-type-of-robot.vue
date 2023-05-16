@@ -12,7 +12,7 @@ const selectedIndex = ref(null);
 function selectButton(index) {
   selectedIndex.value = index;
   // window.location.href = "#Type-of-material";
-
+  console.log("test");
   const element = document.getElementById('Type-of-material');
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' });
