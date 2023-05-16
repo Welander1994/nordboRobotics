@@ -11,7 +11,12 @@ const selectedIndex = ref(null);
 
 function selectButton(index) {
   selectedIndex.value = index;
-  window.location.href = "#Type-of-material";
+  // window.location.href = "#Type-of-material";
+
+  const element = document.getElementById('Type-of-material');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 </script>
 
@@ -25,8 +30,7 @@ function selectButton(index) {
           <Button v-if="firebaseStore.stepsData[0]?.robots" v-for="(robot, index) in firebaseStore.stepsData[0].robots"
             :key="index" :name="robot" :imgUrl="robot.imgUrl" :hoverImgUrl="robot.hoverImgUrl"
             :selectedClass="'form__button--selected'" :index="index" :isSelected="selectedIndex === index"
-            :class="{ Hest: [1, 3].includes(index) }" @mouseup="
-              selectButton(index),
+            :class="{ Hest: [1, 3].includes(index) }" @mouseup="selectButton(index),
               firebaseStore.addToProduct('typeOfRobot', robot),
               scoreProduct.updateScoresOnClick()
               " />

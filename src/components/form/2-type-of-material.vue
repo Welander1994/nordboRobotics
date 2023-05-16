@@ -12,7 +12,12 @@ const selectedIndex = ref(null);
 
 function selectButton(index) {
   selectedIndex.value = index;
-  window.location.href = "#Type-of-process";
+
+
+  const element = document.getElementById('Type-of-process');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 </script>
 
@@ -27,12 +32,11 @@ function selectButton(index) {
             v-for="(materials, index) in firebaseStore.stepsData[1].materials" :key="index"
             :selected-class="'form__button--selected'" :name="materials.name" :hover-img-url="materials.imgLight"
             :img-url="materials.imgDark" :index="index" :isSelected="selectedIndex === index" :class="{
-              'form__button--icon-right-space': [1, 3].includes(index),
-            }" @mouseup="
-  selectButton(index),
-  firebaseStore.addToProduct('typeOfMaterial', materials.name),
-  scoreProduct.updateScoresOnClick()
-  " />
+                'form__button--icon-right-space': [1, 3].includes(index),
+              }" @mouseup="selectButton(index),
+    firebaseStore.addToProduct('typeOfMaterial', materials.name),
+    scoreProduct.updateScoresOnClick()
+    " />
         </ul>
       </section>
 
