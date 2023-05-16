@@ -49,7 +49,8 @@ export const useScore = defineStore("useScoreProduct", () => {
     });
 
     const clearFlow = () => {
-        localStorage.clear();  
+        localStorage.clear();
+        window.location.reload(); 
     }
 
     const updateScoresOnClick = async () => {
