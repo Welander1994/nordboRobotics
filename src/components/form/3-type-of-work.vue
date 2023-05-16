@@ -12,7 +12,12 @@ const selectedIndex = ref(null);
 
 function selectButton(index) {
   selectedIndex.value = index;
-  window.location.href = "#Level-of-detail";
+
+
+  const element = document.getElementById('Level-of-detail');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+}
 }
 </script>
 

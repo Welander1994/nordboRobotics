@@ -9,7 +9,11 @@ const scoreProduct = useScore();
 const firebaseStore = usefirebaseSteps();
 
 function selectButton() {
-  window.location.href = "#Size-of-batch";
+/*   window.location.href = "#Size-of-batch"; */
+  const element = document.getElementById('Size-of-batch');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+}
 }
 </script>
 

@@ -12,7 +12,11 @@ const selectedIndex = ref(null);
 
 function selectButton(index) {
   selectedIndex.value = index;
-  window.location.href = "#Solution";
+/*   window.location.href = "#Solution"; */
+  const element = document.getElementById('Solution');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+}
 }
 </script>
 

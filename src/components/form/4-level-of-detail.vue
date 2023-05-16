@@ -10,7 +10,11 @@ const firebaseStore = usefirebaseSteps();
 
 function selectButton() {
 
-  window.location.href = "#Size-of-product";
+/*   window.location.href = "#Size-of-product"; */
+  const element = document.getElementById('Size-of-product');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+}
 }
 </script>
 

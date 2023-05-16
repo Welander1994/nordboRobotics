@@ -9,7 +9,12 @@ const scoreProduct = useScore();
 const firebaseStore = usefirebaseSteps();
 
 function selectButton() {
-  window.location.href = "#Level-of-automation";
+/*   window.location.href = "#Level-of-automation"; */
+
+  const element = document.getElementById('Level-of-automation');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+}
 }
 </script>
 

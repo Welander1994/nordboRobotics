@@ -14,8 +14,6 @@ export const useAsideStore = defineStore("aside", () => {
       }
     }
     e.active = true;
-
-    localStorage.setItem("aside", JSON.stringify(list.value));
   };
 
   const btn_burger = () => {
@@ -30,16 +28,16 @@ export const useAsideStore = defineStore("aside", () => {
       return;
     } else {
       list.value = JSON.parse(localStorage.getItem("aside"));
-    }
-
-    /*     for (let i = 0; i < list.value.length; i++) {
-          if (list.value[i].active === true) {
-            console.log(window.location);
-            window.location.replace("#" + list.value[i].id);
-          }
-        } */
-       
+    }       
   };
+
+  const scroll = (e) => {
+    const element = document.getElementById(e.id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    localStorage.setItem("aside", JSON.stringify(list.value));
+  }
 
 
   const onscroll = () => {
@@ -64,6 +62,7 @@ export const useAsideStore = defineStore("aside", () => {
   };
   return {
     list,
+    scroll,
     changeStep,
     btn_burger,
     modalShow,
