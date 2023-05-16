@@ -49,9 +49,7 @@ export const useScore = defineStore("useScoreProduct", () => {
     });
 
     const clearFlow = () => {
-        localStorage.clear();
-        window.location.href = "#Type-of-robot";
-        window.location.reload(); 
+        localStorage.clear();  
     }
 
     const updateScoresOnClick = async () => {
