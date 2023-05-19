@@ -1,6 +1,6 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
-import { useAsideStore } from "@/stores/aside";
+
 
 export const usefirebaseSteps = defineStore("firebase", () => {
   const selectedIndex = ref(null);

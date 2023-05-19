@@ -25,10 +25,10 @@ export const useAsideStore = defineStore("aside", () => {
 
   const localStorageOnLoad = () => {
     if (!JSON.parse(localStorage.getItem("aside"))) {
-      return;
+
     } else {
       list.value = JSON.parse(localStorage.getItem("aside"));
-    }       
+    }
   };
 
   const scroll = (e) => {
