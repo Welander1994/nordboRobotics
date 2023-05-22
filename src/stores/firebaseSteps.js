@@ -61,7 +61,6 @@ export const usefirebaseSteps = defineStore("firebase", () => {
     LevelOfAutomation.value = stepsData.value[6];
 
     if (!JSON.parse(localStorage.getItem("product"))) {
-
     } else {
       product.value = JSON.parse(localStorage.getItem("product"));
     }

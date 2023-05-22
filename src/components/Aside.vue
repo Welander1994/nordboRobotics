@@ -72,8 +72,9 @@ const store = useAsideStore();
               <a
                 class="formnav__link"
                 :class="{ selected: item.active }"
-                @click="store.changeStep(item), store.scroll(item), store.btn_burger()"
-                
+                @click="
+                  store.changeStep(item), store.scroll(item), store.btn_burger()
+                "
                 >{{ item.name }}
               </a>
               <span> {{ firebaseStore.product[item.result] }}</span>

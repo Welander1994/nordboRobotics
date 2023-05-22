@@ -1,12 +1,10 @@
 <script setup>
 import { ref, onMounted } from "vue";
-
 import { usefirebaseSteps } from "@/stores/firebaseSteps";
 import { useScore } from "@/stores/score";
 
 const scoreProduct = useScore();
 const firebaseStore = usefirebaseSteps();
-
 const sliderRef = ref(null);
 
 const props = defineProps({
@@ -46,8 +44,19 @@ onMounted(() => {
     <div class="slider__range-line-container">
       <div v-for="i in 4" :key="i" class="slider__range-line"></div>
     </div>
-    <input class="slider__range" type="range" :id="type" value="0" min="0" max="5" steps="5" ref="sliderRef" />
-    <div class="slider__description flex flex__justify--between flex__align--end">
+    <input
+      class="slider__range"
+      type="range"
+      :id="type"
+      value="0"
+      min="0"
+      max="5"
+      steps="5"
+      ref="sliderRef"
+    />
+    <div
+      class="slider__description flex flex__justify--between flex__align--end"
+    >
       <p>{{ name1 }}</p>
       <p>{{ name2 }}</p>
     </div>

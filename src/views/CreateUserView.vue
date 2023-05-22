@@ -9,7 +9,6 @@ const auth = getAuth();
 const email = ref("");
 const password = ref("");
 const error = ref(null);
-
 const router = useRouter();
 
 const createAccount = async () => {

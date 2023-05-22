@@ -9,16 +9,19 @@ const scoreProduct = useScore();
 const firebaseStore = usefirebaseSteps();
 
 function selectButton() {
-/*   window.location.href = "#Size-of-batch"; */
-  const element = document.getElementById('Size-of-batch');
+  /*   window.location.href = "#Size-of-batch"; */
+  const element = document.getElementById("Size-of-batch");
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-}
+    element.scrollIntoView({ behavior: "smooth" });
+  }
 }
 </script>
 
 <template>
-  <section class="form__section form__section--light flex flex__gap--lg" id="Size-of-product">
+  <section
+    class="form__section form__section--light flex flex__gap--lg"
+    id="Size-of-product"
+  >
     <div class="form__section-wrapper">
       <section class="form__questions flex--column flex">
         <h2 class="form__title">What is the size of the product?</h2>
@@ -27,8 +30,11 @@ function selectButton() {
           <Slider type="sizeOfProduct" name1="Smaller" name2="Larger" />
         </ul>
 
-        <Button class="form__button--bottom-left form__button--rounded flex__justify--center" name="Next"
-          @click="selectButton(), scoreProduct.updateScoresOnClick()" />
+        <Button
+          class="form__button--bottom-left form__button--rounded flex__justify--center"
+          name="Next"
+          @click="selectButton(), scoreProduct.updateScoresOnClick()"
+        />
       </section>
 
       <section class="form__information flex--column">

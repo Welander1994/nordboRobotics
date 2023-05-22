@@ -12,16 +12,19 @@ const selectedIndex = ref(null);
 
 function selectButton(index) {
   selectedIndex.value = index;
-/*   window.location.href = "#Solution"; */
-  const element = document.getElementById('Solution');
+  /*   window.location.href = "#Solution"; */
+  const element = document.getElementById("Solution");
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-}
+    element.scrollIntoView({ behavior: "smooth" });
+  }
 }
 </script>
 
 <template>
-  <section class="form__section form__section--light flex flex__gap--lg" id="Level-of-automation">
+  <section
+    class="form__section form__section--light flex flex__gap--lg"
+    id="Level-of-automation"
+  >
     <div class="form__section-wrapper">
       <section class="form__questions flex--column">
         <h2 class="form__title">
@@ -31,14 +34,26 @@ function selectButton(index) {
           Choose level of automatisation
         </p>
         <ul class="flex--column">
-          <Button class="form__button--icon-level" v-if="firebaseStore.stepsData[6]?.automation"
-            v-for="(automation, index) in firebaseStore.stepsData[6].automation" :key="index"
-            :selected-class="'form__button--selected'" :name="automation.name" :hover-img-url="automation.imgLight"
-            :img-url="automation.imgDark" :index="index" :isSelected="selectedIndex === index" @mouseup="
+          <Button
+            class="form__button--icon-level"
+            v-if="firebaseStore.stepsData[6]?.automation"
+            v-for="(automation, index) in firebaseStore.stepsData[6].automation"
+            :key="index"
+            :selected-class="'form__button--selected'"
+            :name="automation.name"
+            :hover-img-url="automation.imgLight"
+            :img-url="automation.imgDark"
+            :index="index"
+            :isSelected="selectedIndex === index"
+            @mouseup="
               selectButton(index),
-              firebaseStore.addToProduct('LevelOfAutomation', automation.name),
-              scoreProduct.updateScoresOnClick()
-              " />
+                firebaseStore.addToProduct(
+                  'LevelOfAutomation',
+                  automation.name
+                ),
+                scoreProduct.updateScoresOnClick()
+            "
+          />
         </ul>
       </section>
 
