@@ -43,3 +43,6 @@ npm run coverage
 ```sh
 npm run lint
 ```
+
+### For resetting the flow
+Click on the solution image and then the localStorage will be cleared.
