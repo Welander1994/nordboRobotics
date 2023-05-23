@@ -34,11 +34,10 @@ export const useAsideStore = defineStore("aside", () => {
   const scroll = (e) => {
     const element = document.getElementById(e.id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
     localStorage.setItem("aside", JSON.stringify(list.value));
-  }
-
+  };
 
   const onscroll = () => {
     for (let i = 0; i < list.value.length; i++) {

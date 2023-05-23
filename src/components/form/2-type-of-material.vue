@@ -13,30 +13,42 @@ const selectedIndex = ref(null);
 function selectButton(index) {
   selectedIndex.value = index;
 
-
-  const element = document.getElementById('Type-of-process');
+  const element = document.getElementById("Type-of-process");
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
+    element.scrollIntoView({ behavior: "smooth" });
   }
 }
 </script>
 
 <template>
-  <section class="form__section form__section--dark flex flex__gap--lg" id="Type-of-material">
+  <section
+    class="form__section form__section--dark flex flex__gap--lg"
+    id="Type-of-material"
+  >
     <div class="form__section-wrapper">
       <section class="form__questions flex--column">
         <h2 class="form__title">Which material is being used?</h2>
         <p class="form__text--semibold form__text">Choose Material</p>
         <ul class="flex--column">
-          <Button v-if="firebaseStore.stepsData[1]?.materials"
-            v-for="(materials, index) in firebaseStore.stepsData[1].materials" :key="index"
-            :selected-class="'form__button--selected'" :name="materials.name" :hover-img-url="materials.imgLight"
-            :img-url="materials.imgDark" :index="index" :isSelected="selectedIndex === index" :class="{
-                'form__button--icon-right-space': [1, 3].includes(index),
-              }" @mouseup="selectButton(index),
-    firebaseStore.addToProduct('typeOfMaterial', materials.name),
-    scoreProduct.updateScoresOnClick()
-    " />
+          <Button
+            v-if="firebaseStore.stepsData[1]?.materials"
+            v-for="(materials, index) in firebaseStore.stepsData[1].materials"
+            :key="index"
+            :selected-class="'form__button--selected'"
+            :name="materials.name"
+            :hover-img-url="materials.imgLight"
+            :img-url="materials.imgDark"
+            :index="index"
+            :isSelected="selectedIndex === index"
+            :class="{
+              'form__button--icon-right-space': [1, 3].includes(index),
+            }"
+            @mouseup="
+              selectButton(index),
+                firebaseStore.addToProduct('typeOfMaterial', materials.name),
+                scoreProduct.updateScoresOnClick()
+            "
+          />
         </ul>
       </section>
 

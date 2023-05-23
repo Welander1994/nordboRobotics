@@ -10,11 +10,9 @@ import SizeOfBatch from "@/components/form/6-size-of-batch.vue";
 import LevelOfAutomatision from "@/components/form/7-level-of-automatision.vue";
 import Solution from "@/components/form/8-solution.vue";
 import ScoreSystem from "@/components/ScoreSystem.vue";
-
 import { onMounted } from "vue";
-
-import { useAsideStore } from '@/stores/aside';
-import { usefirebaseSteps } from '@/stores/firebaseSteps';
+import { useAsideStore } from "@/stores/aside";
+import { usefirebaseSteps } from "@/stores/firebaseSteps";
 
 const firebaseStore = usefirebaseSteps();
 

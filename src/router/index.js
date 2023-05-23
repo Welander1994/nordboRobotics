@@ -42,7 +42,6 @@ router.beforeEach((to, from, next) => {
   }
 });
 
-// Add an exception for default anchor tag clicks
 router.resolve = (to) => {
   if (to.href) {
     window.open(to.href, "_self");
