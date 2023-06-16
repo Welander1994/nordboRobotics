@@ -5,6 +5,8 @@ import { useFirebaseProduct } from "@/stores/products";
 export const useScore = defineStore("useScoreProduct", () => {
   const firebaseProduct = useFirebaseProduct();
 
+  const visable = ref(false);
+
   const getProductFromLocalStorage = () => {
     const product = localStorage.getItem("product");
     return product ? JSON.parse(product) : null;
@@ -48,8 +50,22 @@ export const useScore = defineStore("useScoreProduct", () => {
   });
 
   const clearFlow = () => {
+    //clears local datra
     localStorage.clear();
-    window.location.reload();
+
+    //scrolls to the top
+    const element = document.getElementById("Type-of-robot");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    //set model visable to true
+    visable.value = true;
+    setTimeout(() => {
+      //reloads page
+      window.location.reload();
+    }
+      //set delay time
+      , 1200);
   };
 
   const updateScoresOnClick = async () => {
@@ -83,5 +99,6 @@ export const useScore = defineStore("useScoreProduct", () => {
     calculateScore,
     userSelections,
     getProductFromLocalStorage,
+    visable
   };
 });

@@ -1,7 +1,8 @@
 <script setup>
 import { useAsideStore } from "@/stores/aside";
 import { usefirebaseSteps } from "@/stores/firebaseSteps";
-
+import { useScore } from "@/stores/score";
+const scoreProduct = useScore();
 const firebaseStore = usefirebaseSteps();
 
 const store = useAsideStore();
@@ -43,15 +44,18 @@ const store = useAsideStore();
               </defs>
             </svg>
             <div>
-              <a
-                class="formnav__link"
-                :class="{ selected: item.active }"
-                @click="
-                  store.changeStep(item), store.scroll(item), store.btn_burger()
-                "
-                >{{ item.name }}
+              <a class="formnav__link" :class="{ selected: item.active }" @click="
+                store.changeStep(item), store.scroll(item), store.btn_burger()
+                ">{{ item.name }}
               </a>
               <span> {{ firebaseStore.product[item.result] }}</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a class="formnav__link" @click="scoreProduct.clearFlow(), store.btn_burger()">
+                Reset
+              </a>
             </div>
           </li>
         </ul>

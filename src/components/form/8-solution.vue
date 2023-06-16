@@ -1,14 +1,10 @@
 <script setup>
 import { useScore } from "@/stores/score";
-
 const scoreProduct = useScore();
 </script>
 
 <template>
-  <section
-    class="form__section form__section--light flex flex__gap--lg"
-    id="Solution"
-  >
+  <section class="form__section form__section--light flex flex__gap--lg" id="Solution">
     <section class="form__questions flex--column">
       <template v-if="scoreProduct.highestScoreProduct">
         <p class="form__text--semibold form__text">
@@ -17,11 +13,8 @@ const scoreProduct = useScore();
         <h2 class="form__title">{{ scoreProduct.highestScoreProduct.name }}</h2>
 
         <ul>
-          <li
-            v-for="(description, index) in scoreProduct.highestScoreProduct
-              .description"
-            :key="index"
-          >
+          <li v-for="(description, index) in scoreProduct.highestScoreProduct
+            .description" :key="index">
             <p class="form__text--semibold form__text">{{ description }}</p>
           </li>
         </ul>
@@ -30,11 +23,7 @@ const scoreProduct = useScore();
 
     <section class="form__information flex--column">
       <template v-if="scoreProduct.highestScoreProduct">
-        <img
-          :src="scoreProduct.highestScoreProduct.img"
-          alt=""
-          @click="scoreProduct.clearFlow()"
-        />
+        <img :src="scoreProduct.highestScoreProduct.img" alt="" @click="scoreProduct.clearFlow()" />
       </template>
     </section>
   </section>
@@ -43,6 +32,8 @@ const scoreProduct = useScore();
 <style lang="scss" scoped>
 @import "@/assets/main.scss";
 @import "@/assets/flex.scss";
+
+
 
 .form__section {
   margin-bottom: 20px;

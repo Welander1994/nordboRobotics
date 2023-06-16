@@ -13,6 +13,10 @@ import ScoreSystem from "@/components/ScoreSystem.vue";
 import { onMounted } from "vue";
 import { useAsideStore } from "@/stores/aside";
 import { usefirebaseSteps } from "@/stores/firebaseSteps";
+import reset_model from "../components/reset_model.vue";
+import { useScore } from "@/stores/score";
+
+const scoreProduct = useScore();
 
 const firebaseStore = usefirebaseSteps();
 
@@ -33,6 +37,7 @@ window.onscroll = function () {
     <main class="form flex">
       <asideComponents />
       <div class="content">
+        <reset_model v-show="scoreProduct.visable" />
         <TypeOfRobot />
         <ScoreSystem />
         <TypeOfMaterial />
