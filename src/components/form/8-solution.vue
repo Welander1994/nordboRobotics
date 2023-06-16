@@ -1,7 +1,15 @@
 <script setup>
 import { useScore } from "@/stores/score";
+import { useI18n } from "vue-i18n";
 
 const scoreProduct = useScore();
+
+//Multi language setup
+const { t, locale } = useI18n();
+
+const changeLocale = (newLocale) => {
+  locale.value = newLocale;
+};
 </script>
 
 <template>
@@ -12,7 +20,7 @@ const scoreProduct = useScore();
     <section class="form__questions flex--column">
       <template v-if="scoreProduct.highestScoreProduct">
         <p class="form__text--semibold form__text">
-          The optimal solution for you is:
+          {{ t("solution") }}
         </p>
         <h2 class="form__title">{{ scoreProduct.highestScoreProduct.name }}</h2>
 

@@ -4,6 +4,7 @@ import Information from "../Information.vue";
 import Slider from "../Slider.vue";
 import { usefirebaseSteps } from "@/stores/firebaseSteps";
 import { useScore } from "@/stores/score";
+import { useI18n } from "vue-i18n";
 
 const scoreProduct = useScore();
 const firebaseStore = usefirebaseSteps();
@@ -16,6 +17,12 @@ function selectButton() {
     element.scrollIntoView({ behavior: "smooth" });
   }
 }
+//Multi language setup
+const { t, locale } = useI18n();
+
+const changeLocale = (newLocale) => {
+  locale.value = newLocale;
+};
 </script>
 
 <template>
@@ -25,14 +32,18 @@ function selectButton() {
   >
     <div class="form__section-wrapper">
       <section class="form__questions flex--column flex">
-        <h2 class="form__title">How large is the batch?</h2>
-        <p class="form__text--semibold form__text">Choose size of batch</p>
+        <h2 class="form__title">{{ t("batch") }}</h2>
+        <p class="form__text--semibold form__text">{{ t("batch2") }}</p>
         <ul class="flex--column">
-          <Slider type="sizeOfBatch" name1="Smaller" name2="Larger" />
+          <Slider
+            type="sizeOfBatch"
+            :name1="t('slider.smaller')"
+            :name2="t('slider.larger')"
+          />
         </ul>
         <Button
           class="form__button--bottom-left form__button--rounded flex__justify--center"
-          name="Next"
+          :name="t('button.next')"
           @click="selectButton(), scoreProduct.updateScoresOnClick()"
         />
       </section>

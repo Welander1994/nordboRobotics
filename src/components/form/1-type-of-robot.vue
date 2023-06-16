@@ -4,6 +4,7 @@ import Button from "../Button.vue";
 import Information from "../Information.vue";
 import { usefirebaseSteps } from "@/stores/firebaseSteps";
 import { useScore } from "@/stores/score";
+import { useI18n } from "vue-i18n";
 
 const scoreProduct = useScore();
 const firebaseStore = usefirebaseSteps();
@@ -16,6 +17,13 @@ function selectButton(index) {
     element.scrollIntoView({ behavior: "smooth" });
   }
 }
+
+//Multi language setup
+const { t, locale } = useI18n();
+
+const changeLocale = (newLocale) => {
+  locale.value = newLocale;
+};
 </script>
 
 <template>
@@ -25,8 +33,8 @@ function selectButton(index) {
   >
     <div class="form__section-wrapper">
       <section class="form__questions flex--column">
-        <h2 class="form__title">What type of robot</h2>
-        <p class="form__text--semibold form__text">Choose a brand</p>
+        <h2 class="form__title">{{ t("type") }}</h2>
+        <p class="form__text--semibold form__text">{{ t("type2") }}</p>
         <ul class="flex--column">
           <Button
             v-if="firebaseStore.stepsData[0]?.robots"

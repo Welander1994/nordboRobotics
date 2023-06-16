@@ -33,7 +33,11 @@ const signInAccount = async () => {
       <input type="email" v-model="email" required />
       <label> Password: </label>
       <input type="password" v-model="password" required />
-      <Button type="submit" class="form__button--rounded-light flex__justify--center" name="Log ind" />
+      <Button
+        type="submit"
+        class="form__button--rounded-light flex__justify--center"
+        name="Log ind"
+      />
       <p v-if="error">{{ error }}</p>
     </form>
   </div>

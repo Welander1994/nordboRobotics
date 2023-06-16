@@ -4,6 +4,7 @@ import Information from "../Information.vue";
 import Slider from "../Slider.vue";
 import { usefirebaseSteps } from "@/stores/firebaseSteps";
 import { useScore } from "@/stores/score";
+import { useI18n } from "vue-i18n";
 
 const scoreProduct = useScore();
 const firebaseStore = usefirebaseSteps();
@@ -15,6 +16,12 @@ function selectButton() {
     element.scrollIntoView({ behavior: "smooth" });
   }
 }
+//Multi language setup
+const { t, locale } = useI18n();
+
+const changeLocale = (newLocale) => {
+  locale.value = newLocale;
+};
 </script>
 
 <template>
@@ -24,14 +31,18 @@ function selectButton() {
   >
     <div class="form__section-wrapper">
       <section class="form__questions flex--column flex">
-        <h2 class="form__title">What is the level of detail?</h2>
-        <p class="form__text--semibold form__text">Choose level of detail</p>
+        <h2 class="form__title">{{ t("detail") }}</h2>
+        <p class="form__text--semibold form__text">{{ t("detail2") }}</p>
         <ul class="flex--column">
-          <Slider type="levelOfDetail" name1="Low" name2="High" />
+          <Slider
+            type="levelOfDetail"
+            :name1="t('slider.low')"
+            :name2="t('slider.high')"
+          />
         </ul>
         <Button
           class="form__button--bottom-left form__button--rounded flex__justify--center"
-          name="Next"
+          :name="t('button.next')"
           @click="selectButton(), scoreProduct.updateScoresOnClick()"
         />
       </section>

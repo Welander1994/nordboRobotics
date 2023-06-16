@@ -1,6 +1,7 @@
 <!-- Importing Vue and creating reactive states -->
 <script setup>
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 const isActive = ref(false);
 const showMenu = ref(false);
 
@@ -8,6 +9,18 @@ function handleMenuClick() {
   isActive.value = !isActive.value;
   showMenu.value = !showMenu.value;
 }
+
+//Multi language setup
+const { t, locale } = useI18n();
+
+const changeLocale = (newLocale) => {
+  if (newLocale === "da") {
+    console.log('ny url')
+  } else if (newLocale === "en") {
+    console.log('gammel en url')
+  }
+  locale.value = newLocale;
+};
 </script>
 <!-- Header template -->
 <template>
@@ -20,22 +33,43 @@ function handleMenuClick() {
 
       <!-- Language selector container -->
       <div class="mainheader__lang-container">
-        <a href="#" class="mainheader__lang">DK</a>
-        <a href="#" class="mainheader__lang--selected">EN</a>
+        <a href="#" class="mainheader__lang" @click.prevent="changeLocale('da')"
+          >DK</a
+        >
+        <a
+          href="#"
+          class="mainheader__lang--selected"
+          @click.prevent="changeLocale('en')"
+          >EN</a
+        >
       </div>
     </div>
 
     <!-- Desktop navigation -->
     <nav class="mainheader__nav">
       <ul class="flex">
-        <li><a href="#" class="mainheader__link">Solutions</a></li>
-        <li><a href="#" class="mainheader__link">Partners</a></li>
-        <li><a href="#" class="mainheader__link">Resources</a></li>
-        <li><a href="#" class="mainheader__link">About Us</a></li>
         <li>
-          <a href="#" class="mainheader__link--secondary">Partner Portal</a>
+          <a href="#" class="mainheader__link">{{ t("header.solutions") }}</a>
         </li>
-        <li><a href="#" class="mainheader__link--primary">Get in Touch</a></li>
+        <li>
+          <a href="#" class="mainheader__link">{{ t("header.partners") }}</a>
+        </li>
+        <li>
+          <a href="#" class="mainheader__link">{{ t("header.resources") }}</a>
+        </li>
+        <li>
+          <a href="#" class="mainheader__link">{{ t("header.about") }}</a>
+        </li>
+        <li>
+          <a href="#" class="mainheader__link--secondary">{{
+            t("header.portal")
+          }}</a>
+        </li>
+        <li>
+          <a href="#" class="mainheader__link--primary">{{
+            t("header.cta")
+          }}</a>
+        </li>
       </ul>
     </nav>
 
@@ -62,42 +96,42 @@ function handleMenuClick() {
           <a
             href="#"
             class="mainheader__link--mobile flex flex__justify--center"
-            >Solutions</a
+            >{{ t("header.solutions") }}</a
           >
         </li>
         <li>
           <a
             href="#"
             class="mainheader__link--mobile flex flex__justify--center"
-            >Partners</a
+            >{{ t("header.partners") }}</a
           >
         </li>
         <li>
           <a
             href="#"
             class="mainheader__link--mobile flex flex__justify--center"
-            >Resources</a
+            >{{ t("header.resources") }}</a
           >
         </li>
         <li>
           <a
             href="#"
             class="mainheader__link--mobile flex flex__justify--center"
-            >About Us</a
+            >{{ t("header.about") }}</a
           >
         </li>
         <li>
           <a
             href="#"
             class="mainheader__link--secondary flex flex__justify--center"
-            >Partner Portal</a
+            >{{ t("header.portal") }}</a
           >
         </li>
         <li>
           <a
             href="#"
             class="mainheader__link--primary flex flex__justify--center"
-            >Get in Touch</a
+            >{{ t("header.cta") }}</a
           >
         </li>
       </ul>

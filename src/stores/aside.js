@@ -25,7 +25,6 @@ export const useAsideStore = defineStore("aside", () => {
 
   const localStorageOnLoad = () => {
     if (!JSON.parse(localStorage.getItem("aside"))) {
-
     } else {
       list.value = JSON.parse(localStorage.getItem("aside"));
     }
