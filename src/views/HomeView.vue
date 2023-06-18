@@ -51,6 +51,11 @@ window.onscroll = function () {
 @import "@/assets/main.scss";
 @import "@/assets/flex.scss";
 
+#app {
+  background-color: var(--primary-color);
+}
+
+
 .container {
   max-width: $max-width;
   width: 100%;
@@ -82,7 +87,7 @@ window.onscroll = function () {
   &__title {
     font-size: 2.4rem;
     font-family: "primary-font-bold";
-    color: $primary-color;
+    color: var(--secondary-color);
     margin-bottom: 30px;
   }
 
@@ -96,7 +101,7 @@ window.onscroll = function () {
 
     &--semibold {
       font-family: "primary-font-semibold";
-      color: $primary-color;
+      color: var(--secondary-color);
     }
   }
 

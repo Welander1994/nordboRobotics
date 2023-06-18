@@ -57,9 +57,9 @@ const store = useAsideStore();
               xmlns="http://www.w3.org/2000/svg"
             >
               <g clip-path="url(#clip0_1_10468)">
-                <path
+                <path class="arrow"
                   d="M0 0.522186V2.06974C0 2.48088 0.183333 2.87354 0.497619 3.123L6.77897 8.09827C7.03214 8.30153 7.03214 8.70806 6.77897 8.9067L0.497619 13.8773C0.183333 14.1268 0 14.5148 0 14.9306V16.4782C0 16.9078 0.462698 17.148 0.785714 16.8939L10.7643 8.99909C11.0786 8.74963 11.0786 8.25072 10.7643 8.00588L0.785714 0.106425C0.462698 -0.15227 0 0.0925666 0 0.522186Z"
-                  fill="#363973"
+                  fill="var(--secondary-color)"
                 />
               </g>
               <defs>
@@ -156,12 +156,12 @@ const store = useAsideStore();
 
     a {
       padding: 0;
-      color: $primary-color;
+      color: var(--secondary-color);
       user-select: none;
     }
 
     span {
-      color: $primary-color;
+      color: var(--secondary-color);
       font-size: 12px;
       opacity: 45%;
       font-family: primary-font-medium;

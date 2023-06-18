@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, onMounted } from "vue";
 
 const props = defineProps({
   name: String,
@@ -11,13 +11,24 @@ const props = defineProps({
 });
 
 const isHovering = ref(false);
+const imgUrl = ref(props.imgUrl);
+const hoverImgUrl = ref(props.hoverImgUrl);
 
-//Changing img url via the boolean value of 'isHovering' but also seeing if the button is selected
-const imgUrl = computed(() => {
-  if (props.isSelected) {
-    return props.hoverImgUrl;
-  }
-  return isHovering.value ? props.hoverImgUrl || props.imgUrl : props.imgUrl;
+// Listen to changes in the body class
+onMounted(() => {
+  const bodyClasses = document.body.classList;
+  const observer = new MutationObserver(() => {
+    if (bodyClasses.contains("dark-mode")) {
+      imgUrl.value = props.hoverImgUrl || props.imgUrl;
+      hoverImgUrl.value = props.imgUrl;
+    } 
+
+    else {
+      imgUrl.value = props.imgUrl;
+      hoverImgUrl.value = props.hoverImgUrl;
+    }
+  });
+  observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
 });
 </script>
 
@@ -41,13 +52,13 @@ const imgUrl = computed(() => {
   &__button {
     cursor: pointer;
     position: relative;
-    color: $contrast-light;
-    background-color: $primary-color;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
     width: 247px;
     height: 53px;
     font-family: "primary-font-bold";
     border-radius: 11px;
-    border: solid 1.5px $primary-color;
+    border: solid 1.5px var(--primary-color);
     font-size: 1.8rem;
     padding-left: 19px;
     margin: 0 0 16px 0;
@@ -61,8 +72,8 @@ const imgUrl = computed(() => {
     }
 
     &:hover {
-      background-color: $contrast-light;
-      color: $primary-color;
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
     }
 
     &--bottom-left {
@@ -73,11 +84,11 @@ const imgUrl = computed(() => {
     &--light {
       background-color: $contrast-light;
       border: solid 1.5px $contrast-light;
-      color: $primary-color;
+      color: var(--primary-color);
       box-shadow: 0px 2px 2px rgba($contrast-dark, 0.15);
 
       &:hover {
-        background-color: $primary-color;
+        background-color: var(--primary-color)r;
         color: $contrast-light;
       }
     }
@@ -97,12 +108,12 @@ const imgUrl = computed(() => {
     }
 
     &--selected {
-      background-color: $contrast-light;
-      color: $primary-color;
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
     }
 
     &--light-selected {
-      background-color: $primary-color;
+      background-color: var(--primary-color);
       color: $contrast-light;
     }
 
@@ -120,12 +131,12 @@ const imgUrl = computed(() => {
       border-radius: 19.5px;
       background-color: $contrast-light;
       border: solid 1.5px $contrast-light;
-      color: $primary-color;
+      color: var(--primary-color);
       box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
       padding: 0;
 
       &:hover {
-        background-color: $primary-color;
+        background-color: var(--primary-color);
         color: $contrast-light;
       }
     }

@@ -84,7 +84,7 @@ onMounted(() => {
   &__range-line {
     width: 1px;
     height: 25px;
-    background-color: $primary-color;
+    background-color: var(--secondary-color);
     z-index: 1;
     position: relative;
   }
@@ -93,7 +93,7 @@ onMounted(() => {
     -webkit-appearance: none;
     width: 400px;
     height: 6px;
-    background-color: $primary-color;
+    background-color: var(--secondary-color);
     outline: none;
     border-radius: 15px;
     position: absolute;
@@ -106,7 +106,7 @@ onMounted(() => {
       width: 28px;
       height: 28px;
       outline: none;
-      background: $primary-color;
+      background: var(--secondary-color);
       border-radius: 50%;
       cursor: pointer;
     }
@@ -117,7 +117,7 @@ onMounted(() => {
       width: 28px;
       height: 28px;
       outline: none;
-      background: $primary-color;
+      background: var(--secondary-color);
       border-radius: 50%;
       cursor: pointer;
     }
@@ -129,7 +129,7 @@ onMounted(() => {
     margin-top: 20px;
     font-family: "primary-font-medium";
     font-size: 1.6rem;
-    color: $primary-color;
+    color: var(--secondary-color);
   }
 
   &--light {

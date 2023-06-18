@@ -1,8 +1,78 @@
 <!-- Importing Vue and creating reactive states -->
 <script setup>
-import { ref } from "vue";
+import { ref, computed, onMounted  } from "vue";
 const isActive = ref(false);
 const showMenu = ref(false);
+
+const darkMode = ref(false);
+
+// Retrieve preference from local storage
+const storedPreference = localStorage.getItem('modePreference');
+
+// Set initial mode based on stored preference or default to false
+darkMode.value = storedPreference === 'dark';
+
+
+// Apply the initial mode without toggling
+if (darkMode.value) {
+  // Dark mode
+  console.log('dark mode');
+  document.body.classList.add('dark-mode');
+  document.body.classList.remove('light-mode');
+  const links = document.querySelectorAll('.mainheader__link');
+  links.forEach(link => link.classList.add('dark-arrow'));
+  const formContentLists = document.querySelectorAll('.form__content ul li');
+  formContentLists.forEach(listItem => listItem.classList.add('dark-li'));
+} else {
+  // Light mode
+  console.log('light mode');
+  document.body.classList.add('light-mode');
+  document.body.classList.remove('dark-mode');
+  const links = document.querySelectorAll('.mainheader__link');
+  links.forEach(link => link.classList.remove('dark-arrow'));
+  const formContentLists = document.querySelectorAll('.form__content ul li');
+  formContentLists.forEach(listItem => listItem.classList.remove('dark-li'));
+}
+
+// Update the local storage with the current preference
+const updateLocalStorage = () => {
+  localStorage.setItem('modePreference', darkMode.value ? 'dark' : 'light');
+};
+
+onMounted(() => {
+
+});
+
+const toggleMode = () => {
+  darkMode.value = !darkMode.value;
+  if (darkMode.value) {
+    // Dark mode
+    console.log('dark mode');
+    document.body.classList.add('dark-mode');
+    document.body.classList.remove('light-mode');
+    const links = document.querySelectorAll('.mainheader__link');
+    links.forEach(link => link.classList.add('dark-arrow'));
+    const formContentLists = document.querySelectorAll('.form__content ul li');
+    formContentLists.forEach(listItem => listItem.classList.add('dark-li'));
+  } else {
+    // Light mode
+    console.log('light mode');
+    document.body.classList.add('light-mode');
+    document.body.classList.remove('dark-mode');
+    const links = document.querySelectorAll('.mainheader__link');
+    links.forEach(link => link.classList.remove('dark-arrow'));
+    const formContentLists = document.querySelectorAll('.form__content ul li');
+    formContentLists.forEach(listItem => listItem.classList.remove('dark-li'));
+  }
+
+  // Update local storage with the current preference
+  updateLocalStorage();
+};
+
+
+
+
+
 
 function handleMenuClick() {
   isActive.value = !isActive.value;
@@ -11,7 +81,7 @@ function handleMenuClick() {
 </script>
 <!-- Header template -->
 <template>
-  <header class="mainheader flex flex__justify--between flex__align--center">
+  <header :class="modeClass" class="mainheader flex flex__justify--between flex__align--center">
     <!-- Logo container -->
     <div class="mainheader__logo-container">
       <h1 class="mainheader__logo">
@@ -36,6 +106,7 @@ function handleMenuClick() {
           <a href="#" class="mainheader__link--secondary">Partner Portal</a>
         </li>
         <li><a href="#" class="mainheader__link--primary">Get in Touch</a></li>
+        <li @click="toggleMode">Dark mode</li>
       </ul>
     </nav>
 
@@ -116,7 +187,7 @@ $border-radius: 7px;
   position: fixed;
   max-width: $max-width;
   width: 100%;
-  background-color: $contrast-light;
+  background-color: var(--primary-color);
   z-index: 10;
 
   /* Mobile menu */
@@ -132,13 +203,13 @@ $border-radius: 7px;
     bottom: 0;
     transform: translateX(100%);
     transition: 0.5s ease-out;
-    background-color: $primary-color;
+    background-color: var(--primary-color);;
 
     ul {
       li {
         a {
           font-family: "secondary-font-medium";
-          color: $contrast-light;
+          color: var(--contrast-light);
           text-decoration: none;
         }
 
@@ -158,8 +229,8 @@ $border-radius: 7px;
 
     .mainheader__link--secondary,
     .mainheader__link--primary {
-      background-color: $contrast-light;
-      color: $primary-color;
+      background-color: var(--contrast-light);
+      color: var(--primary-color);;
     }
   }
 
@@ -213,7 +284,7 @@ $border-radius: 7px;
       /* Hamburger lines */
       .menu-icon__line {
         z-index: 3;
-        background-color: $primary-color;
+        background-color: var(--primary-color);;
         width: 100%;
         height: 3px;
 
@@ -256,7 +327,7 @@ $border-radius: 7px;
 
       &:first-of-type {
         &:after {
-          content: url("data:image/svg+xml,%3Csvg width='2' height='22' viewBox='0 0 2 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline opacity='0.9' x1='1' y1='21.0034' x2='1' y2='0.987188' stroke='%23363973' stroke-width='0.5'/%3E%3C/svg%3E%0A");
+          content: url("data:image/svg+xml,%3Csvg width='2' height='22' viewBox='0 0 2 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline opacity='0.9' x1='1' y1='21.0034' x2='1' y2='0.987188' stroke='var(--secondary-color)' stroke-width='0.5'/%3E%3C/svg%3E%0A");
           position: absolute;
           right: -4px;
         }
@@ -266,14 +337,14 @@ $border-radius: 7px;
 
   /* Language selector */
   &__lang {
-    color: $primary-color;
+    color: var(--secondary-color);;
     font-family: "primary-font-medium";
     text-decoration: none;
     margin-right: 6px;
 
     &--selected {
       text-decoration: none;
-      color: $primary-color;
+      color: var(--secondary-color);;
       font-family: "primary-font-bold";
     }
   }
@@ -299,8 +370,10 @@ $border-radius: 7px;
   /* Navigation links */
   &__link {
     padding-right: 60px;
-    color: $primary-color;
+    color: var(--secondary-color);
     font-size: 1.6rem;
+
+  
 
     &:last-of-type {
       padding-right: 60px;
@@ -313,6 +386,8 @@ $border-radius: 7px;
       font-size: 1.6rem;
     }
 
+  
+
     /* Mobile link */
     &--mobile {
       font-size: 1.6rem;
@@ -321,9 +396,9 @@ $border-radius: 7px;
 
     /* Secondary link */
     &--secondary {
-      background-color: $tertiary-color;
+      background-color: var(--tertiary-color);
       padding: 12.5px 25px;
-      color: $primary-color;
+      color: var(--secondary-color);
       border-radius: $border-radius;
       margin-right: 30px;
       font-size: 1.6rem;
@@ -335,8 +410,8 @@ $border-radius: 7px;
 
     /* Primary link */
     &--primary {
-      background-color: $primary-color;
-      color: $contrast-light;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
       padding: 12.5px 25px;
       border-radius: $border-radius;
       font-size: 1.6rem;
@@ -351,4 +426,13 @@ $border-radius: 7px;
     padding: 0 15px;
   }
 }
+
+
+.dark-arrow {
+      &:after {
+      content: url("data:image/svg+xml,%3Csvg width='17' height='10' viewBox='0 0 17 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.57125 0.0952148L8.5 6.01105L14.4288 0.0952148L16.25 1.91646L8.5 9.66646L0.75 1.91646L2.57125 0.0952148Z' fill='%23fff'/%3E%3C/svg%3E%0A");
+      margin-left: 10px;
+      font-size: 1.6rem;
+    }
+    }
 </style>

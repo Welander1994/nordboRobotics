@@ -9,6 +9,9 @@ const firebaseStore = usefirebaseSteps();
 
 const products = ref([]);
 
+
+
+
 onMounted(async () => {
   firebaseStore.fetchStepsData();
 
@@ -49,4 +52,9 @@ onMounted(async () => {
   <RouterView />
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#app {
+  background-color: var(--primary-color);
+}
+
+</style>
