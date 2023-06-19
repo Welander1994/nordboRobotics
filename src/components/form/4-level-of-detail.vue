@@ -48,7 +48,13 @@ const changeLocale = (newLocale) => {
       </section>
 
       <section class="form__information flex--column">
-        <Information :lists="firebaseStore.LevelOfDetail.description" />
+        <Information
+          :lists="[
+            $t('steps[3].description.description1'),
+            $t('steps[3].description.description2'),
+            $t('steps[3].description.description3'),
+          ]"
+        />
       </section>
     </div>
   </section>

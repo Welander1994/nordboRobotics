@@ -74,7 +74,7 @@ const store = useAsideStore();
                 @click="
                   store.changeStep(item), store.scroll(item), store.btn_burger()
                 "
-                >{{ item.name }}
+                >{{ $t(`aside.${item.name}`) }}
               </a>
               <span> {{ firebaseStore.product[item.result] }}</span>
             </div>

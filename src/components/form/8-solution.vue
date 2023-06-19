@@ -30,7 +30,13 @@ const changeLocale = (newLocale) => {
               .description"
             :key="index"
           >
-            <p class="form__text--semibold form__text">{{ description }}</p>
+            <p class="form__text--semibold form__text">
+              {{
+                $t(
+                  `products.${scoreProduct.highestScoreProduct.name}.description[${index}]`
+                )
+              }}
+            </p>
           </li>
         </ul>
       </template>

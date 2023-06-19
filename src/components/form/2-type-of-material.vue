@@ -39,12 +39,12 @@ const changeLocale = (newLocale) => {
         <ul class="flex--column">
           <Button
             v-if="firebaseStore.stepsData[1]?.materials"
-            v-for="(materials, index) in firebaseStore.stepsData[1].materials"
+            v-for="(material, index) in firebaseStore.stepsData[1].materials"
             :key="index"
             :selected-class="'form__button--selected'"
-            :name="materials.name"
-            :hover-img-url="materials.imgLight"
-            :img-url="materials.imgDark"
+            :name="$t('steps[1].materials[' + index + '].name')"
+            :hover-img-url="material.imgLight"
+            :img-url="material.imgDark"
             :index="index"
             :isSelected="selectedIndex === index"
             :class="{
@@ -52,7 +52,7 @@ const changeLocale = (newLocale) => {
             }"
             @mouseup="
               selectButton(index),
-                firebaseStore.addToProduct('typeOfMaterial', materials.name),
+                firebaseStore.addToProduct('typeOfMaterial', material.name),
                 scoreProduct.updateScoresOnClick()
             "
           />
@@ -60,7 +60,12 @@ const changeLocale = (newLocale) => {
       </section>
 
       <section class="form__information flex--column">
-        <Information :lists="firebaseStore.typeOfMaterial.description" />
+        <Information
+          :lists="[
+            $t('steps[1].description.description1'),
+            $t('steps[1].description.description2'),
+          ]"
+        />
       </section>
     </div>
   </section>

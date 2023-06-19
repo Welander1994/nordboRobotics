@@ -42,7 +42,7 @@ const changeLocale = (newLocale) => {
             v-for="(process, index) in firebaseStore.stepsData[2].process"
             :key="index"
             :selected-class="'form__button--selected'"
-            :name="process.name"
+            :name="$t('steps[2].process[' + index + '].name')"
             :hover-img-url="process.imgLight"
             :img-url="process.imgDark"
             :index="index"
@@ -57,7 +57,14 @@ const changeLocale = (newLocale) => {
       </section>
 
       <section class="form__information flex--column">
-        <Information :lists="firebaseStore.typeOfWork" />
+        <Information
+          :lists="[
+            $t('steps[2].process[0].description'),
+            $t('steps[2].process[1].description'),
+            $t('steps[2].process[2].description'),
+            $t('steps[2].process[3].description'),
+          ]"
+        />
       </section>
     </div>
   </section>

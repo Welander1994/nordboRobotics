@@ -15,9 +15,9 @@ const { t, locale } = useI18n();
 
 const changeLocale = (newLocale) => {
   if (newLocale === "da") {
-    console.log('ny url')
+    console.log("ny url");
   } else if (newLocale === "en") {
-    console.log('gammel en url')
+    console.log("gammel en url");
   }
   locale.value = newLocale;
 };

@@ -40,7 +40,7 @@ const changeLocale = (newLocale) => {
             v-if="firebaseStore.stepsData[0]?.robots"
             v-for="(robot, index) in firebaseStore.stepsData[0].robots"
             :key="index"
-            :name="robot"
+            :name="$t('steps[0].robots.' + index)"
             :imgUrl="robot.imgUrl"
             :hoverImgUrl="robot.hoverImgUrl"
             :selectedClass="'form__button--selected'"
@@ -57,7 +57,13 @@ const changeLocale = (newLocale) => {
       </section>
 
       <section class="form__information flex--column">
-        <Information :lists="firebaseStore.typeOfRobot.description" />
+        <Information
+          :lists="[
+            $t('steps[0].description[0]'),
+            $t('steps[0].description[1]'),
+            $t('steps[0].description[2]'),
+          ]"
+        />
       </section>
     </div>
   </section>
