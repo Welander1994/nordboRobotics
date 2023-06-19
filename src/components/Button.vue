@@ -21,11 +21,16 @@ onMounted(() => {
     if (bodyClasses.contains("dark-mode")) {
       imgUrl.value = props.hoverImgUrl || props.imgUrl;
       hoverImgUrl.value = props.imgUrl;
+      console.log(imgUrl.value)
+      console.log(hoverImgUrl.value)
     } 
 
     else {
       imgUrl.value = props.imgUrl;
       hoverImgUrl.value = props.hoverImgUrl;
+      console.log("light", imgUrl.value)
+      console.log("dark", hoverImgUrl.value)
+
     }
   });
   observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
@@ -41,7 +46,7 @@ onMounted(() => {
     @click="$emit('click')"
   >
     {{ props.name }}
-    <img class="button__img" :src="imgUrl" />
+    <img class="button__img" :src="isHovering ? hoverImgUrl : imgUrl" />
   </button>
 </template>
 <style lang="scss" scoped>

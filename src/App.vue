@@ -53,8 +53,6 @@ onMounted(async () => {
 </template>
 
 <style lang="scss" scoped>
-#app {
-  background-color: var(--primary-color);
-}
+
 
 </style>
