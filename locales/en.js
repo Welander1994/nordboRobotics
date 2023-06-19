@@ -83,7 +83,7 @@ export default {
         {
           name: "Other",
         },
-      ]
+      ],
     },
     {
       process: [
