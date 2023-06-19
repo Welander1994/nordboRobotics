@@ -14,11 +14,6 @@ function handleMenuClick() {
 const { t, locale } = useI18n();
 
 const changeLocale = (newLocale) => {
-  if (newLocale === "da") {
-    console.log("ny url");
-  } else if (newLocale === "en") {
-    console.log("gammel en url");
-  }
   locale.value = newLocale;
 };
 </script>
@@ -33,15 +28,22 @@ const changeLocale = (newLocale) => {
 
       <!-- Language selector container -->
       <div class="mainheader__lang-container">
-        <a href="#" class="mainheader__lang" @click.prevent="changeLocale('da')"
-          >DK</a
-        >
         <a
           href="#"
-          class="mainheader__lang--selected"
-          @click.prevent="changeLocale('en')"
-          >EN</a
+          class="mainheader__lang"
+          :class="{ 'mainheader__lang--selected': locale === 'da' }"
+          @click.prevent="changeLocale('da')"
         >
+          DK
+        </a>
+        <a
+          href="#"
+          class="mainheader__lang"
+          :class="{ 'mainheader__lang--selected': locale === 'en' }"
+          @click.prevent="changeLocale('en')"
+        >
+          EN
+        </a>
       </div>
     </div>
 
