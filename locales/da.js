@@ -115,7 +115,7 @@ export default {
         description2:
           "Visse processer kan være for detaljerede for robotløsninger. For eksempel slibning af træprodukter med intrikate detaljer.",
         description3:
-          "Processer uden krav til detaljer kan håndteres bedre af en anden type industrielt udstyr, især når batchstørrelsen er stor.",
+          "Processer uden krav til detaljer kan håndteres bedre af en anden type industrielt udstyr, især når produktionstørrelsen er stor.",
       },
     },
     {
@@ -125,17 +125,17 @@ export default {
         description2:
           "Visse processer kan være for små til robotløsninger. For eksempel afslutning af små metalstykker.",
         description3:
-          "Større produkter kan håndteres bedre af en anden type industrielt udstyr, især når detaljeringsniveauet er lavt og/eller batchstørrelsen er stor.",
+          "Større produkter kan håndteres bedre af en anden type industrielt udstyr, især når detaljeringsniveauet er lavt og/eller produktionstørrelsen er stor.",
       },
     },
     {
       description: {
         description1:
-          "Batchstørrelse angiver antallet af enheder, der fremstilles i en produktionskørsel.",
+          "Produktionstørrelsen angiver antallet af enheder, der fremstilles i en produktionskørsel.",
         description2:
-          "Større batches kræver sandsynligvis flere robotter for at være effektive.",
+          "Større produktionstørrelse kræver sandsynligvis flere robotter for at være effektive.",
         description3:
-          "Mindre batches, der kræver omkonfigurationer, kræver sandsynligvis en uddannet tekniker til at styre udstyret.",
+          "Mindre produktionstørrelse, der kræver omkonfigurationer, kræver sandsynligvis en uddannet tekniker til at styre udstyret.",
       },
     },
     {

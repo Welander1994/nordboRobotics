@@ -172,6 +172,7 @@ export default {
     },
   },
 
+  //Translations for the aside steps
   aside: {
     "Type of robot": "Type of robot",
     "Type of material": "Type of material",
