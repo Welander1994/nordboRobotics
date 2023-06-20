@@ -94,8 +94,8 @@ export default {
         },
         {
           description:
-            "Afslutning: Processer som lakering, oliering, voksning osv.",
-          name: "Afslutning",
+            "Polering: Processer som lakering, oliering, voksning osv.",
+          name: "Polering",
         },
         {
           description: "Maling: Luftbørstning med polyurethan, epoxy osv.",
