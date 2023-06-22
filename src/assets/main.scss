@@ -69,14 +69,13 @@ html {
 
 
 
-
-
 body.light-mode {
   --primary-color: #fff;
   --secondary-color: #363973;
   --tertiary-color: #e9e9e9;
   --contrast-light: #000000;
   --contrast-dark: green;
+  --contrast-blue: #363973;
 }
 
 
@@ -86,5 +85,5 @@ body.dark-mode {
   --tertiary-color: #e9e9e9;
   --contrast-light: #fff;
   --contrast-dark: purple;
-
+  --contrast-blue: #363973;
 }

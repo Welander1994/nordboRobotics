@@ -6,30 +6,31 @@ const showMenu = ref(false);
 
 const darkMode = ref(false);
 
-// Retrieve preference from local storage
 const storedPreference = localStorage.getItem('modePreference');
 
-// Set initial mode based on stored preference or default to false
 darkMode.value = storedPreference === 'dark';
 
 
 // Apply the initial mode without toggling
 if (darkMode.value) {
   // Dark mode
-  console.log('dark mode');
   document.body.classList.add('dark-mode');
   document.body.classList.remove('light-mode');
+
   const links = document.querySelectorAll('.mainheader__link');
   links.forEach(link => link.classList.add('dark-arrow'));
+
   const formContentLists = document.querySelectorAll('.form__content ul li');
   formContentLists.forEach(listItem => listItem.classList.add('dark-li'));
+
 } else {
   // Light mode
-  console.log('light mode');
   document.body.classList.add('light-mode');
   document.body.classList.remove('dark-mode');
+
   const links = document.querySelectorAll('.mainheader__link');
   links.forEach(link => link.classList.remove('dark-arrow'));
+
   const formContentLists = document.querySelectorAll('.form__content ul li');
   formContentLists.forEach(listItem => listItem.classList.remove('dark-li'));
 }
@@ -39,28 +40,39 @@ const updateLocalStorage = () => {
   localStorage.setItem('modePreference', darkMode.value ? 'dark' : 'light');
 };
 
-onMounted(() => {
-
-});
-
 const toggleMode = () => {
   darkMode.value = !darkMode.value;
   if (darkMode.value) {
     // Dark mode
-    console.log('dark mode');
     document.body.classList.add('dark-mode');
     document.body.classList.remove('light-mode');
+
+    const whiteLogo = document.querySelector('.light-logo');
+    const darkLogo = document.querySelector('.dark-logo');
+
+    whiteLogo.classList.add('hidden');
+    darkLogo.classList.remove('hidden');
+
     const links = document.querySelectorAll('.mainheader__link');
     links.forEach(link => link.classList.add('dark-arrow'));
+
     const formContentLists = document.querySelectorAll('.form__content ul li');
     formContentLists.forEach(listItem => listItem.classList.add('dark-li'));
   } else {
+
     // Light mode
-    console.log('light mode');
     document.body.classList.add('light-mode');
     document.body.classList.remove('dark-mode');
+
+    const whiteLogo = document.querySelector('.light-logo');
+    const darkLogo = document.querySelector('.dark-logo');
+
+    whiteLogo.classList.remove('hidden');
+    darkLogo.classList.add('hidden');
+
     const links = document.querySelectorAll('.mainheader__link');
     links.forEach(link => link.classList.remove('dark-arrow'));
+
     const formContentLists = document.querySelectorAll('.form__content ul li');
     formContentLists.forEach(listItem => listItem.classList.remove('dark-li'));
   }
@@ -68,11 +80,6 @@ const toggleMode = () => {
   // Update local storage with the current preference
   updateLocalStorage();
 };
-
-
-
-
-
 
 function handleMenuClick() {
   isActive.value = !isActive.value;
@@ -85,7 +92,8 @@ function handleMenuClick() {
     <!-- Logo container -->
     <div class="mainheader__logo-container">
       <h1 class="mainheader__logo">
-        <img src="/src/assets/img/logo.jpg" class="mainheader__img" />
+        <img src="/src/assets/img/logo_transparency.png" class="mainheader__img light-logo" />
+        <img src="/src/assets/img/logo1.png" class="mainheader__img dark-logo hidden" />
       </h1>
 
       <!-- Language selector container -->
@@ -398,7 +406,7 @@ $border-radius: 7px;
     &--secondary {
       background-color: var(--tertiary-color);
       padding: 12.5px 25px;
-      color: var(--secondary-color);
+      color: var(--contrast-blue);
       border-radius: $border-radius;
       margin-right: 30px;
       font-size: 1.6rem;
@@ -417,6 +425,10 @@ $border-radius: 7px;
       font-size: 1.6rem;
     }
   }
+}
+
+.hidden {
+  display: none;
 }
 
 @media (max-width: $breakpoint-xl) {

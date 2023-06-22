@@ -17,22 +17,20 @@ const hoverImgUrl = ref(props.hoverImgUrl);
 // Listen to changes in the body class
 onMounted(() => {
   const bodyClasses = document.body.classList;
+ 
   const observer = new MutationObserver(() => {
     if (bodyClasses.contains("dark-mode")) {
-      imgUrl.value = props.hoverImgUrl || props.imgUrl;
+      imgUrl.value = props.hoverImgUrl;
       hoverImgUrl.value = props.imgUrl;
-      console.log(imgUrl.value)
-      console.log(hoverImgUrl.value)
     } 
 
     else {
       imgUrl.value = props.imgUrl;
       hoverImgUrl.value = props.hoverImgUrl;
-      console.log("light", imgUrl.value)
-      console.log("dark", hoverImgUrl.value)
 
     }
   });
+
   observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
 });
 </script>
