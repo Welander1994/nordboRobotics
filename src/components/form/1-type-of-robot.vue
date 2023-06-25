@@ -19,11 +19,7 @@ function selectButton(index) {
 }
 
 //Multi language setup
-const { t, locale } = useI18n();
-
-const changeLocale = (newLocale) => {
-  locale.value = newLocale;
-};
+const { t } = useI18n();
 </script>
 
 <template>

@@ -5,11 +5,7 @@ import { useI18n } from "vue-i18n";
 const scoreProduct = useScore();
 
 //Multi language setup
-const { t, locale } = useI18n();
-
-const changeLocale = (newLocale) => {
-  locale.value = newLocale;
-};
+const { t } = useI18n();
 </script>
 
 <template>

@@ -19,12 +19,9 @@ function selectButton(index) {
     element.scrollIntoView({ behavior: "smooth" });
   }
 }
-//Multi language setup
-const { t, locale } = useI18n();
 
-const changeLocale = (newLocale) => {
-  locale.value = newLocale;
-};
+//Multi language setup
+const { t } = useI18n();
 </script>
 
 <template>
