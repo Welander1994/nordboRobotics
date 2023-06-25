@@ -35,6 +35,7 @@ function selectButton() {
           @click="selectButton(), scoreProduct.updateScoresOnClick()"
         />
       </section>
+      
 
       <section class="form__information flex--column">
         <Information :lists="firebaseStore.LevelOfDetail.description" />
